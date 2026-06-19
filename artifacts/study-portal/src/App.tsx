@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Landing from "@/pages/Landing";
 import Dashboard from "@/pages/Dashboard";
 import SubjectFolder from "@/pages/SubjectFolder";
+import ChapterPage from "@/pages/ChapterPage";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/subject/:subject/chapter/:chapterNo" component={ChapterPage} />
       <Route path="/subject/:subject" component={SubjectFolder} />
       <Route component={NotFound} />
     </Switch>

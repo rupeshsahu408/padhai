@@ -90,36 +90,24 @@ export default function SubjectFolder() {
         <p className="text-xs text-muted-foreground mb-6">बिहार बोर्ड · कक्षा 12</p>
 
         {isMath ? (
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2.5">
             {MATH_CHAPTERS.map((ch) => (
-              <div key={ch.no} className="border border-border bg-card rounded-xl overflow-hidden">
-                {/* Chapter header */}
-                <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-muted/30">
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <FolderOpen className="w-3.5 h-3.5 text-primary" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-primary">अध्याय {ch.no}</span>
-                    <p className="text-sm font-semibold text-foreground leading-tight">{ch.title}</p>
-                  </div>
+              <button
+                key={ch.no}
+                onClick={() => navigate(`/subject/${subject}/chapter/${ch.no}`)}
+                className="w-full flex items-center gap-4 px-4 py-4 rounded-xl border border-border bg-card hover:bg-muted/40 text-left"
+              >
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <FolderOpen className="w-4 h-4 text-primary" />
                 </div>
-
-                {/* 3 sub-folders */}
-                <div className="grid grid-cols-3 divide-x divide-border">
-                  {SUB_FOLDERS.map((sf) => {
-                    const SIcon = sf.icon;
-                    return (
-                      <button
-                        key={sf.label}
-                        className="flex flex-col items-center justify-center gap-1.5 py-4 hover:bg-muted/40 text-center"
-                      >
-                        <SIcon className={`w-4 h-4 ${sf.color}`} />
-                        <span className="text-xs font-medium text-foreground leading-tight px-1">{sf.label}</span>
-                      </button>
-                    );
-                  })}
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold text-primary mb-0.5">अध्याय {ch.no}</p>
+                  <p className="text-sm font-semibold text-foreground leading-tight">{ch.title}</p>
                 </div>
-              </div>
+                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-muted-foreground flex-shrink-0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
             ))}
           </div>
         ) : (
