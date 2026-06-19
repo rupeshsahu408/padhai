@@ -5,41 +5,11 @@ import {
 } from "lucide-react";
 
 const SUBJECTS = [
-  {
-    key: "math",
-    label: "Mathematics",
-    icon: BookMarked,
-    desc: "Algebra, Calculus, Matrices, Vectors & more",
-    available: true,
-  },
-  {
-    key: "physics",
-    label: "Physics",
-    icon: Atom,
-    desc: "Electrostatics, Optics, Modern Physics & more",
-    available: false,
-  },
-  {
-    key: "chemistry",
-    label: "Chemistry",
-    icon: FlaskConical,
-    desc: "Organic, Inorganic, Physical Chemistry & more",
-    available: false,
-  },
-  {
-    key: "hindi",
-    label: "Hindi",
-    icon: Languages,
-    desc: "गद्य, पद्य, व्याकरण और लेखन कौशल",
-    available: false,
-  },
-  {
-    key: "english",
-    label: "English",
-    icon: BookOpen,
-    desc: "Flamingo, Vistas, Writing & Grammar skills",
-    available: false,
-  },
+  { key: "math",      label: "Mathematics", icon: BookMarked,   available: true  },
+  { key: "physics",   label: "Physics",     icon: Atom,         available: false },
+  { key: "chemistry", label: "Chemistry",   icon: FlaskConical, available: false },
+  { key: "hindi",     label: "Hindi",       icon: Languages,    available: false },
+  { key: "english",   label: "English",     icon: BookOpen,     available: false },
 ];
 
 export default function Dashboard() {
@@ -48,13 +18,9 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Topbar */}
       <header className="border-b border-border bg-background">
         <div className="max-w-4xl mx-auto px-6 py-3.5 flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2"
-          >
+          <button onClick={() => navigate("/")} className="flex items-center gap-2">
             <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
               <BookOpen className="w-3.5 h-3.5 text-primary-foreground" />
             </div>
@@ -77,12 +43,8 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Main */}
       <main className="flex-1 max-w-4xl mx-auto w-full px-6 py-10">
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">My Subjects</h1>
-          <p className="text-sm text-muted-foreground mt-1">Select a subject to open its folder</p>
-        </div>
+        <h1 className="text-2xl font-bold text-foreground tracking-tight mb-6">My Subjects</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {SUBJECTS.map((subject) => {
@@ -114,8 +76,7 @@ export default function Dashboard() {
                   )}
                 </div>
 
-                <h2 className="font-semibold text-foreground text-sm mb-1">{subject.label}</h2>
-                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{subject.desc}</p>
+                <h2 className="font-semibold text-foreground text-sm">{subject.label}</h2>
 
                 {subject.available && (
                   <div className="flex items-center gap-1 mt-4 text-xs text-primary font-medium">
