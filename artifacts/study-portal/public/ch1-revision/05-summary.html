@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Summary — संबंध एवं फलन | Chapter 1</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#1a1a2e;--accent:#2d4a8a;--border:#e2e6f0;--text:#1e1e2e;--muted:#6b7280;--bg:#f7f8fc;--white:#fff}
+    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.85;font-size:15px}
+    .page{max-width:780px;margin:0 auto;background:var(--white);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+
+    .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 36px}
+    .topbar-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:500}
+    .back-btn:hover{color:var(--text)}
+
+    .cover{background:var(--navy);color:#fff;padding:38px 40px 30px;text-align:center}
+    .cover .tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+    .cover h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+    .cover .sub{font-size:.82rem;color:rgba(255,255,255,.5)}
+    .cover .sub span{margin:0 8px}
+
+    .content{padding:28px 36px 50px}
+
+    .intro-card{background:#f1f5fe;border:1px solid #c7d4f5;border-radius:12px;padding:18px 20px;margin-bottom:28px;font-size:.9rem}
+    .intro-card p{color:var(--text);line-height:1.8}
+    .intro-card strong{color:var(--navy)}
+
+    h2.sec{font-size:1rem;font-weight:700;color:var(--navy);border-left:4px solid var(--accent);padding-left:12px;margin:28px 0 14px}
+
+    /* Marks card */
+    .marks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
+    .mark-card{background:#f7f8fc;border:1px solid var(--border);border-radius:10px;padding:14px 10px;text-align:center}
+    .mark-card .mk-val{font-size:1.4rem;font-weight:800;color:var(--navy)}
+    .mark-card .mk-label{font-size:.72rem;color:var(--muted);margin-top:2px}
+    .mark-card.hot{background:#fff7ed;border-color:#fed7aa}
+    .mark-card.hot .mk-val{color:#c2410c}
+
+    /* Summary blocks */
+    .sum-block{margin-bottom:20px}
+    .sum-title{font-size:.82rem;font-weight:700;color:var(--accent);letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase;font-size:.72rem;letter-spacing:1.5px}
+    .sum-item{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid #f1f5fe}
+    .sum-item:last-child{border-bottom:none}
+    .si-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:9px}
+    .si-text{font-size:.88rem;color:var(--text)}
+    .si-text strong{color:var(--navy)}
+
+    /* Exam tips */
+    .tip-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+    .tip-card{border-radius:10px;padding:14px 16px;font-size:.84rem}
+    .tip-card.green{background:#f0fdf4;border:1px solid #86efac}
+    .tip-card.red{background:#fff0f0;border:1px solid #fca5a5}
+    .tip-card .tc-title{font-weight:700;margin-bottom:6px;font-size:.86rem}
+    .tip-card.green .tc-title{color:#166534}
+    .tip-card.red .tc-title{color:#991b1b}
+    .tip-card li{margin-left:14px;margin-bottom:3px;color:var(--text)}
+
+    /* Pillar table */
+    .pillar-table{width:100%;border-collapse:collapse;margin-bottom:8px;font-size:.86rem}
+    .pillar-table th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:.8rem}
+    .pillar-table td{padding:10px 14px;border-bottom:1px solid var(--border)}
+    .pillar-table tr:last-child td{border-bottom:none}
+    .pillar-table tr:nth-child(even) td{background:#f7f8fc}
+    .badge{display:inline-block;background:#dc2626;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:6px}
+    .badge.g{background:#16a34a}
+
+    footer{border-top:1px solid var(--border);padding:18px 36px;text-align:center;font-size:.75rem;color:var(--muted);background:var(--bg)}
+    @media(max-width:580px){.content{padding:18px 18px 40px}.cover{padding:28px 20px 24px}.topbar{padding:0 18px}.marks-grid{grid-template-columns:1fr 1fr}.tip-cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="back-btn" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Revision Notes
+    </a>
+    <span style="font-size:.82rem;font-weight:700;color:var(--text)">अध्याय 1</span>
+    <span style="width:80px"></span>
+  </div>
+</div>
+
+<div class="cover">
+  <div class="tag">Summary · Chapter 1</div>
+  <h1>📖 Chapter का निचोड़</h1>
+  <div class="sub">बिहार बोर्ड <span>·</span> कक्षा 12 <span>·</span> संबंध एवं फलन</div>
+</div>
+
+<div class="content">
+
+  <div class="intro-card">
+    <p>यह chapter पूरे Maths का <strong>base</strong> है। इसके बिना Calculus, Inverse Trig, और Matrix कुछ नहीं समझ आएगा। Bihar Board में इस chapter से हर साल <strong>2, 3, 5 marks के questions</strong> आते हैं।</p>
+  </div>
+
+  <!-- Marks Distribution -->
+  <h2 class="sec">Bihar Board में Marks Distribution</h2>
+  <div class="marks-grid">
+    <div class="mark-card hot">
+      <div class="mk-val">5</div>
+      <div class="mk-label">Marks · Equivalence Relation Prove</div>
+    </div>
+    <div class="mark-card hot">
+      <div class="mk-val">5</div>
+      <div class="mk-label">Marks · Bijective + Inverse</div>
+    </div>
+    <div class="mark-card">
+      <div class="mk-val">3</div>
+      <div class="mk-label">Marks · One-One / Onto check</div>
+    </div>
+    <div class="mark-card">
+      <div class="mk-val">2</div>
+      <div class="mk-label">Marks · Composition gof, fog</div>
+    </div>
+  </div>
+  <p style="font-size:.78rem;color:var(--muted);margin-top:8px;margin-bottom:24px">Bihar Board Class 12 Maths — Chapter 1 से अनुमानित प्रश्न</p>
+
+  <!-- Chapter के 4 Pillars -->
+  <h2 class="sec">Chapter के 4 मुख्य भाग</h2>
+  <table class="pillar-table">
+    <tr>
+      <th>भाग</th>
+      <th>क्या है</th>
+      <th>सबसे ज़रूरी topic</th>
+    </tr>
+    <tr>
+      <td><strong>A. संबंध</strong></td>
+      <td>$A \times B$ का subset। Types: Reflexive, Symmetric, Transitive।</td>
+      <td>Equivalence Relation prove करना <span class="badge">5 marks</span></td>
+    </tr>
+    <tr>
+      <td><strong>B. फलन</strong></td>
+      <td>हर input का एक output। Types: One-One, Onto, Bijective।</td>
+      <td>One-One और Onto check करना <span class="badge">3 marks</span></td>
+    </tr>
+    <tr>
+      <td><strong>C. Composition & Inverse</strong></td>
+      <td>$g \circ f = g(f(x))$ और Bijective का $f^{-1}$।</td>
+      <td>$f^{-1}$ निकालना <span class="badge">5 marks</span></td>
+    </tr>
+    <tr>
+      <td><strong>D. Binary Operations</strong></td>
+      <td>$* : A \times A \to A$। Properties: Commutative, Associative, Identity, Inverse।</td>
+      <td>तत्समक और प्रतिलोम ज्ञात करना <span class="badge g">2 marks</span></td>
+    </tr>
+  </table>
+
+  <!-- Concept Summary -->
+  <h2 class="sec">Concept Summary — एक नज़र में</h2>
+
+  <div class="sum-block">
+    <div class="sum-title">संबंध (Relations)</div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>Relation</strong> = $A \times B$ का उपसमुच्चय। Domain = first elements, Range = second elements।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>Reflexive:</strong> $(a,a) \in R$ — खुद से जुड़ा। &nbsp; <strong>Symmetric:</strong> $(a,b) \Rightarrow (b,a)$ — दोनों तरफ।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>Transitive:</strong> $(a,b),(b,c) \Rightarrow (a,c)$ — कड़ी से कड़ी।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>Equivalence Relation</strong> = तीनों एक साथ। तुल्यता वर्ग $[a]$ = एक जैसे गुण वाले elements।</div></div>
+  </div>
+
+  <div class="sum-block">
+    <div class="sum-title">फलन (Functions)</div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>Function:</strong> हर input का एक output। Range ⊆ Codomain।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>One-One:</strong> $f(x_1)=f(x_2) \Rightarrow x_1=x_2$। &nbsp; <strong>Onto:</strong> Range = Codomain।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>Bijective = One-One + Onto।</strong> सिर्फ Bijective का ही Inverse बनता है।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>GIF याद:</strong> $[3.7]=3$, $[-2.3]=-3$ — floor function, हमेशा left side।</div></div>
+  </div>
+
+  <div class="sum-block">
+    <div class="sum-title">Composition और Inverse</div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text">$(g \circ f)(x) = g(f(x))$ — पहले $f$, फिर $g$। $g \circ f \neq f \circ g$।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text">Inverse बनाने का तरीका: $y=f(x)$ में $x$ के लिए हल करो, फिर $x \leftrightarrow y$।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text">$(g \circ f)^{-1} = f^{-1} \circ g^{-1}$ — Inverse में order उल्टा।</div></div>
+  </div>
+
+  <!-- Exam Tips -->
+  <h2 class="sec">Exam Tips — Bihar Board</h2>
+  <div class="tip-cards">
+    <div class="tip-card green">
+      <div class="tc-title">✅ ज़रूर करो</div>
+      <ul>
+        <li>Equivalence Relation में तीनों headings बनाओ</li>
+        <li>One-One का standard method: $f(x_1)=f(x_2) \Rightarrow x_1=x_2$</li>
+        <li>Bijective सिद्ध करके Inverse निकालो</li>
+        <li>Composition में order check करो (gof vs fog)</li>
+        <li>GIF में negative carefully करो</li>
+      </ul>
+    </div>
+    <div class="tip-card red">
+      <div class="tc-title">❌ ये मत करो</div>
+      <ul>
+        <li>Equivalence में सिर्फ दो property prove मत करो</li>
+        <li>Inverse बिना Bijective check किए मत बनाओ</li>
+        <li>$[-2.3] = -2$ मत लिखो</li>
+        <li>Range = Codomain assume मत करो</li>
+        <li>$g \circ f = f \circ g$ assume मत करो</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Most asked questions -->
+  <h2 class="sec">Bihar Board में Most Asked Questions</h2>
+  <div class="sum-block">
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>5 marks:</strong> $\mathbb{Z}$ में $R=\{(a,b): n \mid (a-b)\}$ — Equivalence Relation सिद्ध करो।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>5 marks:</strong> $f(x)=$ (कोई function) को Bijective सिद्ध करो और $f^{-1}$ ज्ञात करो।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>3 marks:</strong> $f(x)=$ (कोई function) — One-One है या Onto या दोनों?</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>2 marks:</strong> $f(x)=$ और $g(x)=$ दिया है, $g \circ f$ और $f \circ g$ ज्ञात करो।</div></div>
+    <div class="sum-item"><div class="si-dot"></div><div class="si-text"><strong>2 marks:</strong> Binary operation $*$ का तत्समक और प्रतिलोम ज्ञात करो।</div></div>
+  </div>
+
+  <!-- Navigation -->
+  <div style="margin-top:32px;background:#f1f5fe;border-radius:12px;padding:18px 20px">
+    <div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px">पढ़ने का Recommended Order</div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem">
+      <a href="01-concepts.html" style="background:var(--navy);color:#fff;padding:6px 14px;border-radius:8px;text-decoration:none;font-weight:600">1. Concepts</a>
+      <span style="color:var(--muted)">→</span>
+      <a href="04-formula-sheet.html" style="background:#f7f8fc;color:var(--navy);padding:6px 14px;border-radius:8px;text-decoration:none;border:1px solid var(--border);font-weight:600">2. Formulas</a>
+      <span style="color:var(--muted)">→</span>
+      <a href="02-mistakes.html" style="background:#fff7ed;color:#7c2d12;padding:6px 14px;border-radius:8px;text-decoration:none;border:1px solid #fed7aa;font-weight:600">3. Mistakes</a>
+      <span style="color:var(--muted)">→</span>
+      <a href="03-quick-recall.html" style="background:#f0fdf4;color:#166534;padding:6px 14px;border-radius:8px;text-decoration:none;border:1px solid #86efac;font-weight:600">4. Quick Recall</a>
+    </div>
+  </div>
+
+</div>
+<footer>Chapter 1 · संबंध एवं फलन · Summary · बिहार बोर्ड कक्षा 12</footer>
+</div>
+</body>
+</html>

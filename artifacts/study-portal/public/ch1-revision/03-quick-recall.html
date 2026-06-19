@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quick Recall Box — संबंध एवं फलन | Chapter 1</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#1a1a2e;--accent:#2d4a8a;--border:#e2e6f0;--text:#1e1e2e;--muted:#6b7280;--bg:#f7f8fc;--white:#fff}
+    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.85;font-size:15px}
+    .page{max-width:780px;margin:0 auto;background:var(--white);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+
+    .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 36px}
+    .topbar-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:500}
+    .back-btn:hover{color:var(--text)}
+
+    .cover{background:var(--navy);color:#fff;padding:38px 40px 30px;text-align:center}
+    .cover .tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+    .cover h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+    .cover .sub{font-size:.82rem;color:rgba(255,255,255,.5)}
+    .cover .sub span{margin:0 8px}
+    .cover .timer{display:inline-block;background:#16a34a;color:#fff;font-size:.78rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-top:12px}
+
+    .content{padding:0 36px 50px}
+
+    .section-banner{background:var(--navy);color:#fff;padding:10px 36px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:28px}
+
+    .recall-list{margin-top:0}
+    .recall-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+    .recall-item:last-child{border-bottom:none}
+    .ri-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:9px}
+    .ri-body{flex:1}
+    .ri-title{font-weight:700;color:var(--navy);font-size:.92rem}
+    .ri-rule{font-size:.86rem;color:var(--text);margin-top:2px}
+    .ri-trick{font-size:.81rem;color:#78350f;background:#fef9f0;border-left:3px solid #f59e0b;padding:5px 10px;border-radius:0 5px 5px 0;margin-top:6px}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:0}
+    .mini-card{background:#f7f8fc;border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:.84rem}
+    .mini-card .mc-title{font-weight:700;color:var(--navy);margin-bottom:3px;font-size:.86rem}
+    .mini-card .mc-body{color:var(--muted);font-size:.82rem}
+
+    .alert-box{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:16px 18px;margin-top:24px;font-size:.86rem}
+    .alert-box .al-title{font-weight:700;color:#166534;margin-bottom:8px;font-size:.9rem}
+    .alert-box li{margin-left:16px;margin-bottom:4px;color:#1e1e2e}
+
+    footer{border-top:1px solid var(--border);padding:18px 36px;text-align:center;font-size:.75rem;color:var(--muted);background:var(--bg)}
+    @media(max-width:560px){.content{padding:0 18px 40px}.cover{padding:28px 20px 24px}.topbar{padding:0 18px}.two-col{grid-template-columns:1fr}.section-banner{padding:10px 18px}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="back-btn" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Revision Notes
+    </a>
+    <span style="font-size:.82rem;font-weight:700;color:var(--text)">अध्याय 1</span>
+    <span style="width:80px"></span>
+  </div>
+</div>
+
+<div class="cover">
+  <div class="tag">Quick Recall Box · Chapter 1</div>
+  <h1>⚡ 5 मिनट Revision</h1>
+  <div class="sub">बिहार बोर्ड <span>·</span> कक्षा 12 <span>·</span> संबंध एवं फलन</div>
+  <div class="timer">⏱ Exam से पहले यही पढ़ो</div>
+</div>
+
+<div class="content">
+
+  <!-- RELATIONS -->
+  <div class="section-banner" style="margin-top:28px">संबंध (Relations)</div>
+  <div class="recall-list">
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">संबंध (Relation)</div>
+        <div class="ri-rule">$A \times B$ का कोई भी उपसमुच्चय। &nbsp;|&nbsp; $n(A\times B) = n(A) \times n(B)$</div>
+        <div class="ri-trick">💡 Cartesian Product में से कुछ pairs चुन लो — वही Relation।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">रिक्त संबंध — $R = \phi$</div>
+        <div class="ri-rule">कोई pair नहीं। Universal — $R = A \times A$ (सभी pairs)।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">स्वतुल्य (Reflexive)</div>
+        <div class="ri-rule">$(a,a) \in R$ — हर element के लिए।</div>
+        <div class="ri-trick">🧠 "खुद से रिश्ता।"</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">समित (Symmetric)</div>
+        <div class="ri-rule">$(a,b) \in R \Rightarrow (b,a) \in R$</div>
+        <div class="ri-trick">🧠 "दोस्ती दोनों तरफ।"</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">संक्रामक (Transitive)</div>
+        <div class="ri-rule">$(a,b) \in R$ और $(b,c) \in R$ $\Rightarrow$ $(a,c) \in R$</div>
+        <div class="ri-trick">🧠 "राम > श्याम, श्याम > मोहन ⟹ राम > मोहन।"</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">तुल्यता संबंध (Equivalence Relation)</div>
+        <div class="ri-rule">तीनों एक साथ: Reflexive + Symmetric + Transitive ✓</div>
+        <div class="ri-trick">🧠 "एक ही कक्षा में पढ़ना।"</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">तुल्यता वर्ग $[a]$</div>
+        <div class="ri-rule">$[a] = \{x \in A : (a,x) \in R\}$ — एक जैसे गुण वाले elements।</div>
+        <div class="ri-trick">🧠 ये overlap नहीं करते, मिलकर पूरा समुच्चय बनाते हैं।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUNCTIONS -->
+  <div class="section-banner">फलन (Functions)</div>
+  <div class="recall-list">
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">फलन (Function)</div>
+        <div class="ri-rule">Domain के हर element का Output सिर्फ एक। Range ⊆ Codomain।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">एकैकी / One-One (Injective)</div>
+        <div class="ri-rule">$f(x_1) = f(x_2) \Rightarrow x_1 = x_2$</div>
+        <div class="ri-trick">🧠 "एक का एक।" — अलग input, अलग output।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">Many-One</div>
+        <div class="ri-rule">दो inputs का output same। उदाहरण: $f(x)=x^2$ पर $f(2)=f(-2)=4$।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">आच्छादक / Onto (Surjective)</div>
+        <div class="ri-rule">Range = Codomain — कोई element बिना output के नहीं।</div>
+        <div class="ri-trick">🧠 "कोई खाली न रहे।"</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">Into Function</div>
+        <div class="ri-rule">Range ⊊ Codomain — Codomain के कुछ elements को input नहीं मिला।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">Bijective (एकैकी + आच्छादक)</div>
+        <div class="ri-rule">One-One + Onto दोनों एक साथ।</div>
+        <div class="ri-trick">🧠 सिर्फ Bijective का ही Inverse बनता है।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECIAL FUNCTIONS -->
+  <div class="section-banner">विशेष फलन</div>
+  <div style="padding-top:16px">
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mc-title">Constant: $f(x)=k$</div>
+        <div class="mc-body">हर input का output $k$। Many-One और Into।</div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">Identity: $f(x)=x$</div>
+        <div class="mc-body">Input = Output। Bijective होता है।</div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">Modulus: $f(x)=|x|$</div>
+        <div class="mc-body">$|-5|=5$, $|5|=5$। Many-One।</div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">GIF: $f(x)=[x]$</div>
+        <div class="mc-body">$[3.7]=3$, $[-2.3]=-3$। (Floor function)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPOSITION & INVERSE -->
+  <div class="section-banner">संयोजन और प्रतिलोम</div>
+  <div class="recall-list">
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">Composition: $(g \circ f)(x) = g(f(x))$</div>
+        <div class="ri-rule">पहले $f$ काम करता है, फिर $g$। $g\circ f \neq f\circ g$ generally।</div>
+        <div class="ri-trick">🧠 $I \circ f = f = f \circ I$ &nbsp;|&nbsp; $(g\circ f)^{-1} = f^{-1} \circ g^{-1}$</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">Inverse Function $f^{-1}$</div>
+        <div class="ri-rule">Bijective function का ही Inverse बनता है।<br>$y=f(x)$ में $x$ के लिए हल करो → $x \leftrightarrow y$ बदलो।</div>
+        <div class="ri-trick">🧠 Check: $f^{-1}(f(x)) = x$ और $f(f^{-1}(x)) = x$</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BINARY OPERATIONS -->
+  <div class="section-banner">द्विआधारी संक्रियाएँ</div>
+  <div class="recall-list">
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">Binary Operation $* : A \times A \to A$</div>
+        <div class="ri-rule">दो elements पर operation करो → answer उसी समुच्चय में।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">क्रमविनिमेय: $a*b = b*a$</div>
+        <div class="ri-rule">उल्टा-सीधा same answer।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">साहचर्य: $(a*b)*c = a*(b*c)$</div>
+        <div class="ri-rule">Bracket कहीं भी लगाओ, same answer।</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">तत्समक $e$: $a*e = a = e*a$</div>
+        <div class="ri-rule">$+$ का $e=0$ &nbsp;|&nbsp; $\times$ का $e=1$</div>
+      </div>
+    </div>
+    <div class="recall-item">
+      <div class="ri-dot"></div>
+      <div class="ri-body">
+        <div class="ri-title">प्रतिलोम: $a*b = e$</div>
+        <div class="ri-rule">$+$ में $a$ का प्रतिलोम $-a$ &nbsp;|&nbsp; $\times$ में $\frac{1}{a}$ ($a\neq 0$)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM ALERT -->
+  <div class="alert-box">
+    <div class="al-title">🎯 Bihar Board में सबसे ज़्यादा पूछे जाते हैं:</div>
+    <ul>
+      <li>Equivalence Relation prove करना ($\mathbb{Z}$ में $n\mid(a-b)$ type)</li>
+      <li>One-One और Onto check करना</li>
+      <li>$f^{-1}$ ज्ञात करना</li>
+      <li>$g \circ f$ और $f \circ g$ ज्ञात करना</li>
+      <li>Binary Operation में तत्समक और प्रतिलोम ज्ञात करना</li>
+    </ul>
+  </div>
+
+</div>
+<footer>Chapter 1 · संबंध एवं फलन · Quick Recall Box · बिहार बोर्ड कक्षा 12</footer>
+</div>
+</body>
+</html>

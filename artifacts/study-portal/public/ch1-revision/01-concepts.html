@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 1 — संबंध एवं फलन | Revision Notes v2</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#1a1a2e;
+      --accent:#2d4a8a;
+      --accent-light:#eef2fb;
+      --border:#e2e6f0;
+      --text:#1e1e2e;
+      --muted:#6b7280;
+      --bg:#f7f8fc;
+      --white:#ffffff;
+    }
+    body{
+      font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;
+      background:var(--bg);color:var(--text);
+      line-height:1.9;font-size:15px;
+    }
+    .page{max-width:820px;margin:0 auto;background:var(--white);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+
+    /* Cover */
+    .cover{background:var(--navy);color:#fff;padding:44px 40px 36px;text-align:center}
+    .cover .tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:18px}
+    .cover h1{font-size:1.8rem;font-weight:700;margin-bottom:8px}
+    .cover .sub{font-size:.85rem;color:rgba(255,255,255,.5)}
+    .cover .sub span{margin:0 8px}
+    .cover .v2{display:inline-block;background:#2d4a8a;color:rgba(255,255,255,.9);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 12px;border-radius:10px;margin-top:12px}
+
+    /* Index / TOC */
+    .toc{background:#f1f5fe;border-bottom:1px solid var(--border);padding:20px 36px}
+    .toc-title{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
+    .toc-item{font-size:.8rem;color:var(--muted);padding:2px 0;display:flex;gap:8px}
+    .toc-item .tn{color:var(--accent);font-weight:700;min-width:20px}
+
+    /* Part banner */
+    .part-banner{background:var(--navy);color:#fff;padding:12px 36px;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+
+    /* Section heading */
+    .section-heading{background:var(--accent-light);border-left:4px solid var(--accent);padding:18px 36px}
+    .section-heading h2{font-size:1.05rem;font-weight:700;color:var(--accent)}
+    .section-heading p{font-size:.8rem;color:var(--muted);margin-top:3px}
+
+    /* Content */
+    .content{padding:0 36px 50px}
+
+    /* Concept block */
+    .concept-block{padding:30px 0 22px;border-bottom:1px solid var(--border)}
+    .concept-block:last-child{border-bottom:none}
+
+    .concept-title{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+    .concept-num{width:30px;height:30px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px}
+    .concept-title h3{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.4}
+    .concept-title .eng{font-size:.8rem;color:var(--muted);font-weight:400}
+
+    /* Def box */
+    .def-box{background:#f1f5fe;border:1px solid #c7d4f5;border-radius:10px;padding:15px 19px;margin-bottom:16px;font-size:.91rem}
+    .def-label{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .def-box .rule{font-weight:600;color:var(--navy);margin-bottom:6px}
+    .trick{margin-top:10px;padding:8px 12px;background:#fff8e1;border-left:3px solid #f9a825;border-radius:0 6px 6px 0;font-size:.86rem;color:#5a4000}
+
+    /* Small info box — for compact concepts */
+    .info-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+    .info-card{border-radius:8px;padding:12px 14px;font-size:.84rem;border:1px solid}
+    .info-card.blue{background:#f1f5fe;border-color:#c7d4f5}
+    .info-card.green{background:#f0fdf4;border-color:#bbf7d0}
+    .info-card.orange{background:#fff7ed;border-color:#fed7aa}
+    .info-card .ic-label{font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;color:var(--muted)}
+    .info-card .ic-title{font-weight:700;color:var(--navy);margin-bottom:3px;font-size:.87rem}
+    .info-card .ic-rule{color:var(--text);font-size:.83rem}
+
+    /* Examples */
+    .examples-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .ex-card{border-radius:10px;padding:15px 17px;font-size:.86rem}
+    .ex-card.easy{background:#f0fdf4;border:1px solid #bbf7d0}
+    .ex-card.hard{background:#fff7ed;border:1px solid #fed7aa}
+    .ex-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:9px}
+    .easy .ex-label{color:#166534}
+    .hard .ex-label{color:#7c2d12}
+    .ex-q{font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.55;font-size:.88rem}
+    .step{display:flex;gap:8px;margin-bottom:5px;align-items:flex-start;line-height:1.6}
+    .sn{width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px}
+    .easy .sn{background:#bbf7d0;color:#166534}
+    .hard .sn{background:#fed7aa;color:#7c2d12}
+    .sb{flex:1;color:var(--text)}
+    .ex-ans{margin-top:9px;padding-top:8px;border-top:1px dashed;font-weight:700;font-size:.87rem}
+    .easy .ex-ans{border-color:#bbf7d0;color:#166534}
+    .hard .ex-ans{border-color:#fed7aa;color:#7c2d12}
+
+    /* Single example (full width) */
+    .ex-single{border-radius:10px;padding:15px 18px;font-size:.86rem;margin-top:4px}
+    .ex-single.easy{background:#f0fdf4;border:1px solid #bbf7d0}
+    .ex-single.hard{background:#fff7ed;border:1px solid #fed7aa}
+
+    /* Formula row */
+    .formula-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+    .formula-pill{background:#1a1a2e;color:#fff;border-radius:8px;padding:8px 16px;font-size:.83rem;font-weight:500}
+
+    /* Function type cards */
+    .fn-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+    .fn-card{background:#f7f8fc;border:1px solid var(--border);border-radius:9px;padding:12px 15px;font-size:.84rem}
+    .fn-card .fn-title{font-weight:700;color:var(--navy);margin-bottom:4px;font-size:.88rem}
+    .fn-card .fn-rule{color:var(--muted);font-size:.81rem;margin-bottom:5px}
+    .fn-card .fn-eg{color:var(--text);font-size:.83rem}
+    .fn-card.highlight{background:#f1f5fe;border-color:#c7d4f5}
+
+    footer{border-top:1px solid var(--border);padding:18px 36px;text-align:center;font-size:.75rem;color:var(--muted);background:var(--bg)}
+
+    @media(max-width:580px){
+      .examples-row,.info-grid,.fn-grid,.toc-grid{grid-template-columns:1fr}
+      .content{padding:0 18px 40px}
+      .cover{padding:32px 20px 28px}
+      .part-banner,.toc,.section-heading{padding-left:20px;padding-right:20px}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div style="background:#fff;border-bottom:1px solid #e2e6f0;padding:0 36px;position:sticky;top:0;z-index:100">
+  <div style="max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px">
+    <a href="index.html" style="display:flex;align-items:center;gap:6px;font-size:.82rem;color:#6b7280;text-decoration:none;font-weight:500">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Revision Notes
+    </a>
+    <span style="font-size:.82rem;font-weight:700;color:#1e1e2e">अध्याय 1 · Concepts</span>
+    <span style="width:100px"></span>
+  </div>
+</div>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="tag">Revision Notes · Version 2</div>
+  <h1>Chapter 1 — संबंध एवं फलन</h1>
+  <div class="sub">बिहार बोर्ड <span>·</span> कक्षा 12 <span>·</span> Mathematics</div>
+  <div class="v2">Complete · 25 Concepts · Formulas · Bihar Board Examples</div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">इस page में क्या-क्या है</div>
+  <div class="toc-grid">
+    <div class="toc-item"><span class="tn">A</span>समुच्चय और कार्तीय गुणन (C1–C2)</div>
+    <div class="toc-item"><span class="tn">B</span>संबंध के प्रकार (C3–C9)</div>
+    <div class="toc-item"><span class="tn">C</span>फलन के प्रकार (C10–C18)</div>
+    <div class="toc-item"><span class="tn">D</span>संयोजन और प्रतिलोम (C19–C20)</div>
+    <div class="toc-item"><span class="tn">E</span>द्विआधारी संक्रियाएँ (C21–C23)</div>
+    <div class="toc-item"><span class="tn">★</span>हर concept में स्मरण सूत्र + Exam Example</div>
+  </div>
+</div>
+
+<!-- Section heading -->
+<div class="section-heading">
+  <h2>Concepts + Formulas + Examples</h2>
+  <p>सरल भाषा · स्मरण सूत्र · Bihar Board exam के actual questions · Step-by-step हल</p>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART A: SET & CARTESIAN PRODUCT
+══════════════════════════════════════ -->
+<div class="part-banner">Part A &nbsp;·&nbsp; समुच्चय और कार्तीय गुणन</div>
+<div class="content">
+
+  <!-- C1: Set & Cartesian Product -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">1</div>
+      <div><h3>समुच्चय और कार्तीय गुणन <span class="eng">(Set & Cartesian Product)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">समुच्चय = चीज़ों का एक समूह। जैसे $A = \{1,2,3\}$।</p>
+      <p style="margin-top:8px;"><strong>कार्तीय गुणन</strong> — A और B के हर-हर element को जोड़ो:</p>
+      <p>$$A \times B = \{(a,b) : a \in A,\ b \in B\}$$</p>
+      <p style="margin-top:6px;"><strong>सूत्र:</strong> $n(A \times B) = n(A) \times n(B)$</p>
+      <div class="trick">💡 <strong>याद करो:</strong> $A = \{1,2\}$, $B = \{3,4\}$ → $A \times B$ में $2 \times 2 = 4$ pairs होंगे।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$A = \{1,2,3\}$, $B = \{4,5\}$। $n(A \times B)$ ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$n(A) = 3$, $n(B) = 2$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$n(A \times B) = 3 \times 2 = 6$</div></div>
+        <div class="ex-ans">✅ $n(A \times B) = 6$</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$A = \{1,2\}$, $B = \{3,4\}$। $A \times B$ लिखो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$A$ के हर element को $B$ के हर element से जोड़ो।</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$A \times B = \{(1,3),(1,4),(2,3),(2,4)\}$</div></div>
+        <div class="ex-ans">🔥 $A\times B = \{(1,3),(1,4),(2,3),(2,4)\}$</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C2: Relation, Domain, Range -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">2</div>
+      <div><h3>संबंध, Domain और Range <span class="eng">(Relation, Domain & Range)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">$A \times B$ में से कुछ pairs चुन लो — वही <strong>संबंध (Relation)</strong> है।</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;font-size:.86rem;">
+        <div style="background:#f1f5fe;border-radius:7px;padding:9px 12px;">
+          <div style="font-weight:700;color:var(--navy);margin-bottom:3px;">Domain (प्रांत)</div>
+          <div>Relation के पहले elements का समुच्चय</div>
+        </div>
+        <div style="background:#f0fdf4;border-radius:7px;padding:9px 12px;">
+          <div style="font-weight:700;color:#166534;margin-bottom:3px;">Codomain (सहप्रांत)</div>
+          <div>जिस समुच्चय में output जाता है</div>
+        </div>
+        <div style="background:#fff7ed;border-radius:7px;padding:9px 12px;">
+          <div style="font-weight:700;color:#7c2d12;margin-bottom:3px;">Range (परास)</div>
+          <div>जो outputs वाकई मिले (Range ⊆ Codomain)</div>
+        </div>
+      </div>
+      <div class="trick">💡 $R = \{(1,4),(2,5),(3,4)\}$ → Domain$=\{1,2,3\}$, Range$=\{4,5\}$</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     PART B: RELATIONS
+══════════════════════════════════════ -->
+<div class="part-banner">Part B &nbsp;·&nbsp; संबंध के प्रकार (Types of Relations)</div>
+<div class="content">
+
+  <!-- C3: Empty & Universal & Identity — compact -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">3</div>
+      <div><h3>रिक्त, सार्वत्रिक और तत्समक संबंध <span class="eng">(Empty, Universal & Identity Relation)</span></h3></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card blue">
+        <div class="ic-label">रिक्त (Empty)</div>
+        <div class="ic-title">$R = \phi$</div>
+        <div class="ic-rule">कोई pair नहीं।</div>
+        <div class="trick" style="margin-top:8px;font-size:.8rem;">🧠 "कोई रिश्ता नहीं।"</div>
+      </div>
+      <div class="info-card green">
+        <div class="ic-label">सार्वत्रिक (Universal)</div>
+        <div class="ic-title">$R = A \times A$</div>
+        <div class="ic-rule">सभी possible pairs मौजूद।</div>
+        <div class="trick" style="margin-top:8px;font-size:.8rem;">🧠 "सबसे सबका रिश्ता।"</div>
+      </div>
+      <div class="info-card orange">
+        <div class="ic-label">तत्समक (Identity)</div>
+        <div class="ic-title">$R = \{(a,a): a \in A\}$</div>
+        <div class="ic-rule">सिर्फ खुद से जुड़ा।</div>
+        <div class="trick" style="margin-top:8px;font-size:.8rem;">🧠 "बस खुद से रिश्ता।"</div>
+      </div>
+    </div>
+    <div class="def-box" style="margin-bottom:0">
+      <div class="def-label">ध्यान दो</div>
+      <p>Empty और Universal दोनों <strong>तुल्यता संबंध भी हैं</strong> — ये तीनों (Reflexive, Symmetric, Transitive) satisfy करते हैं।</p>
+    </div>
+  </div>
+
+  <!-- C4: Reflexive -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">4</div>
+      <div><h3>स्वतुल्य संबंध <span class="eng">(Reflexive Relation)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule</div>
+      <p class="rule">समुच्चय का <strong>हर element खुद से जुड़ा</strong> होना चाहिए।</p>
+      <p>$$\forall\, a \in A,\quad (a,a) \in R$$</p>
+      <div class="trick">🧠 <strong>स्मरण सूत्र:</strong> "हर इंसान की अपनी पहचान होती है।" — खुद से रिश्ता जरूर होना चाहिए।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$A=\{1,2,3\}$, $R=\{(1,1),(2,2),(3,3),(1,2)\}$।<br>क्या $R$ स्वतुल्य है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$(1,1) \in R$? ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$(2,2) \in R$? ✓</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb">$(3,3) \in R$? ✓ — सभी हैं।</div></div>
+        <div class="ex-ans">✅ हाँ, $R$ स्वतुल्य है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$\mathbb{Z}$ में $R=\{(a,b): 2\mid(a-b)\}$।<br>सिद्ध करो $R$ स्वतुल्य है।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">चाहिए $(a,a) \in R$, यानी $2 \mid (a-a)$।</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$a-a=0$ और $2 \mid 0$ — हमेशा सच। ✓</div></div>
+        <div class="ex-ans">🔥 $R$ स्वतुल्य है। ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C5: Symmetric -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">5</div>
+      <div><h3>समित संबंध <span class="eng">(Symmetric Relation)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule</div>
+      <p class="rule">अगर $a$ का $b$ से रिश्ता है, तो $b$ का $a$ से भी होना चाहिए।</p>
+      <p>$$(a,b) \in R \implies (b,a) \in R$$</p>
+      <div class="trick">🧠 <strong>स्मरण सूत्र:</strong> "दोस्ती दोनों तरफ से होती है।" — एक तरफा नहीं चलेगा।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$R=\{(1,2),(2,1),(2,3),(3,2)\}$।<br>क्या $R$ समित है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$(1,2) \Rightarrow (2,1) \in R$? ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$(2,3) \Rightarrow (3,2) \in R$? ✓</div></div>
+        <div class="ex-ans">✅ हाँ, $R$ समित है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">सभी रेखाओं पर $R=\{(L_1,L_2): L_1 \perp L_2\}$।<br>क्या $R$ समित है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$L_1 \perp L_2$ → $(L_1,L_2) \in R$।</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$L_2$ भी $L_1$ पर लंब है → $(L_2,L_1) \in R$ ✓</div></div>
+        <div class="ex-ans">🔥 हाँ, $R$ समित है। ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C6: Transitive -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">6</div>
+      <div><h3>संक्रामक संबंध <span class="eng">(Transitive Relation)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule</div>
+      <p class="rule">$a$ से $b$ का रिश्ता और $b$ से $c$ का रिश्ता → $a$ से $c$ का रिश्ता भी होना चाहिए।</p>
+      <p>$$(a,b)\in R\ \text{और}\ (b,c)\in R \implies (a,c)\in R$$</p>
+      <div class="trick">🧠 <strong>स्मरण सूत्र:</strong> "राम $>$ श्याम, श्याम $>$ मोहन → राम $>$ मोहन।" — कड़ी से कड़ी जुड़ती है।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$\mathbb{R}$ में $R=\{(a,b): a \leq b\}$।<br>क्या $R$ संक्रामक है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">मान लो $a \leq b$ और $b \leq c$।</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">तो $a \leq c$ ✓</div></div>
+        <div class="ex-ans">✅ हाँ, $R$ संक्रामक है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$L$ में $R=\{(L_1,L_2): L_1 \perp L_2\}$।<br>क्या $R$ संक्रामक है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$L_1 \perp L_2$ और $L_2 \perp L_3$ मान लो।</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">ऐसे में $L_1 \parallel L_3$ होगी — लंब नहीं।</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb">$(L_1,L_3) \notin R$ ✗ — condition टूटी।</div></div>
+        <div class="ex-ans">🔥 नहीं, $R$ संक्रामक नहीं है। ✗</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C7: Equivalence Relation -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">7</div>
+      <div><h3>तुल्यता संबंध <span class="eng">(Equivalence Relation)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule — तीनों एक साथ</div>
+      <p class="rule">जब कोई संबंध तीनों tests पास करे:</p>
+      <p style="margin-top:8px;line-height:2.1;">✓ <strong>स्वतुल्य</strong> — खुद से जुड़ा &nbsp;&nbsp; ✓ <strong>समित</strong> — दोनों तरफ &nbsp;&nbsp; ✓ <strong>संक्रामक</strong> — कड़ी से कड़ी</p>
+      <div class="trick">🧠 <strong>याद करो:</strong> "एक ही कक्षा में पढ़ना" — यह तीनों satisfy करता है।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">सभी त्रिभुजों पर $R=\{(T_1,T_2): T_1 \cong T_2\}$।<br>सिद्ध करो $R$ तुल्यता संबंध है।</div>
+        <div class="step"><div class="sn">1</div><div class="sb"><strong>स्वतुल्य:</strong> $T_1 \cong T_1$ ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb"><strong>समित:</strong> $T_1 \cong T_2 \Rightarrow T_2 \cong T_1$ ✓</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb"><strong>संक्रामक:</strong> $T_1 \cong T_2$, $T_2 \cong T_3 \Rightarrow T_1 \cong T_3$ ✓</div></div>
+        <div class="ex-ans">✅ $R$ तुल्यता संबंध है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Most Asked in Bihar Board</div>
+        <div class="ex-q">$\mathbb{Z}$ में $R=\{(a,b): 2\mid(a-b)\}$।<br>सिद्ध करो $R$ तुल्यता संबंध है।</div>
+        <div class="step"><div class="sn">1</div><div class="sb"><strong>स्वतुल्य:</strong> $2\mid 0$ ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb"><strong>समित:</strong> $2\mid(a-b) \Rightarrow 2\mid(b-a)$ ✓</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb"><strong>संक्रामक:</strong> $2\mid(a-b)$ और $2\mid(b-c)$ → $2\mid(a-c)$ ✓</div></div>
+        <div class="ex-ans">🔥 $R$ तुल्यता संबंध है। ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C8: Equivalence Class -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">8</div>
+      <div><h3>तुल्यता वर्ग <span class="eng">(Equivalence Class)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">एक जैसे गुण वाले elements का परिवार।</p>
+      <p style="margin-top:6px;">$$[a] = \{x \in A : (a,x) \in R\}$$</p>
+      <div class="trick">🧠 ये वर्ग आपस में कभी overlap नहीं करते और मिलकर पूरा समुच्चय बनाते हैं।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$R=\{(a,b): 2\mid(a-b)\}$ में $[0]$ और $[1]$ ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$[0]$ = सम संख्याएँ $\{...-4,-2,0,2,4...\}$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$[1]$ = विषम संख्याएँ $\{...-3,-1,1,3,5...\}$</div></div>
+        <div class="ex-ans">✅ $[0]=$ सम, $[1]=$ विषम।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$A=\{1,2,3,4,5,6,7\}$, $R=\{(a,b):$ दोनों सम या दोनों विषम$\}$।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">विषम वर्ग: $[1]=\{1,3,5,7\}$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">सम वर्ग: $[2]=\{2,4,6\}$</div></div>
+        <div class="ex-ans">🔥 दो तुल्यता वर्ग: $\{1,3,5,7\}$ और $\{2,4,6\}$।</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     PART C: FUNCTIONS
+══════════════════════════════════════ -->
+<div class="part-banner">Part C &nbsp;·&nbsp; फलन के प्रकार (Types of Functions)</div>
+<div class="content">
+
+  <!-- C9: Function kya hai -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">9</div>
+      <div><h3>फलन क्या है और कैसे पहचानें <span class="eng">(What is a Function?)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">Domain के हर element का output <strong>सिर्फ एक</strong> होना चाहिए — दो नहीं।</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:.85rem;">
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:10px 13px;">
+          <div style="font-weight:700;color:#166534;margin-bottom:5px;">✔ फलन है</div>
+          <div>$1 \to 2,\ 2 \to 4,\ 3 \to 6$<br>हर input का एक output</div>
+        </div>
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:7px;padding:10px 13px;">
+          <div style="font-weight:700;color:#991b1b;margin-bottom:5px;">✘ फलन नहीं</div>
+          <div>$1 \to 2,\ 1 \to 3$<br>एक input के दो outputs</div>
+        </div>
+      </div>
+      <div class="trick">💡 Range ⊆ Codomain हमेशा।</div>
+    </div>
+  </div>
+
+  <!-- C10: One-One -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">10</div>
+      <div><h3>एकैकी फलन <span class="eng">(One-One / Injective)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule</div>
+      <p class="rule">अलग-अलग inputs के outputs भी अलग-अलग।</p>
+      <p>$$f(x_1)=f(x_2) \implies x_1=x_2$$</p>
+      <div class="trick">🧠 <strong>स्मरण सूत्र:</strong> "एक का एक" — हर input का अपना अलग output।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$f:\mathbb{N}\to\mathbb{N}$, $f(x)=2x$।<br>क्या $f$ एकैकी है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">मान लो $f(x_1)=f(x_2)$ → $2x_1=2x_2$ → $x_1=x_2$ ✓</div></div>
+        <div class="ex-ans">✅ हाँ, $f$ एकैकी है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2$।<br>क्या $f$ एकैकी है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$f(1)=1$, $f(-1)=1$ लेकिन $1 \neq -1$ ✗</div></div>
+        <div class="ex-ans">🔥 नहीं, Many-One है।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C11: Many-One & Into — compact -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">11</div>
+      <div><h3>Many-One और Into फलन <span class="eng">(Many-One & Into Function)</span></h3></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card blue" style="grid-column: span 1;">
+        <div class="ic-label">Many-One Function</div>
+        <div class="ic-title">दो inputs, एक output</div>
+        <div class="ic-rule">$f(x_1)=f(x_2)$ लेकिन $x_1 \neq x_2$</div>
+        <div class="ic-rule" style="margin-top:4px;">उदाहरण: $f(x)=x^2$ → $f(2)=f(-2)=4$</div>
+      </div>
+      <div class="info-card orange" style="grid-column: span 2;">
+        <div class="ic-label">Into Function</div>
+        <div class="ic-title">Range ⊂ Codomain (कुछ elements बाहर रहे)</div>
+        <div class="ic-rule">Codomain के कुछ elements को कोई input नहीं मिला।</div>
+        <div class="ic-rule" style="margin-top:4px;">उदाहरण: $f:\mathbb{N}\to\mathbb{N}$, $f(x)=2x$ — विषम संख्याएँ Range में नहीं।</div>
+      </div>
+    </div>
+    <div class="def-box" style="margin-bottom:0">
+      <div class="def-label">याद रखो</div>
+      <p>One-One का उल्टा Many-One है। Onto का उल्टा Into है।</p>
+    </div>
+  </div>
+
+  <!-- C12: Onto -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">12</div>
+      <div><h3>आच्छादक फलन <span class="eng">(Onto / Surjective)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule</div>
+      <p class="rule">Codomain का कोई element बिना input के नहीं रहे। Range = Codomain।</p>
+      <div class="trick">🧠 <strong>स्मरण सूत्र:</strong> "कोई खाली न रहे।"</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x$।<br>क्या $f$ आच्छादक है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">कोई भी $y \in \mathbb{R}$ लो — $x=\frac{y}{2} \in \mathbb{R}$ और $f(x)=y$ ✓</div></div>
+        <div class="ex-ans">✅ हाँ, $f$ आच्छादक है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$f:\mathbb{N}\to\mathbb{N}$, $f(x)=2x$।<br>क्या $f$ आच्छादक है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$1 \in \mathbb{N}$ लो → $2x=1 \Rightarrow x=\frac{1}{2} \notin \mathbb{N}$ ✗</div></div>
+        <div class="ex-ans">🔥 नहीं, Into फलन है।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C13: Bijective -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">13</div>
+      <div><h3>एकैकी आच्छादी (Bijective) फलन</h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rule</div>
+      <p class="rule">✓ एकैकी (One-One) &nbsp;+&nbsp; ✓ आच्छादक (Onto) — दोनों एक साथ।</p>
+      <div class="trick">🧠 <strong>Important:</strong> Bijective फलन का ही Inverse बनता है।<br>परिमित समुच्चय के लिए: One-One है $\iff$ Onto है।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$f:\mathbb{R}\to\mathbb{R}$, $f(x)=3x+4$।<br>Bijective है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb"><strong>One-One:</strong> $3x_1+4=3x_2+4 \Rightarrow x_1=x_2$ ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb"><strong>Onto:</strong> $x=\frac{y-4}{3} \in \mathbb{R}$ ✓</div></div>
+        <div class="ex-ans">✅ हाँ, Bijective है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2+1$।<br>Bijective है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$f(1)=f(-1)=2$ → One-One नहीं ✗</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$x^2+1 \geq 1$, $0$ का pre-image नहीं → Onto नहीं ✗</div></div>
+        <div class="ex-ans">🔥 नहीं, Bijective नहीं है।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C14–C18: Special Functions -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">14–18</div>
+      <div><h3>विशेष फलन <span class="eng">(Special Functions)</span></h3></div>
+    </div>
+    <div class="fn-grid">
+      <div class="fn-card highlight">
+        <div class="fn-title">अचर फलन (Constant Function)</div>
+        <div class="fn-rule">$f(x) = k$ — हर input का output same</div>
+        <div class="fn-eg">$f(x)=5$ → $f(1)=f(2)=f(100)=5$</div>
+        <div class="trick" style="margin-top:7px;font-size:.8rem;">🧠 Many-One और Into दोनों है।</div>
+      </div>
+      <div class="fn-card highlight">
+        <div class="fn-title">तत्समक फलन (Identity Function)</div>
+        <div class="fn-rule">$f(x) = x$ — Input = Output</div>
+        <div class="fn-eg">$f(2)=2,\ f(5)=5$</div>
+        <div class="trick" style="margin-top:7px;font-size:.8rem;">🧠 Bijective होता है। $I(x)=x$</div>
+      </div>
+      <div class="fn-card">
+        <div class="fn-title">मापांक फलन (Modulus Function)</div>
+        <div class="fn-rule">$f(x) = |x|$</div>
+        <div class="fn-eg">$|5|=5,\ |-5|=5,\ |-3|=3$</div>
+        <div class="trick" style="margin-top:7px;font-size:.8rem;">🧠 Many-One और Into दोनों है।</div>
+      </div>
+      <div class="fn-card">
+        <div class="fn-title">महत्तम पूर्णांक फलन (GIF)</div>
+        <div class="fn-rule">$f(x) = [x]$ — $x$ से छोटा सबसे बड़ा पूर्णांक</div>
+        <div class="fn-eg">$[3.7]=3,\ [5.9]=5,\ [-2.3]=-3$</div>
+        <div class="trick" style="margin-top:7px;font-size:.8rem;">🧠 Floor function भी कहते हैं।</div>
+      </div>
+    </div>
+    <div class="ex-single easy">
+      <div class="ex-label">✅ Easy — Bihar Board Style</div>
+      <div class="ex-q">$f(x)=[x]$ के लिए $f(4.9)$, $f(-1.7)$ ज्ञात करो।</div>
+      <div class="step"><div class="sn">1</div><div class="sb">$f(4.9)=[4.9]=4$ — 4.9 से छोटा सबसे बड़ा पूर्णांक = 4</div></div>
+      <div class="step"><div class="sn">2</div><div class="sb">$f(-1.7)=[-1.7]=-2$ — $-1.7$ से छोटा सबसे बड़ा पूर्णांक = $-2$</div></div>
+      <div class="ex-ans">✅ $f(4.9)=4$, $f(-1.7)=-2$</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     PART D: COMPOSITION & INVERSE
+══════════════════════════════════════ -->
+<div class="part-banner">Part D &nbsp;·&nbsp; संयोजन और प्रतिलोम फलन</div>
+<div class="content">
+
+  <!-- C19: Composition -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">19</div>
+      <div><h3>फलनों का संयोजन <span class="eng">(Composition — gof)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">दो मशीनें जोड़ो — पहले $f$ मशीन में डालो, जो निकले उसे $g$ में डालो।</p>
+      <p>$$(g \circ f)(x) = g(f(x))$$</p>
+      <div class="trick">🧠 $g \circ f$ — पढ़ते $g$ पहले, करता $f$ पहले है।<br>
+      <strong>Important formulas:</strong> $I \circ f = f = f \circ I$ &nbsp;|&nbsp; $(g\circ f)^{-1} = f^{-1}\circ g^{-1}$</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$f(x)=2x$, $g(x)=x+3$।<br>$g \circ f$ और $f \circ g$ ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$g\circ f(x)=g(2x)=2x+3$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$f\circ g(x)=f(x+3)=2(x+3)=2x+6$</div></div>
+        <div class="ex-ans">✅ $g\circ f=2x+3$; $f\circ g=2x+6$।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$f(x)=\cos x$, $g(x)=3x^2$।<br>$g\circ f$ और $f\circ g$ ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$g\circ f(x)=g(\cos x)=3\cos^2 x$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$f\circ g(x)=f(3x^2)=\cos(3x^2)$</div></div>
+        <div class="ex-ans">🔥 $g\circ f=3\cos^2 x$; $f\circ g=\cos(3x^2)$।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C20: Inverse -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">20</div>
+      <div><h3>प्रतिलोम फलन <span class="eng">(Inverse Function — f⁻¹)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">"वापसी का रास्ता" — $f(2)=5$ है तो $f^{-1}(5)=2$।</p>
+      <p style="margin-top:8px;"><strong>ज़रूरी शर्त:</strong> $f$ तभी Invertible होगा जब $f$ <strong>Bijective</strong> हो।</p>
+      <p style="margin-top:6px;"><strong>निकालने का तरीका:</strong> $y=f(x)$ में $x$ के लिए हल करो, फिर $x \leftrightarrow y$ बदलो।</p>
+      <p style="margin-top:6px;"><strong>Check:</strong> $f^{-1}(f(x))=x$ और $f(f^{-1}(x))=x$</p>
+      <div class="trick">🧠 $(g\circ f)^{-1} = f^{-1} \circ g^{-1}$</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$f(x)=2x+5$। $f^{-1}$ ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$y=2x+5$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$x=\dfrac{y-5}{2}$</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb">$f^{-1}(x)=\dfrac{x-5}{2}$</div></div>
+        <div class="ex-ans">✅ $f^{-1}(x)=\dfrac{x-5}{2}$</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$f:\mathbb{R}^+\to[4,\infty)$, $f(x)=x^2+4$।<br>Bijective सिद्ध करो और $f^{-1}$ ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb"><strong>One-One:</strong> $x_1^2=x_2^2$, $x>0$ के लिए $x_1=x_2$ ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb"><strong>Onto:</strong> $y \geq 4$ के लिए $x=\sqrt{y-4} \in \mathbb{R}^+$ ✓</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb">$y=x^2+4 \Rightarrow x=\sqrt{y-4}$, तो $f^{-1}(x)=\sqrt{x-4}$।</div></div>
+        <div class="ex-ans">🔥 $f$ Bijective है; $f^{-1}(x)=\sqrt{x-4}$।</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     PART E: BINARY OPERATIONS
+══════════════════════════════════════ -->
+<div class="part-banner">Part E &nbsp;·&nbsp; द्विआधारी संक्रियाएँ (Binary Operations)</div>
+<div class="content">
+
+  <!-- C21: Binary Operation -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">21</div>
+      <div><h3>द्विआधारी संक्रिया <span class="eng">(Binary Operation)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">सरल भाषा में</div>
+      <p class="rule">समुच्चय के दो elements लो → operation करो → answer उसी समुच्चय में आए।</p>
+      <p style="margin-top:6px;">$$* : A \times A \to A$$</p>
+      <div class="trick">💡 $\mathbb{R}$ में $+$, $-$, $\times$ Binary हैं। $\div$ नहीं ($a \div 0$ undefined)।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$\mathbb{N}$ में $a*b=a-b$। Binary है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$3*5=3-5=-2$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$-2 \notin \mathbb{N}$ — बाहर गया।</div></div>
+        <div class="ex-ans">✅ नहीं, Binary नहीं है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$\mathbb{R}$ में $a*b=a+4b^2$। Binary है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$a,b \in \mathbb{R}$ → $a+4b^2 \in \mathbb{R}$ हमेशा। ✓</div></div>
+        <div class="ex-ans">🔥 हाँ, Binary Operation है।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C22: Commutative & Associative -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">22</div>
+      <div><h3>क्रमविनिमेय और साहचर्य <span class="eng">(Commutative & Associative)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rules</div>
+      <p class="rule">क्रमविनिमेय: $a*b = b*a$ &nbsp;—&nbsp; "उल्टा-सीधा same answer।"</p>
+      <p style="margin-top:7px;" class="rule">साहचर्य: $(a*b)*c = a*(b*c)$ &nbsp;—&nbsp; "bracket कहीं भी लगाओ।"</p>
+      <div class="trick">🧠 $+$ और $\times$ दोनों। &nbsp; $-$ और $\div$ दोनों नहीं।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$a*b=a+2b$। क्रमविनिमेय है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$3*4=3+8=11$; $4*3=4+6=10$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$11 \neq 10$ ✗</div></div>
+        <div class="ex-ans">✅ नहीं, क्रमविनिमेय नहीं है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$a*b=a+2b$। साहचर्य है?</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$(8*5)*3=(8+10)*3=18*3=24$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$8*(5*3)=8*(5+6)=8*11=30$</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb">$24 \neq 30$ ✗</div></div>
+        <div class="ex-ans">🔥 नहीं, साहचर्य नहीं है।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C23: Identity & Inverse -->
+  <div class="concept-block">
+    <div class="concept-title">
+      <div class="concept-num">23</div>
+      <div><h3>तत्समक और प्रतिलोम अवयव <span class="eng">(Identity & Inverse Element)</span></h3></div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Rules</div>
+      <p class="rule"><strong>तत्समक $e$:</strong> वह जादुई number जो किसी को नहीं बदलता। $a*e=a=e*a$</p>
+      <p style="margin-top:7px;" class="rule"><strong>प्रतिलोम:</strong> वह number जो operation करने पर तत्समक दे। $a*b=e$</p>
+      <div class="trick">💡 $+$ का तत्समक $=0$; $\times$ का $=1$।<br>
+      $+$ में $a$ का प्रतिलोम $=-a$; $\times$ में $=\frac{1}{a}$ ($a \neq 0$)।</div>
+    </div>
+    <div class="examples-row">
+      <div class="ex-card easy">
+        <div class="ex-label">✅ Easy — Bihar Board Style</div>
+        <div class="ex-q">$\mathbb{Q}$ में $a*b=ab+1$। तत्समक ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$a*e=a$ चाहिए → $ae+1=a$ → $e=\frac{a-1}{a}$</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$e$ हर $a$ के लिए अलग — fixed नहीं।</div></div>
+        <div class="ex-ans">✅ इस $*$ का कोई तत्समक नहीं है।</div>
+      </div>
+      <div class="ex-card hard">
+        <div class="ex-label">🔥 Exam Pattern</div>
+        <div class="ex-q">$\{0,1,2,3,4,5\}$ में $a*b=(a+b)\bmod 6$।<br>तत्समक और प्रत्येक का प्रतिलोम ज्ञात करो।</div>
+        <div class="step"><div class="sn">1</div><div class="sb">$a*0=(a+0)\bmod 6=a$ → तत्समक $e=0$ ✓</div></div>
+        <div class="step"><div class="sn">2</div><div class="sb">$a*b=0$ → $(a+b)\bmod 6=0$ → $b=6-a$</div></div>
+        <div class="step"><div class="sn">3</div><div class="sb">$1^{-1}=5$, $2^{-1}=4$, $3^{-1}=3$, $4^{-1}=2$, $5^{-1}=1$</div></div>
+        <div class="ex-ans">🔥 तत्समक $=0$; $a$ का प्रतिलोम $=6-a$।</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Chapter 1 · संबंध एवं फलन · Revision Notes Version 2 · 23 Concepts · बिहार बोर्ड कक्षा 12
+</footer>
+</div>
+</body>
+</html>

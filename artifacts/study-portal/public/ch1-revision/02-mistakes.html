@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Common Mistakes — संबंध एवं फलन | Chapter 1</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#1a1a2e;--accent:#2d4a8a;--border:#e2e6f0;--text:#1e1e2e;--muted:#6b7280;--bg:#f7f8fc;--white:#fff}
+    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.85;font-size:15px}
+    .page{max-width:780px;margin:0 auto;background:var(--white);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+
+    .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 36px}
+    .topbar-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:500}
+    .back-btn:hover{color:var(--text)}
+    .topbar-title{font-size:.82rem;font-weight:700;color:var(--text)}
+
+    .cover{background:var(--navy);color:#fff;padding:38px 40px 30px;text-align:center}
+    .cover .tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+    .cover h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+    .cover .sub{font-size:.82rem;color:rgba(255,255,255,.5)}
+    .cover .sub span{margin:0 8px}
+
+    .intro{padding:22px 36px;background:#fff8f8;border-bottom:1px solid #fecaca}
+    .intro p{font-size:.88rem;color:#7f1d1d;font-weight:500}
+
+    .content{padding:0 36px 50px}
+
+    .mistake-block{padding:26px 0 20px;border-bottom:1px solid var(--border)}
+    .mistake-block:last-child{border-bottom:none}
+
+    .mistake-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+    .mistake-num{width:32px;height:32px;background:#dc2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+    .mistake-header h3{font-size:1rem;font-weight:700;color:#7f1d1d;line-height:1.4}
+    .mistake-header .tag2{font-size:.74rem;color:var(--muted);font-weight:400;margin-top:2px}
+
+    .wrong-box{background:#fff0f0;border:1px solid #fca5a5;border-radius:9px;padding:13px 16px;margin-bottom:10px;font-size:.88rem}
+    .wrong-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#dc2626;margin-bottom:7px}
+    .wrong-box p{color:var(--text)}
+
+    .right-box{background:#f0fdf4;border:1px solid #86efac;border-radius:9px;padding:13px 16px;font-size:.88rem}
+    .right-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#166534;margin-bottom:7px}
+    .right-box p{color:var(--text)}
+
+    .tip{margin-top:9px;padding:8px 12px;background:#fefce8;border-left:3px solid #eab308;border-radius:0 6px 6px 0;font-size:.84rem;color:#713f12}
+
+    footer{border-top:1px solid var(--border);padding:18px 36px;text-align:center;font-size:.75rem;color:var(--muted);background:var(--bg)}
+
+    @media(max-width:560px){.content{padding:0 18px 40px}.cover{padding:28px 20px 24px}.topbar{padding:0 18px}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="back-btn" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Revision Notes
+    </a>
+    <span class="topbar-title">अध्याय 1</span>
+    <span style="width:80px"></span>
+  </div>
+</div>
+
+<div class="cover">
+  <div class="tag">Common Mistakes · Chapter 1</div>
+  <h1>⚠️ ये गलतियाँ मत करो</h1>
+  <div class="sub">बिहार बोर्ड <span>·</span> कक्षा 12 <span>·</span> संबंध एवं फलन</div>
+</div>
+
+<div class="intro">
+  <p>⚡ ये 10 गलतियाँ Bihar Board में सबसे ज़्यादा होती हैं — इन्हें एक बार पढ़ लो, marks नहीं कटेंगे।</p>
+</div>
+
+<div class="content">
+
+  <!-- Mistake 1 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">1</div>
+      <div>
+        <h3>GIF में negative number का answer गलत करना</h3>
+        <div class="tag2">Greatest Integer Function · बहुत common mistake</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत जवाब</div>
+      <p>$[-2.3] = -2$ &nbsp; (क्योंकि $2.3$ का floor $2$ है — यह सोचकर negative में भी $-2$ लिख देते हैं)</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही जवाब</div>
+      <p>$[-2.3] = -3$ &nbsp; क्योंकि $-2.3$ से छोटा सबसे बड़ा पूर्णांक $-3$ है, $-2$ नहीं।<br>Number line पर $-3 &lt; -2.3 &lt; -2$ — तो floor = $-3$।</p>
+    </div>
+    <div class="tip">🧠 याद करो: GIF हमेशा number की बाईं तरफ जाता है। Negative में बाईं = और छोटा।</div>
+  </div>
+
+  <!-- Mistake 2 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">2</div>
+      <div>
+        <h3>Reflexive check अधूरा छोड़ देना</h3>
+        <div class="tag2">Reflexive Relation</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत तरीका</div>
+      <p>$A=\{1,2,3\}$, $R=\{(1,1),(2,2),(1,2)\}$ — सिर्फ $(1,1)$ देखकर "हाँ Reflexive है" लिख देना।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही तरीका</div>
+      <p>$A$ के <strong>हर element</strong> के लिए $(a,a)$ check करो।<br>यहाँ $(3,3) \notin R$ — इसलिए Reflexive नहीं है।</p>
+    </div>
+    <div class="tip">🧠 Rule: $n(A) = 3$ है तो $(1,1)$, $(2,2)$, $(3,3)$ — तीनों जरूरी।</div>
+  </div>
+
+  <!-- Mistake 3 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">3</div>
+      <div>
+        <h3>Symmetric में उल्टा pair check करना भूलना</h3>
+        <div class="tag2">Symmetric Relation</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत तरीका</div>
+      <p>$R=\{(1,2),(2,1),(1,3)\}$ — $(1,2)$ और $(2,1)$ देखकर "Symmetric है" लिख देना। $(1,3)$ का उल्टा $(3,1)$ check नहीं किया।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही तरीका</div>
+      <p>$R$ के <strong>हर pair</strong> $(a,b)$ के लिए $(b,a)$ check करो।<br>$(1,3) \in R$ लेकिन $(3,1) \notin R$ — Symmetric नहीं।</p>
+    </div>
+    <div class="tip">🧠 Shortcut: $R$ में जितने pairs हैं, सबके उल्टे भी $R$ में होने चाहिए।</div>
+  </div>
+
+  <!-- Mistake 4 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">4</div>
+      <div>
+        <h3>Transitive में middle element की सभी combinations नहीं देखना</h3>
+        <div class="tag2">Transitive Relation · सबसे tricky</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत तरीका</div>
+      <p>$R=\{(1,2),(2,3),(1,3),(3,1)\}$ — $(1,2),(2,3),(1,3)$ देखकर "Transitive है" बोल देना।<br>$(2,3) \in R$ और $(3,1) \in R$ → $(2,1)$ होना चाहिए — नहीं है।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही तरीका</div>
+      <p>हर $(a,b)$ और $(b,c)$ pair के लिए $(a,c)$ check करो।<br>यहाँ $(2,3),(3,1)$ है लेकिन $(2,1) \notin R$ — Transitive नहीं।</p>
+    </div>
+    <div class="tip">🧠 Systematic तरीका: $R$ के हर pair को एक-एक करके "bridge" बनाकर check करो।</div>
+  </div>
+
+  <!-- Mistake 5 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">5</div>
+      <div>
+        <h3>Range और Codomain को same समझ लेना</h3>
+        <div class="tag2">Functions · Domain/Codomain/Range</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत सोच</div>
+      <p>$f:\{1,2,3\} \to \{1,4,9,16\}$, $f(x)=x^2$ में Range $= \{1,4,9,16\}$ लिख देना।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही समझ</div>
+      <p>Codomain $= \{1,4,9,16\}$ (दिया गया है)।<br>Range $= \{1,4,9\}$ (जो वाकई मिला)।<br>$16$ Codomain में है लेकिन Range में नहीं — इसलिए function Onto नहीं है।</p>
+    </div>
+    <div class="tip">🧠 Formula: Range ⊆ Codomain — Range हमेशा Codomain के अंदर या बराबर।</div>
+  </div>
+
+  <!-- Mistake 6 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">6</div>
+      <div>
+        <h3>One-One prove करने का तरीका गलत</h3>
+        <div class="tag2">One-One (Injective) Function</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत तरीका</div>
+      <p>बस $f(1)=2$, $f(2)=4$ लिखकर "अलग-अलग output है, One-One है" — proof नहीं होता।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही तरीका (Standard method)</div>
+      <p>मान लो $f(x_1) = f(x_2)$ → फिर दिखाओ कि $x_1 = x_2$ होना ज़रूरी है।<br>
+      $f(x) = 2x$: $2x_1 = 2x_2 \Rightarrow x_1 = x_2$ ✓</p>
+    </div>
+    <div class="tip">🧠 Exam में इसी standard method से prove करो — full marks मिलेंगे।</div>
+  </div>
+
+  <!-- Mistake 7 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">7</div>
+      <div>
+        <h3>Bijective नहीं है तो Inverse नहीं बनता — यह भूल जाना</h3>
+        <div class="tag2">Inverse Function · बहुत important</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत</div>
+      <p>$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2$ का inverse $f^{-1}(x)=\sqrt{x}$ लिख देना।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही</div>
+      <p>$f(x)=x^2$ Bijective नहीं है ($f(2)=f(-2)=4$) — इसका Inverse exist नहीं करता।<br>
+      Inverse तभी बनता है जब $f$ One-One और Onto दोनों हो (Bijective)।</p>
+    </div>
+    <div class="tip">🧠 Inverse बनाने से पहले Bijective check करना compulsory है।</div>
+  </div>
+
+  <!-- Mistake 8 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">8</div>
+      <div>
+        <h3>Composition का order गलत करना</h3>
+        <div class="tag2">Composition of Functions · gof vs fog</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत</div>
+      <p>$g \circ f(x) = f(g(x))$ लिख देना — यानी $f$ बाद में लगाना।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही</div>
+      <p>$g \circ f(x) = g(f(x))$ — पहले $f$ काम करता है, फिर $g$।<br>
+      $f(x)=2x$, $g(x)=x+3$: &nbsp; $g\circ f(x) = g(2x) = 2x+3$</p>
+    </div>
+    <div class="tip">🧠 "gof" — पढ़ते $g$ पहले, लेकिन काम $f$ पहले करता है (दाएँ से बाएँ)।</div>
+  </div>
+
+  <!-- Mistake 9 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">9</div>
+      <div>
+        <h3>Binary Operation में तत्समक $e$ को fixed नहीं मानना</h3>
+        <div class="tag2">Binary Operations · Identity Element</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत</div>
+      <p>$a*b=ab+1$ में $ae+1=a \Rightarrow e=\frac{a-1}{a}$ — और फिर "तत्समक $\frac{a-1}{a}$ है" लिख देना।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही</div>
+      <p>तत्समक $e$ सभी elements के लिए <strong>एक fixed number</strong> होना चाहिए।<br>
+      यहाँ $e$ हर $a$ के लिए अलग है — इसलिए इस operation का कोई तत्समक नहीं है।</p>
+    </div>
+    <div class="tip">🧠 $+$ का तत्समक $0$ है (सबके लिए fixed)। $\times$ का $1$ है (सबके लिए fixed)।</div>
+  </div>
+
+  <!-- Mistake 10 -->
+  <div class="mistake-block">
+    <div class="mistake-header">
+      <div class="mistake-num">10</div>
+      <div>
+        <h3>Equivalence Relation में तीनों properties सिद्ध करना भूल जाना</h3>
+        <div class="tag2">Equivalence Relation · 5 marks question</div>
+      </div>
+    </div>
+    <div class="wrong-box">
+      <div class="wrong-label">❌ गलत</div>
+      <p>सिर्फ Reflexive और Symmetric prove करके "Equivalence Relation है" लिख देना।<br>
+      या Transitive prove करना भूल जाना।</p>
+    </div>
+    <div class="right-box">
+      <div class="right-label">✅ सही (5 marks पाने का formula)</div>
+      <p>तीनों अलग-अलग headings बनाकर prove करो:<br>
+      <strong>Step 1: Reflexive:</strong> ... [prove] ✓<br>
+      <strong>Step 2: Symmetric:</strong> ... [prove] ✓<br>
+      <strong>Step 3: Transitive:</strong> ... [prove] ✓<br>
+      ∴ $R$ तुल्यता संबंध है।</p>
+    </div>
+    <div class="tip">🧠 Bihar Board में 5 marks के question में तीनों prove करने पर 3+1+1 marks मिलते हैं — एक भी miss मत करो।</div>
+  </div>
+
+</div>
+
+<footer>Chapter 1 · संबंध एवं फलन · Common Mistakes · बिहार बोर्ड कक्षा 12</footer>
+</div>
+</body>
+</html>
