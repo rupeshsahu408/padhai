@@ -96,7 +96,7 @@ export default function Dashboard() {
                   "text-left p-5 rounded-xl border bg-card",
                   subject.available
                     ? "cursor-pointer hover:bg-muted/40 border-border"
-                    : "cursor-not-allowed opacity-50 border-border",
+                    : "cursor-not-allowed coming-soon-card",
                 ].join(" ")}
               >
                 <div className="flex items-start justify-between mb-5">

@@ -183,6 +183,17 @@
 }
 
 
+/* Golden shimmer animation for coming-soon badge */
+@keyframes gold-border {
+  0%   { border-color: #b8960c; box-shadow: 0 0 0 0 #b8960c44; }
+  50%  { border-color: #f0c040; box-shadow: 0 0 6px 2px #f0c04066; }
+  100% { border-color: #b8960c; box-shadow: 0 0 0 0 #b8960c44; }
+}
+.coming-soon-card {
+  animation: gold-border 2s ease-in-out infinite;
+  border-width: 1.5px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
