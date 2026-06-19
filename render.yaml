@@ -2,7 +2,7 @@ services:
   - type: web
     name: alone-12th
     runtime: static
-    buildCommand: npm install -g pnpm && pnpm install && pnpm --filter @workspace/study-portal run build
+    buildCommand: pnpm install && pnpm --filter @workspace/study-portal run build
     staticPublishPath: artifacts/study-portal/dist/public
     envVars:
       - key: BASE_PATH
