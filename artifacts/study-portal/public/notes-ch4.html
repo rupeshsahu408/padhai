@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 4 — सारणिक (Determinants) | Ultimate Notes</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$','$'],['\\(','\\)']],
+        displayMath: [['$$','$$'],['\\[','\\]']]
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0f3460;--dark:#16213e;--accent:#e94560;--gold:#f9a825;
+      --green:#2e7d32;--blue:#1565c0;--purple:#6a1b9a;
+    }
+    body{font-family:'Segoe UI',sans-serif;background:#eef2ff;color:#1a1a2e;line-height:1.8;padding:16px}
+    .container{max-width:900px;margin:0 auto;background:#fff;border-radius:18px;box-shadow:0 6px 32px rgba(0,0,0,.12);overflow:hidden}
+    .toc{background:#f8f9ff;border-bottom:2px solid #e0e4ff;padding:20px 32px}
+    .toc h3{color:var(--navy);font-size:.95rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+    .toc-grid{display:flex;flex-wrap:wrap;gap:8px}
+    .toc a{background:var(--navy);color:#fff;padding:5px 14px;border-radius:20px;font-size:.78rem;text-decoration:none;transition:.2s}
+    .toc a:hover{background:var(--accent)}
+    header{background:linear-gradient(135deg,#0f3460,#16213e,#1a1a2e);color:#fff;padding:40px 40px 30px}
+    header h1{font-size:2.1rem;margin-bottom:6px}
+    header p{opacity:.8;font-size:1rem}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.78rem;font-weight:600}
+    .b-red{background:var(--accent);color:#fff}
+    .b-gold{background:var(--gold);color:#1a1a2e}
+    .b-green{background:#43a047;color:#fff}
+    .content{padding:32px 40px}
+    .section{margin-bottom:48px;padding-bottom:40px;border-bottom:2px dashed #e8eaf6}
+    .section:last-child{border-bottom:none}
+    h2{font-size:1.35rem;color:var(--navy);padding:12px 18px;background:#f0f4ff;border-radius:10px;border-left:6px solid var(--navy);margin-bottom:20px}
+    h3{font-size:1.05rem;color:#1a237e;margin:22px 0 10px;padding-bottom:5px;border-bottom:2px solid #e8eaf6}
+    h4{font-size:.95rem;color:#4a148c;margin:16px 0 8px}
+    p{margin:9px 0}
+    .box{padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.93rem}
+    .tip{background:#fff8e1;border-left:5px solid var(--gold)}
+    .warn{background:#fce4ec;border-left:5px solid var(--accent)}
+    .info{background:#e3f2fd;border-left:5px solid var(--blue)}
+    .success{background:#e8f5e9;border-left:5px solid var(--green)}
+    .purple-box{background:#f3e5f5;border-left:5px solid var(--purple)}
+    .trick{background:linear-gradient(135deg,#fff3e0,#fff8e1);border:2px solid var(--gold);border-radius:12px;padding:16px 20px;margin:16px 0}
+    .trick-title{font-weight:700;color:#e65100;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+    .math-block{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:18px 22px;margin:14px 0;overflow-x:auto;text-align:center}
+    .math-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+    @media(max-width:600px){.math-grid{grid-template-columns:1fr}}
+    .math-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:16px;text-align:center}
+    .math-card-title{font-size:.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+    .steps{list-style:none;padding:0;margin:12px 0;counter-reset:step}
+    .steps li{counter-increment:step;padding:9px 14px 9px 44px;position:relative;background:#f8f9ff;border-radius:8px;margin:6px 0;font-size:.93rem}
+    .steps li::before{content:counter(step);position:absolute;left:12px;top:50%;transform:translateY(-50%);background:var(--navy);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700}
+    table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
+    th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left}
+    td{padding:9px 14px;border-bottom:1px solid #eee;vertical-align:top}
+    tr:nth-child(even) td{background:#f8f9ff}
+    .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.72rem;font-weight:700;margin-left:6px;vertical-align:middle}
+    .t-red{background:var(--accent);color:#fff}
+    .t-gold{background:var(--gold);color:#1a1a2e}
+    .t-blue{background:var(--blue);color:#fff}
+    .t-green{background:var(--green);color:#fff}
+    .qbank-intro{background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;border-radius:14px;padding:28px 32px;margin-bottom:32px}
+    .qbank-intro h3{color:#ffd54f;border:none;font-size:1.15rem;margin-bottom:10px}
+    .qlist{list-style:none;padding:0}
+    .qlist li{background:#f0f4ff;border:1px solid #c5cae9;border-radius:10px;padding:14px 18px;margin:10px 0;font-size:.93rem}
+    .qlist li .qnum{background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;margin-right:12px}
+    .qlist li .qlevel{float:right;padding:2px 10px;border-radius:10px;font-size:.72rem;font-weight:700}
+    .level-e{background:#e8f5e9;color:#2e7d32}
+    .level-m{background:#fff8e1;color:#e65100}
+    .level-h{background:#fce4ec;color:#c62828}
+    .solved-q{border:2px solid #c5cae9;border-radius:14px;margin:20px 0;overflow:hidden}
+    .sq-header{background:linear-gradient(135deg,var(--navy),#1565c0);color:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px}
+    .sq-num{background:var(--accent);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+    .sq-body{padding:20px 24px}
+    .sq-question{background:#f0f4ff;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-weight:600;font-size:.95rem}
+    .step-box{background:#fff;border:1px solid #e8eaf6;border-radius:8px;margin:10px 0;overflow:hidden}
+    .step-label{background:#e8eaf6;padding:6px 14px;font-size:.78rem;font-weight:700;color:var(--navy);text-transform:uppercase}
+    .step-content{padding:12px 16px;font-size:.92rem}
+    .answer-box{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border:2px solid var(--green);border-radius:10px;padding:14px 18px;margin-top:14px}
+    .answer-box strong{color:var(--green)}
+    .formula-sheet{background:linear-gradient(135deg,#0f3460,#16213e);color:#fff;border-radius:16px;padding:28px 32px;margin:20px 0}
+    .formula-sheet h3{color:#ffd54f;border:none;margin-bottom:18px}
+    .formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:600px){.formula-grid{grid-template-columns:1fr}}
+    .formula-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:14px;text-align:center}
+    .formula-card-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;opacity:.7;margin-bottom:8px}
+    .final{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;border-radius:16px;padding:30px 34px;margin:20px 0}
+    .final h2{background:rgba(255,255,255,.08);color:#ffd54f;border-left-color:var(--accent)}
+    .final-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    @media(max-width:600px){.final-grid{grid-template-columns:1fr}}
+    .final-item{background:rgba(255,255,255,.06);border-radius:8px;padding:10px 14px;font-size:.87rem;color:#e0e0e0}
+    .final-item strong{color:#ffd54f}
+    footer{text-align:center;padding:20px;background:#f0f4ff;color:#666;font-size:.82rem}
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>📘 Chapter 4 : सारणिक (Determinants)</h1>
+  <p>Class 12 Maths — Ultimate One-Shot Complete Revision Notes</p>
+  <div class="badges">
+    <span class="badge b-red">✨ 5 AI Sources Merged</span>
+    <span class="badge b-gold">🌐 Web Verified</span>
+    <span class="badge b-green">✅ 2×2 + 3×3 Examples</span>
+    <span class="badge b-red">🎯 Tricks + 10 Solved Questions</span>
+  </div>
+</header>
+
+<div class="toc">
+  <h3>📋 Quick Navigation</h3>
+  <div class="toc-grid">
+    <a href="#s1">1. सारणिक क्या है</a>
+    <a href="#s2">2. Expansion</a>
+    <a href="#s3">3. Minor & Cofactor</a>
+    <a href="#s4">4. Properties</a>
+    <a href="#s5">5. Triangle Area</a>
+    <a href="#s6">6. Adjoint & Inverse</a>
+    <a href="#s7">7. Linear Equations</a>
+    <a href="#s8">8. Theorems</a>
+    <a href="#s9">9. Common Mistakes</a>
+    <a href="#s10">10. Formula Sheet</a>
+    <a href="#s11">11. Question Bank</a>
+    <a href="#s12">12. Final Revision</a>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="box info">
+  <strong>📌 Golden Rule:</strong> Matrix = Data का Box, Determinant = उस Box की एक Fixed संख्या।
+  सारणिक केवल <strong>वर्ग आव्यूह (Square Matrix)</strong> का निकलता है — आयताकार का नहीं!
+</div>
+
+<!-- ===== S1 ===== -->
+<div class="section" id="s1">
+<h2>1. 📌 सारणिक क्या होता है?</h2>
+<p>हर <strong>वर्ग आव्यूह (Square Matrix)</strong> के साथ एक संख्या जुड़ी होती है जिसे <strong>सारणिक (Determinant)</strong> कहते हैं। इसे $|A|$, $\det(A)$ या $\Delta$ से लिखते हैं।</p>
+<div class="math-grid">
+  <div class="math-card">
+    <div class="math-card-title">1×1 सारणिक</div>
+    <div class="math-block">$$[a] \Rightarrow |A| = a$$</div>
+    <p style="font-size:.82rem;color:#666">जो element है वही answer है</p>
+  </div>
+  <div class="math-card">
+    <div class="math-card-title">2×2 सारणिक</div>
+    <div class="math-block">$$\begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc$$</div>
+  </div>
+</div>
+<div class="box info">
+  <strong>Real Life Idea:</strong> Determinant बताता है कि Matrix कितनी "invertible" है। $|A|=0$ हो तो Matrix का कोई Inverse नहीं।
+</div>
+</div>
+
+<!-- ===== S2 ===== -->
+<div class="section" id="s2">
+<h2>2. 🔢 सारणिक निकालना (Expansion)</h2>
+
+<h3>2×2 सारणिक</h3>
+<div class="math-block">$$\begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc$$</div>
+<div class="trick">
+  <div class="trick-title">⚡ Trick: तिरछा गुणा (Cross Multiply)</div>
+  मुख्य विकर्ण (↘) $a \times d$ &nbsp;<strong>MINUS</strong>&nbsp; उल्टा विकर्ण (↗) $b \times c$
+</div>
+<h4>✏️ उदाहरण:</h4>
+<div class="math-block">$$\begin{vmatrix} 2 & 4 \\ -1 & 2 \end{vmatrix} = (2)(2) - (4)(-1) = 4 + 4 = \mathbf{8}$$</div>
+<div class="warn">⚠️ $4 \times (-1) = -4$, इसलिए $4 - (-4) = 4 + 4 = 8$। Double negative को कभी ignore मत करो!</div>
+
+<h3>3×3 सारणिक — Cofactor Expansion</h3>
+<div class="math-block">
+$$\begin{vmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{vmatrix} = a_1(b_2c_3 - b_3c_2) - b_1(a_2c_3 - a_3c_2) + c_1(a_2b_3 - a_3b_2)$$
+</div>
+<div class="trick">
+  <div class="trick-title">⚡ Sign Pattern — हमेशा यही रहेगा</div>
+  $$\begin{bmatrix} + & - & + \\ - & + & - \\ + & - & + \end{bmatrix}$$
+  <strong>Pro Tip:</strong> हमेशा उस Row/Column से expand करो जिसमें सबसे ज़्यादा <strong>0 (शून्य)</strong> हों!
+</div>
+
+<h4>✏️ उदाहरण (R1 से expand):</h4>
+<div class="math-block">
+$$\Delta = \begin{vmatrix} 1 & 2 & -1 \\ 3 & 0 & 2 \\ 1 & -3 & 4 \end{vmatrix}$$
+$$= 1\begin{vmatrix} 0 & 2 \\ -3 & 4 \end{vmatrix} - 2\begin{vmatrix} 3 & 2 \\ 1 & 4 \end{vmatrix} + (-1)\begin{vmatrix} 3 & 0 \\ 1 & -3 \end{vmatrix}$$
+$$= 1(0+6) - 2(12-2) + (-1)(-9-0)$$
+$$= 6 - 20 + 9 = \mathbf{-5}$$
+</div>
+<div class="box success">💡 <strong>Verify Trick:</strong> Column 1 से भी expand करके check करो — same answer आएगा!</div>
+</div>
+
+<!-- ===== S3 ===== -->
+<div class="section" id="s3">
+<h2>3. 🔑 उपसारणिक और सहखंड (Minor & Cofactor)</h2>
+
+<h3>उपसारणिक (Minor — $M_{ij}$)</h3>
+<p>किसी element $a_{ij}$ का Minor = उसकी <strong>$i$-वीं पंक्ति और $j$-वाँ स्तंभ हटाने</strong> के बाद जो determinant बचे।</p>
+
+<div class="trick">
+  <div class="trick-title">⚡ Trick: "उँगली ढको" Method</div>
+  जिस element का Minor चाहिए → उसकी पूरी Row और Column को <strong>उँगली से ढक दो</strong> → जो बचा, उसका determinant निकालो।
+</div>
+
+<div class="math-grid">
+  <div class="math-card">
+    <div class="math-card-title">2×2 में Minor</div>
+    <div class="math-block">
+      $$A = \begin{vmatrix} 3 & 1 \\ 2 & 4 \end{vmatrix}$$
+      $M_{11}$: Row-1, Col-1 हटाओ → $\begin{vmatrix}4\end{vmatrix} = 4$<br>
+      $M_{12}$: Row-1, Col-2 हटाओ → $\begin{vmatrix}2\end{vmatrix} = 2$<br>
+      $M_{21}$: Row-2, Col-1 हटाओ → $\begin{vmatrix}1\end{vmatrix} = 1$<br>
+      $M_{22}$: Row-2, Col-2 हटाओ → $\begin{vmatrix}3\end{vmatrix} = 3$
+    </div>
+  </div>
+  <div class="math-card">
+    <div class="math-card-title">3×3 में Minor ($M_{22}$)</div>
+    <div class="math-block">
+      $$A = \begin{vmatrix} 1 & 2 & 3 \\ 4 & \mathbf{5} & 6 \\ 7 & 8 & 9 \end{vmatrix}$$
+      Row-2, Col-2 हटाओ:<br>
+      $$M_{22} = \begin{vmatrix} 1 & 3 \\ 7 & 9 \end{vmatrix} = 9-21 = -12$$
+    </div>
+  </div>
+</div>
+
+<h4>✏️ 3×3 Example — पहली Row के तीनों Minors:</h4>
+<div class="math-block">
+$$A = \begin{vmatrix} 2 & -3 & 1 \\ 1 & 0 & -1 \\ 4 & 2 & 3 \end{vmatrix}$$
+$$M_{11} = \begin{vmatrix}0&-1\\2&3\end{vmatrix} = 0+2 = 2 \qquad M_{12} = \begin{vmatrix}1&-1\\4&3\end{vmatrix} = 3+4 = 7 \qquad M_{13} = \begin{vmatrix}1&0\\4&2\end{vmatrix} = 2-0 = 2$$
+</div>
+
+<h3>सहखंड (Cofactor — $A_{ij}$)</h3>
+<div class="math-block">$$\boxed{A_{ij} = (-1)^{i+j} \cdot M_{ij}}$$</div>
+
+<div class="trick">
+  <div class="trick-title">⚡ Trick: Even/Odd Rule</div>
+  <ul style="margin-top:8px;padding-left:18px">
+    <li>$i + j$ = <strong>सम (Even)</strong> → Sign <strong>+</strong></li>
+    <li>$i + j$ = <strong>विषम (Odd)</strong> → Sign <strong>−</strong></li>
+  </ul>
+  <br>Sign Board: &nbsp;$\begin{bmatrix} + & - & + \\ - & + & - \\ + & - & + \end{bmatrix}$
+</div>
+
+<div class="math-grid">
+  <div class="math-card">
+    <div class="math-card-title">2×2 Cofactors</div>
+    <div class="math-block">
+      $$A = \begin{bmatrix} 3 & 1 \\ 2 & 4 \end{bmatrix}$$
+      $A_{11}=(-1)^2 \times 4 = +4$<br>
+      $A_{12}=(-1)^3 \times 2 = -2$<br>
+      $A_{21}=(-1)^3 \times 1 = -1$<br>
+      $A_{22}=(-1)^4 \times 3 = +3$
+    </div>
+  </div>
+  <div class="math-card">
+    <div class="math-card-title">3×3 Cofactors (Row 1)</div>
+    <div class="math-block">
+      ऊपर के example से:<br>
+      $A_{11}=(-1)^2 \times 2 = +2$<br>
+      $A_{12}=(-1)^3 \times 7 = -7$<br>
+      $A_{13}=(-1)^4 \times 2 = +2$
+    </div>
+  </div>
+</div>
+
+<div class="box success">
+  🌟 <strong>गोल्डन नियम (Exam में Direct आता है!):</strong><br>
+  • किसी Row/Col के elements × <strong>उसी Row/Col</strong> के Cofactors = $|A|$<br>
+  • किसी Row/Col के elements × <strong>दूसरी Row/Col</strong> के Cofactors = <strong>$0$</strong> (हमेशा!)
+</div>
+</div>
+
+<!-- ===== S4 ===== -->
+<div class="section" id="s4">
+<h2>4. 🔄 सारणिक के गुणधर्म (Properties)</h2>
+<div class="box tip"><strong>ये Properties ही Calculation छोटी करने के सबसे बड़े हथियार हैं!</strong></div>
+
+<table>
+  <tr><th>#</th><th>Property</th><th>Notation</th><th>Result</th></tr>
+  <tr><td><strong>P1</strong></td><td>Transpose</td><td>$|A^T| = |A|$</td><td>Value नहीं बदलती</td></tr>
+  <tr><td><strong>P2</strong></td><td>दो Rows/Cols बदलो</td><td>$R_i \leftrightarrow R_j$</td><td>Sign बदल जाता है</td></tr>
+  <tr><td><strong>P3</strong></td><td>दो समान Rows/Cols</td><td>$R_i = R_j$</td><td>$|A| = 0$</td></tr>
+  <tr><td><strong>P4</strong></td><td>$k$ से एक Row multiply</td><td>$R_i \to kR_i$</td><td>Det $k$ गुना होगा</td></tr>
+  <tr><td><strong>P5</strong></td><td>पूरी Matrix $\times k$</td><td>$|kA|$</td><td>$= k^n|A|$ <span class="tag t-red">MCQ Star</span></td></tr>
+  <tr><td><strong>P6</strong></td><td>Row में दूसरी Row का multiple जोड़ो</td><td>$R_i \to R_i + kR_j$</td><td>Value नहीं बदलती ✅</td></tr>
+  <tr><td><strong>P7</strong></td><td>Proportional Rows/Cols</td><td>$R_i = kR_j$</td><td>$|A| = 0$</td></tr>
+</table>
+
+<h4>✏️ Example — P6 से बड़ा Determinant छोटा करो:</h4>
+<div class="math-block">
+$$\Delta = \begin{vmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{vmatrix}$$
+$R_2 \to R_2 - 4R_1$, $R_3 \to R_3 - 7R_1$:
+$$= \begin{vmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & -6 & -12 \end{vmatrix}$$
+$R_3 \to R_3 - 2R_2$:
+$$= \begin{vmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & 0 & 0 \end{vmatrix} = 1[(-3)(0)-(- 6)(0)] - ... = \mathbf{0}$$
+</div>
+
+<div class="warn">
+  ⚠️ <strong>Matrix vs Determinant में $k$ का फर्क:</strong><br>
+  • Matrix में: $kA$ → <strong>हर element</strong> $k$ से multiply होता है<br>
+  • Determinant में: $|kA| = k^n|A|$ — $n$ = Order of Matrix<br>
+  3×3 के लिए $|2A| = 2^3|A| = 8|A|$ &nbsp;|&nbsp; 2×2 के लिए $|2A| = 4|A|$
+</div>
+</div>
+
+<!-- ===== S5 ===== -->
+<div class="section" id="s5">
+<h2>5. 📐 त्रिभुज का क्षेत्रफल (Area of Triangle)</h2>
+<div class="math-block">
+$$\text{Area} = \frac{1}{2} \left|\begin{vmatrix} x_1 & y_1 & 1 \\ x_2 & y_2 & 1 \\ x_3 & y_3 & 1 \end{vmatrix}\right|$$
+</div>
+
+<div class="trick">
+  <div class="trick-title">⚡ Step-by-Step Trick</div>
+  <ol style="margin-top:8px;padding-left:18px">
+    <li>तीनों points को Matrix में रखो (col-3 में सब 1)</li>
+    <li>Determinant निकालो (R1 से expand)</li>
+    <li>$\frac{1}{2} \times |\text{value}|$ — <strong>हमेशा Modulus</strong> लो!</li>
+    <li>Area negative नहीं होता — minus आए तो Positive करो</li>
+  </ol>
+</div>
+
+<h4>✏️ उदाहरण: $A(1,2)$, $B(4,6)$, $C(3,1)$</h4>
+<div class="math-block">
+$$\text{Area} = \frac{1}{2}\left|\begin{vmatrix} 1 & 2 & 1 \\ 4 & 6 & 1 \\ 3 & 1 & 1 \end{vmatrix}\right|$$
+$$= \frac{1}{2}\left|1(6-1) - 2(4-3) + 1(4-18)\right|$$
+$$= \frac{1}{2}\left|5 - 2 - 14\right| = \frac{1}{2} \times 11 = \mathbf{5.5 \text{ sq units}}$$
+</div>
+
+<div class="box info">
+  📌 <strong>Collinear Points:</strong> Area = 0 → तीनों बिंदु एक ही रेखा पर (सरेख) हैं।<br>
+  📌 <strong>Unknown निकालना:</strong> Area पहले से दिया हो और $k$ निकालनी हो → $\pm$ दोनों cases लो → दो values!
+</div>
+</div>
+
+<!-- ===== S6 ===== -->
+<div class="section" id="s6">
+<h2>6. 🔲 सहखंडज और व्युत्क्रम (Adjoint & Inverse)</h2>
+
+<h3>सहखंडज (Adjoint — $\text{adj}(A)$)</h3>
+<p>Cofactor Matrix का Transpose = Adjoint</p>
+
+<div class="trick">
+  <div class="trick-title">⚡ 2×2 Adjoint Shortcut (5 सेकंड में!)</div>
+  $$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \Rightarrow \text{adj}(A) = \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$$
+  <ul style="margin-top:8px;padding-left:18px">
+    <li>मुख्य विकर्ण ($a$ और $d$) → <strong>आपस में बदलो</strong></li>
+    <li>बाकी दोनों ($b$ और $c$) → <strong>Sign बदलो</strong></li>
+  </ul>
+</div>
+
+<h4>✏️ 2×2 Example:</h4>
+<div class="math-block">
+$$A = \begin{bmatrix} 3 & 1 \\ 2 & 4 \end{bmatrix} \Rightarrow \text{adj}(A) = \begin{bmatrix} 4 & -1 \\ -2 & 3 \end{bmatrix}$$
+Verification: $|A| = 12-2 = 10$
+$$A \cdot \text{adj}(A) = \begin{bmatrix}3&1\\2&4\end{bmatrix}\begin{bmatrix}4&-1\\-2&3\end{bmatrix} = \begin{bmatrix}10&0\\0&10\end{bmatrix} = 10I \checkmark$$
+</div>
+
+<h4>✏️ 3×3 Adjoint — Step by Step:</h4>
+<div class="math-block">
+$$A = \begin{bmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ 5 & 6 & 0 \end{bmatrix}$$
+</div>
+<ol class="steps">
+  <li>हर element का <strong>Cofactor</strong> निकालो $\left((-1)^{i+j} \times M_{ij}\right)$</li>
+  <li>
+    सभी 9 Cofactors:
+    <div class="math-block" style="text-align:left;font-size:.88rem">
+      $C_{11}=+(1\cdot0-4\cdot6)=-24$ &emsp; $C_{12}=-(0\cdot0-4\cdot5)=20$ &emsp; $C_{13}=+(0\cdot6-1\cdot5)=-5$<br>
+      $C_{21}=-(2\cdot0-3\cdot6)=18$ &emsp; $C_{22}=+(1\cdot0-3\cdot5)=-15$ &emsp; $C_{23}=-(1\cdot6-2\cdot5)=4$<br>
+      $C_{31}=+(2\cdot4-3\cdot1)=5$ &emsp; $C_{32}=-(1\cdot4-3\cdot0)=-4$ &emsp; $C_{33}=+(1\cdot1-2\cdot0)=1$
+    </div>
+  </li>
+  <li><strong>Cofactor Matrix का Transpose</strong> लो = adj$(A)$</li>
+</ol>
+<div class="math-block">
+$$\text{Cofactor Matrix} = \begin{bmatrix}-24&20&-5\\18&-15&4\\5&-4&1\end{bmatrix} \xrightarrow{\text{Transpose}} \text{adj}(A) = \begin{bmatrix}-24&18&5\\20&-15&-4\\-5&4&1\end{bmatrix}$$
+</div>
+<div class="warn">⚠️ <strong>सबसे Common Mistake:</strong> Cofactor Matrix बना दिया लेकिन Transpose लेना भूल गए! Adjoint = Cofactor Matrix का <strong>TRANSPOSE</strong></div>
+
+<h3>व्युत्क्रम (Inverse)</h3>
+<div class="math-block">$$\boxed{A^{-1} = \frac{1}{|A|} \cdot \text{adj}(A)}, \qquad \text{शर्त: } |A| \neq 0$$</div>
+
+<div class="trick">
+  <div class="trick-title">⚡ Inverse निकालने का सही Order</div>
+  <ol style="margin-top:8px;padding-left:18px">
+    <li>पहले <strong>$|A|$ निकालो</strong> — $= 0$ हो तो STOP</li>
+    <li>सभी <strong>Cofactors</strong> निकालो</li>
+    <li>Cofactor Matrix → <strong>Transpose</strong> = adj$(A)$</li>
+    <li>$A^{-1} = \dfrac{1}{|A|} \times$ adj$(A)$</li>
+  </ol>
+</div>
+
+<table>
+  <tr><th>Type</th><th>Condition</th><th>Inverse</th></tr>
+  <tr><td><strong>Singular Matrix (व्युत्क्रमणीय नहीं)</strong></td><td>$|A| = 0$</td><td>❌ Exist नहीं करता</td></tr>
+  <tr><td><strong>Non-Singular Matrix (व्युत्क्रमणीय)</strong></td><td>$|A| \neq 0$</td><td>✅ $A^{-1}$ मिलेगा</td></tr>
+</table>
+</div>
+
+<!-- ===== S7 ===== -->
+<div class="section" id="s7">
+<h2>7. 📝 रैखिक समीकरण-निकाय (Linear Equations) <span class="tag t-red">5-6 Marks</span></h2>
+
+<p>समीकरणों को <strong>$AX = B$</strong> के रूप में लिखो:</p>
+<div class="math-block">
+$$\underbrace{\begin{bmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{bmatrix}}_{A} \underbrace{\begin{bmatrix}x\\y\\z\end{bmatrix}}_{X} = \underbrace{\begin{bmatrix}d_1\\d_2\\d_3\end{bmatrix}}_{B} \qquad \Rightarrow \qquad \boxed{X = A^{-1}B}$$
+</div>
+
+<div class="trick">
+  <div class="trick-title">⚡ Board Exam Steps — यही लिखना है</div>
+  <ol style="padding-left:18px;margin-top:8px">
+    <li>$A$, $X$, $B$ matrices लिखो</li>
+    <li>$|A|$ निकालो</li>
+    <li>$|A| \neq 0$ हो तो लिखो: "Hence $A^{-1}$ exists"</li>
+    <li>Cofactors → adj$(A)$ → $A^{-1}$</li>
+    <li>$X = A^{-1}B$ से $x, y, z$ निकालो</li>
+    <li>किसी एक equation में values रखकर <strong>verify</strong> करो</li>
+  </ol>
+</div>
+
+<h3>Consistency Table <span class="tag t-gold">Direct Exam</span></h3>
+<table>
+  <tr><th>Condition</th><th>System का प्रकार</th><th>Solution</th></tr>
+  <tr><td>$|A| \neq 0$</td><td><strong>Consistent (संगत)</strong></td><td>Unique Solution (अनोखा हल)</td></tr>
+  <tr><td>$|A|=0$ और $(\text{adj}A)\cdot B = 0$</td><td><strong>Consistent</strong></td><td>Infinite Solutions (अनंत हल)</td></tr>
+  <tr><td>$|A|=0$ और $(\text{adj}A)\cdot B \neq 0$</td><td><strong>Inconsistent (असंगत)</strong></td><td>No Solution (कोई हल नहीं)</td></tr>
+</table>
+</div>
+
+<!-- ===== S8 ===== -->
+<div class="section" id="s8">
+<h2>8. ⭐ महत्वपूर्ण प्रमेय (Theorems — रट लो!)</h2>
+<table>
+  <tr><th>Theorem</th><th>Formula</th><th>Use</th></tr>
+  <tr><td>Transpose</td><td>$|A^T| = |A|$</td><td>हर जगह</td></tr>
+  <tr><td>Product <span class="tag t-red">MCQ Star</span></td><td>$|AB| = |A||B|$</td><td>MCQ में हर साल</td></tr>
+  <tr><td>Identity</td><td>$|I| = 1$</td><td>Verification</td></tr>
+  <tr><td>Inverse Det</td><td>$|A^{-1}| = \frac{1}{|A|}$</td><td>MCQ</td></tr>
+  <tr><td>Adjoint Det <span class="tag t-gold">1-Mark King</span></td><td>$|\text{adj}A| = |A|^{n-1}$</td><td>1 नंबर के लिए</td></tr>
+  <tr><td>Adjoint Product</td><td>$A(\text{adj}A) = (\text{adj}A)A = |A|I$</td><td>Verification</td></tr>
+  <tr><td>Reversal Law</td><td>$(AB)^{-1} = B^{-1}A^{-1}$</td><td>उल्टा क्रम याद रखो!</td></tr>
+  <tr><td>Scalar Multiple <span class="tag t-red">MCQ Star</span></td><td>$|kA| = k^n|A|$</td><td>$n$ = order</td></tr>
+</table>
+<div class="box purple-box">
+  📌 <strong>3×3 के लिए:</strong> $|\text{adj}A| = |A|^2$, &nbsp; $|2A| = 8|A|$<br>
+  📌 <strong>2×2 के लिए:</strong> $|\text{adj}A| = |A|^1 = |A|$, &nbsp; $|2A| = 4|A|$
+</div>
+</div>
+
+<!-- ===== S9 ===== -->
+<div class="section" id="s9">
+<h2>9. ❌ Common Mistakes</h2>
+<table>
+  <tr><th>❌ गलती</th><th>✅ सही तरीका</th></tr>
+  <tr><td>2×2 में minus sign भूलना</td><td>$ad-bc$: बीच में minus हमेशा!</td></tr>
+  <tr><td>Sign pattern गलत लगाना</td><td>$(-1)^{i+j}$ — Even=+, Odd=−</td></tr>
+  <tr><td>Cofactor = Minor समझना</td><td>Cofactor = <strong>Sign × Minor</strong></td></tr>
+  <tr><td>Adjoint में Transpose भूलना</td><td>Cofactor matrix → फिर Transpose!</td></tr>
+  <tr><td>$|A|=0$ पर Inverse निकालना</td><td>पहले $|A|$ check करो — हमेशा!</td></tr>
+  <tr><td>Area negative लिखना</td><td>$|\cdot|$ Modulus लो — area positive!</td></tr>
+  <tr><td>$|kA|$ में $k$ एक ही बार लिखना</td><td>$|kA| = k^n|A|$, $n$ = order!</td></tr>
+  <tr><td>$(AB)^{-1} = A^{-1}B^{-1}$ लिखना</td><td>$(AB)^{-1} = B^{-1}A^{-1}$ — उल्टा!</td></tr>
+</table>
+</div>
+
+<!-- ===== S10 ===== -->
+<div class="section" id="s10">
+<div class="formula-sheet">
+  <h3>📋 Formula Sheet — सब एक जगह</h3>
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="formula-card-title">2×2 Determinant</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$ad - bc$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Cofactor</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$A_{ij} = (-1)^{i+j} M_{ij}$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Inverse</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$A^{-1} = \frac{\text{adj}(A)}{|A|}$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Area of Triangle</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$\frac{1}{2}\left|\begin{vmatrix}x_1&y_1&1\\x_2&y_2&1\\x_3&y_3&1\end{vmatrix}\right|$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Adjoint Det</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$|\text{adj}A| = |A|^{n-1}$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Product Rule</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$|AB| = |A| \cdot |B|$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Scalar Multiple</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$|kA| = k^n |A|$$</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-card-title">Linear Equations</div>
+      <div class="math-block" style="background:transparent;border:none;color:#fff">$$X = A^{-1}B$$</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== S11: QUESTION BANK ===== -->
+<div class="section" id="s11">
+<h2>11. 🎯 Question Bank — ये 10 बना लो, Chapter खत्म!</h2>
+
+<div class="qbank-intro">
+  <h3>📌 Strategy</h3>
+  <p>ये 10 questions Chapter 4 के हर concept को cover करते हैं। इन्हें समझ लिया तो Board में कोई भी question नया नहीं लगेगा।</p>
+  <p style="margin-top:8px;opacity:.8">🟢 Easy &nbsp;|&nbsp; 🟡 Medium &nbsp;|&nbsp; 🔴 Hard</p>
+</div>
+
+<ul class="qlist">
+  <li><span class="qnum">Q1</span> 2×2 और 3×3 Determinant का मान निकालो <span class="qlevel level-e">🟢 Easy</span></li>
+  <li><span class="qnum">Q2</span> 3×3 Matrix के सभी Minors और Cofactors निकालो <span class="qlevel level-m">🟡 Medium</span></li>
+  <li><span class="qnum">Q3</span> Properties का उपयोग करके Determinant evaluate करो <span class="qlevel level-m">🟡 Medium</span></li>
+  <li><span class="qnum">Q4</span> Triangle का क्षेत्रफल Determinant से निकालो <span class="qlevel level-e">🟢 Easy</span></li>
+  <li><span class="qnum">Q5</span> तीन बिंदु Collinear हैं या नहीं — जाँचो <span class="qlevel level-e">🟢 Easy</span></li>
+  <li><span class="qnum">Q6</span> 3×3 Matrix का Adjoint और Inverse निकालो <span class="qlevel level-h">🔴 Hard</span></li>
+  <li><span class="qnum">Q7</span> Verify करो: $A(\text{adj}A) = |A| \cdot I$ <span class="qlevel level-m">🟡 Medium</span></li>
+  <li><span class="qnum">Q8</span> तीन रैखिक समीकरण — Matrix Method से $x,y,z$ निकालो <span class="qlevel level-h">🔴 Hard</span></li>
+  <li><span class="qnum">Q9</span> System Consistent है या Inconsistent — जाँचो <span class="qlevel level-m">🟡 Medium</span></li>
+  <li><span class="qnum">Q10</span> $|A|=5$ दिया है, $|\text{adj}A|$, $|3A|$ और $|A^{-1}|$ निकालो <span class="qlevel level-e">🟢 Easy</span></li>
+</ul>
+
+<h3 style="margin-top:36px;font-size:1.2rem;color:var(--navy)">✅ Step-by-Step Solved Questions</h3>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q1</div><div>Determinant का मान निकालो <span class="tag t-gold">Basic</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">(a) $\begin{vmatrix}3 & -2 \\ 1 & 4\end{vmatrix}$ &emsp;&emsp; (b) $\begin{vmatrix}2 & -1 & 3 \\ 4 & 0 & -2 \\ 1 & 5 & 3\end{vmatrix}$</div>
+    <div class="step-box">
+      <div class="step-label">Part (a) — 2×2</div>
+      <div class="step-content">$$\begin{vmatrix}3 & -2 \\ 1 & 4\end{vmatrix} = (3)(4) - (-2)(1) = 12 + 2 = \mathbf{14}$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Part (b) — 3×3, R1 से expand</div>
+      <div class="step-content">
+        $$= 2\begin{vmatrix}0&-2\\5&3\end{vmatrix} - (-1)\begin{vmatrix}4&-2\\1&3\end{vmatrix} + 3\begin{vmatrix}4&0\\1&5\end{vmatrix}$$
+        $$= 2(0+10) + 1(12+2) + 3(20-0) = 20 + 14 + 60 = \mathbf{94}$$
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q2</div><div>3×3 Matrix के Minors और Cofactors <span class="tag t-blue">Important</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">$A = \begin{bmatrix}2 & -3 & 1 \\ 1 & 0 & -1 \\ 4 & 2 & 3\end{bmatrix}$ — पहली Row के सभी Minors और Cofactors निकालो।</div>
+    <div class="step-box">
+      <div class="step-label">Minor $M_{11}$ — Row 1, Col 1 हटाओ</div>
+      <div class="step-content">$$M_{11} = \begin{vmatrix}0&-1\\2&3\end{vmatrix} = (0)(3)-(-1)(2) = 0+2 = 2$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Minor $M_{12}$ — Row 1, Col 2 हटाओ</div>
+      <div class="step-content">$$M_{12} = \begin{vmatrix}1&-1\\4&3\end{vmatrix} = (1)(3)-(-1)(4) = 3+4 = 7$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Minor $M_{13}$ — Row 1, Col 3 हटाओ</div>
+      <div class="step-content">$$M_{13} = \begin{vmatrix}1&0\\4&2\end{vmatrix} = (1)(2)-(0)(4) = 2$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Cofactors — $A_{ij} = (-1)^{i+j} \cdot M_{ij}$</div>
+      <div class="step-content">
+        $$A_{11} = (-1)^{2} \times 2 = +2$$
+        $$A_{12} = (-1)^{3} \times 7 = -7$$
+        $$A_{13} = (-1)^{4} \times 2 = +2$$
+      </div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> $M_{11}=2,\ M_{12}=7,\ M_{13}=2$ और $A_{11}=2,\ A_{12}=-7,\ A_{13}=2$</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q3</div><div>Properties से Determinant Evaluate करो <span class="tag t-blue">Tricky</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">$\Delta = \begin{vmatrix}x+y & y+z & z+x \\ z & x & y \\ 1 & 1 & 1\end{vmatrix}$ का मान निकालो।</div>
+    <div class="step-box">
+      <div class="step-label">Step 1 — $R_1 \to R_1 + R_2$ apply करो</div>
+      <div class="step-content">$R_1$ बन जाएगी: $(x+y+z,\ x+y+z,\ x+y+z)$
+        $$\Delta = \begin{vmatrix}x+y+z & x+y+z & x+y+z \\ z & x & y \\ 1 & 1 & 1\end{vmatrix}$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 2 — $R_1$ से $(x+y+z)$ common निकालो</div>
+      <div class="step-content">$$= (x+y+z)\begin{vmatrix}1 & 1 & 1 \\ z & x & y \\ 1 & 1 & 1\end{vmatrix}$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 3 — $R_1 = R_3$ (identical rows)</div>
+      <div class="step-content">$$= (x+y+z) \times 0 = \mathbf{0}$$</div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> $\Delta = 0$</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q4</div><div>Triangle का क्षेत्रफल <span class="tag t-gold">Formula Based</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">बिंदु $A(3,8)$, $B(-4,2)$, $C(5,1)$ से बने त्रिभुज का क्षेत्रफल निकालो।</div>
+    <div class="step-box">
+      <div class="step-label">Step 1 — Matrix बनाओ, Determinant निकालो</div>
+      <div class="step-content">
+        $$\text{Area} = \frac{1}{2}\left|\begin{vmatrix}3&8&1\\-4&2&1\\5&1&1\end{vmatrix}\right|$$
+        $$= \frac{1}{2}\left|3(2-1) - 8(-4-5) + 1(-4-10)\right|$$
+        $$= \frac{1}{2}\left|3(1) - 8(-9) + 1(-14)\right| = \frac{1}{2}|3 + 72 - 14|$$
+      </div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> Area $= \dfrac{1}{2}|61| = \dfrac{61}{2} = \mathbf{30.5}$ square units</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q5</div><div>Collinearity जाँचो <span class="tag t-gold">Concept</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">जाँचो कि $A(1,4)$, $B(3,2)$, $C(5,0)$ सरेख (collinear) हैं या नहीं।</div>
+    <div class="step-box">
+      <div class="step-label">Area formula लगाओ</div>
+      <div class="step-content">
+        $$\text{Area} = \frac{1}{2}\left|\begin{vmatrix}1&4&1\\3&2&1\\5&0&1\end{vmatrix}\right|$$
+        $$= \frac{1}{2}|1(2-0) - 4(3-5) + 1(0-10)|$$
+        $$= \frac{1}{2}|2+8-10| = \frac{1}{2}|0| = 0$$
+      </div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> Area = 0 → तीनों बिंदु <strong>सरेख (Collinear)</strong> हैं ✅</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q6</div><div>3×3 Matrix का Adjoint और Inverse <span class="tag t-red">Hard / 5 Marks</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">$A = \begin{bmatrix}2 & 1 & 3 \\ 4 & -1 & 0 \\ -7 & 2 & 1\end{bmatrix}$ का $A^{-1}$ निकालो।</div>
+    <div class="step-box">
+      <div class="step-label">Step 1 — $|A|$ निकालो (R1 से expand)</div>
+      <div class="step-content">
+        $$|A| = 2\begin{vmatrix}-1&0\\2&1\end{vmatrix} - 1\begin{vmatrix}4&0\\-7&1\end{vmatrix} + 3\begin{vmatrix}4&-1\\-7&2\end{vmatrix}$$
+        $$= 2(-1-0) - 1(4-0) + 3(8-7) = -2 - 4 + 3 = -3 \neq 0 \checkmark$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 2 — सभी 9 Cofactors निकालो</div>
+      <div class="step-content">
+        $$C_{11}=(-1-0)=-1 \quad C_{12}=-(4+0)=-4 \quad C_{13}=(8-7)=1$$
+        $$C_{21}=-(1-6)=5 \quad C_{22}=(2+21)=23 \quad C_{23}=-(4+7)=-11$$
+        $$C_{31}=(0+3)=3 \quad C_{32}=-(0-12)=12 \quad C_{33}=(-2-4)=-6$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 3 — adj(A) = Cofactor Matrix का Transpose</div>
+      <div class="step-content">
+        $$\text{adj}(A) = \begin{bmatrix}-1&5&3\\-4&23&12\\1&-11&-6\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 4 — $A^{-1} = \frac{1}{|A|} \cdot \text{adj}(A)$</div>
+      <div class="step-content">
+        $$A^{-1} = \frac{1}{-3}\begin{bmatrix}-1&5&3\\-4&23&12\\1&-11&-6\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> $A^{-1} = \dfrac{-1}{3}\begin{bmatrix}-1&5&3\\-4&23&12\\1&-11&-6\end{bmatrix}$</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q7</div><div>Verify: $A(\text{adj}A) = |A| \cdot I$ <span class="tag t-blue">Theorem</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">$A = \begin{bmatrix}3&1\\2&4\end{bmatrix}$ के लिए verify करो कि $A \cdot \text{adj}(A) = |A| \cdot I$</div>
+    <div class="step-box">
+      <div class="step-label">Step 1 — $|A|$ और adj$(A)$</div>
+      <div class="step-content">
+        $$|A| = 12-2 = 10$$
+        $$\text{adj}(A) = \begin{bmatrix}4&-1\\-2&3\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 2 — Multiply करो</div>
+      <div class="step-content">
+        $$A \cdot \text{adj}(A) = \begin{bmatrix}3&1\\2&4\end{bmatrix}\begin{bmatrix}4&-1\\-2&3\end{bmatrix} = \begin{bmatrix}12-2&-3+3\\8-8&-2+12\end{bmatrix} = \begin{bmatrix}10&0\\0&10\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> $\begin{bmatrix}10&0\\0&10\end{bmatrix} = 10\begin{bmatrix}1&0\\0&1\end{bmatrix} = |A| \cdot I$ ✅ Verified!</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q8</div><div>Matrix Method से Linear Equations <span class="tag t-red">Hard / 6 Marks</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">Solve: $x + 2y + 3z = 6$, $\quad 2x - y + z = 2$, $\quad 3x + 2y - z = 2$</div>
+    <div class="step-box">
+      <div class="step-label">Step 1 — Matrix Form: $AX = B$</div>
+      <div class="step-content">
+        $$A = \begin{bmatrix}1&2&3\\2&-1&1\\3&2&-1\end{bmatrix}, \quad X=\begin{bmatrix}x\\y\\z\end{bmatrix}, \quad B=\begin{bmatrix}6\\2\\2\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 2 — $|A|$ निकालो</div>
+      <div class="step-content">
+        $$|A| = 1[(-1)(-1)-(1)(2)] - 2[(2)(-1)-(1)(3)] + 3[(2)(2)-(-1)(3)]$$
+        $$= 1(1-2) - 2(-2-3) + 3(4+3) = -1+10+21 = 30 \neq 0 \checkmark$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 3 — सभी Cofactors (9 items)</div>
+      <div class="step-content" style="font-size:.88rem">
+        $$C_{11}=(1-2)=-1 \quad C_{12}=-(-2-3)=5 \quad C_{13}=(4+3)=7$$
+        $$C_{21}=-(−2-6)=8 \quad C_{22}=(-1-9)=-10 \quad C_{23}=-(2-6)=4$$
+        $$C_{31}=(2+3)=5 \quad C_{32}=-(1-6)=5 \quad C_{33}=(-1-4)=-5$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 4 — adj(A) = Cofactor Matrix का Transpose</div>
+      <div class="step-content">
+        $$\text{adj}(A) = \begin{bmatrix}-1&8&5\\5&-10&5\\7&4&-5\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 5 — $X = A^{-1}B = \frac{1}{|A|} \cdot \text{adj}(A) \cdot B$</div>
+      <div class="step-content">
+        $$X = \frac{1}{30}\begin{bmatrix}-1&8&5\\5&-10&5\\7&4&-5\end{bmatrix}\begin{bmatrix}6\\2\\2\end{bmatrix} = \frac{1}{30}\begin{bmatrix}-6+16+10\\30-20+10\\42+8-10\end{bmatrix} = \frac{1}{30}\begin{bmatrix}20\\20\\40\end{bmatrix}$$
+      </div>
+    </div>
+    <div class="answer-box">
+      <strong>Answer:</strong> $x = \dfrac{2}{3},\quad y = \dfrac{2}{3},\quad z = \dfrac{4}{3}$<br>
+      <em>Verify: $\frac{2}{3} + \frac{4}{3} + \frac{12}{3} = \frac{18}{3} = 6$ ✅</em>
+    </div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q9</div><div>Consistency Check <span class="tag t-blue">Concept</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">जाँचो: $x+y+z=1$, $2x+3y+2z=2$, $ax+ay+2az=4$ कब Consistent है?</div>
+    <div class="step-box">
+      <div class="step-label">Step 1 — $|A|$ निकालो</div>
+      <div class="step-content">
+        $$A=\begin{bmatrix}1&1&1\\2&3&2\\a&a&2a\end{bmatrix} \xrightarrow{R_3 \text{ से } a \text{ common}} |A| = a\begin{vmatrix}1&1&1\\2&3&2\\1&1&2\end{vmatrix}$$
+        $$= a[1(6-2)-1(4-2)+1(2-3)] = a[4-2-1] = a$$
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">Step 2 — Conclusion</div>
+      <div class="step-content">
+        $a \neq 0$ → $|A| \neq 0$ → <strong>Unique Solution</strong> (Consistent)<br>
+        $a = 0$ → $|A| = 0$ → $(adj\,A)\cdot B$ check करना होगा
+      </div>
+    </div>
+    <div class="answer-box"><strong>Answer:</strong> $a \neq 0$ के लिए System Consistent है (Unique Solution) ✅</div>
+  </div>
+</div>
+
+<div class="solved-q">
+  <div class="sq-header"><div class="sq-num">Q10</div><div>Theorem Based — MCQ Type <span class="tag t-gold">1 Mark Each</span></div></div>
+  <div class="sq-body">
+    <div class="sq-question">3×3 Matrix $A$ के लिए $|A|=5$ दिया है। निकालो: (a) $|\text{adj}A|$ &emsp; (b) $|3A|$ &emsp; (c) $|A^{-1}|$</div>
+    <div class="step-box">
+      <div class="step-label">(a) $|\text{adj}A|$ — Formula: $|A|^{n-1}$</div>
+      <div class="step-content">$$|\text{adj}A| = |A|^{n-1} = 5^{3-1} = 5^2 = \mathbf{25}$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">(b) $|3A|$ — Formula: $k^n|A|$</div>
+      <div class="step-content">$$|3A| = 3^3 \times |A| = 27 \times 5 = \mathbf{135}$$</div>
+    </div>
+    <div class="step-box">
+      <div class="step-label">(c) $|A^{-1}|$ — Formula: $\frac{1}{|A|}$</div>
+      <div class="step-content">$$|A^{-1}| = \frac{1}{|A|} = \frac{1}{5} = \mathbf{0.2}$$</div>
+    </div>
+    <div class="answer-box"><strong>Answers:</strong> (a) <strong>25</strong> &emsp; (b) <strong>135</strong> &emsp; (c) <strong>1/5</strong></div>
+  </div>
+</div>
+
+</div><!-- end s11 -->
+
+<!-- ===== S12 ===== -->
+<div class="section" id="s12">
+<div class="final">
+  <h2>12. ⚡ 30-Second Final Revision</h2>
+  <div class="final-grid">
+    <div class="final-item">✅ Det → केवल <strong>Square Matrix</strong> का</div>
+    <div class="final-item">✅ 2×2 → <strong>ad − bc</strong></div>
+    <div class="final-item">✅ 3×3 → Zero वाली Row/Col से expand</div>
+    <div class="final-item">✅ Minor = Row+Col हटाकर बचा det</div>
+    <div class="final-item">✅ Cofactor = $(-1)^{i+j} \times$ Minor</div>
+    <div class="final-item">✅ Sign: $+,-,+$ / $-,+,-$ / $+,-,+$</div>
+    <div class="final-item">✅ Same/Prop. Rows → Det = <strong>0</strong></div>
+    <div class="final-item">✅ Row swap → Sign change</div>
+    <div class="final-item">✅ $|AB|=|A||B|$, &nbsp;$|A^T|=|A|$</div>
+    <div class="final-item">✅ $|kA| = k^n|A|$</div>
+    <div class="final-item">✅ adj = Cofactor Matrix का <strong>Transpose</strong></div>
+    <div class="final-item">✅ $A^{-1} = \frac{adj(A)}{|A|}$, शर्त: $|A|\neq 0$</div>
+    <div class="final-item">✅ Area = 0 → Collinear</div>
+    <div class="final-item">✅ $AX=B \Rightarrow X=A^{-1}B$</div>
+    <div class="final-item">✅ $|\text{adj}A| = |A|^{n-1}$</div>
+    <div class="final-item">✅ $(AB)^{-1} = B^{-1}A^{-1}$ ← उल्टा!</div>
+  </div>
+</div>
+</div>
+
+</div><!-- end .content -->
+<footer>
+  📖 Class 12 Maths | Chapter 4 — सारणिक (Determinants)<br>
+  5 AI Sources Merged · Web Verified · 2×2 &amp; 3×3 Examples · Tricks · 10 Solved Questions
+</footer>
+</div>
+</body>
+</html>

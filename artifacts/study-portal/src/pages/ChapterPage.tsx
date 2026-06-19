@@ -154,11 +154,18 @@ export default function ChapterPage() {
           <p className="text-xs text-muted-foreground mt-1">बिहार बोर्ड · कक्षा 12 · Mathematics</p>
         </div>
 
-        {/* 3 Folders — serial list */}
+        {/* Folders — serial list */}
         <div className="flex flex-col gap-3">
-          {FOLDERS.map((folder, i) => (
+          {FOLDERS.map((folder, i) => {
+            const handleClick = () => {
+              if (num === 4 && folder.id === "revision-notes") {
+                window.open(import.meta.env.BASE_URL + "notes-ch4.html", "_blank");
+              }
+            };
+            return (
             <button
               key={folder.id}
+              onClick={handleClick}
               className={`w-full flex items-center gap-5 px-5 py-5 rounded-2xl border bg-card text-left hover:bg-muted/30 ${folder.border}`}
             >
               {/* Number badge */}
@@ -182,7 +189,8 @@ export default function ChapterPage() {
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
-          ))}
+            );
+          })}
         </div>
       </main>
 
