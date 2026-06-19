@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/study/"
-title = "Study Portal"
+title = "Alone 12th"
 version = "1.0.0"
 id = "artifacts/study-portal"
 router = "path"

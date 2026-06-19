@@ -24,7 +24,7 @@ export default function Dashboard() {
             <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
               <BookOpen className="w-3.5 h-3.5 text-primary-foreground" />
             </div>
-            <span className="font-semibold text-foreground tracking-tight">StudySpace</span>
+            <span className="font-semibold text-foreground tracking-tight">Alone 12th</span>
           </button>
 
           <div className="flex items-center gap-2">
@@ -90,7 +90,7 @@ export default function Dashboard() {
       </main>
 
       <footer className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-        StudySpace · Class 12
+        Alone 12th · Class 12
       </footer>
     </div>
   );

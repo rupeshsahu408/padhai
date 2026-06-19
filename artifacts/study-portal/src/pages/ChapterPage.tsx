@@ -187,7 +187,7 @@ export default function ChapterPage() {
       </main>
 
       <footer className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-        StudySpace · Bihar Board · Class 12
+        Alone 12th · Bihar Board · Class 12
       </footer>
     </div>
   );
