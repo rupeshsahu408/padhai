@@ -1,0 +1,671 @@
+# अध्याय: संबंध एवं फलन (Relations and Functions)
+
+## कक्षा 12 (बिहार बोर्ड) – Concepts + Formulas + Examples Notes
+
+यह अध्याय गणित का बहुत महत्वपूर्ण अध्याय है। आगे Calculus, Inverse Trigonometric Functions और कई दूसरे टॉपिक्स में इसका उपयोग होता है। इसलिए Relation और Function की बेसिक समझ मजबूत होना बहुत जरूरी है।
+
+---
+
+# 1. समुच्चय (Set) का त्वरित पुनरावलोकन
+
+समुच्चय वस्तुओं के समूह को कहते हैं।
+
+उदाहरण:
+
+A = {1, 2, 3}
+
+B = {4, 5, 6}
+
+### कार्तीय गुणन (Cartesian Product)
+
+यदि
+
+A = {1, 2}
+
+B = {3, 4}
+
+तो
+
+A × B = {(1,3), (1,4), (2,3), (2,4)}
+
+ध्यान दें:
+
+A × B में पहला तत्व A से और दूसरा B से लिया जाता है।
+
+### सूत्र
+
+यदि
+
+n(A) = m
+
+n(B) = n
+
+तो
+
+n(A × B) = mn
+
+---
+
+# 2. संबंध (Relation)
+
+A और B दो समुच्चय हैं।
+
+A × B के किसी भी उपसमुच्चय (Subset) को Relation कहते हैं।
+
+यदि
+
+A = {1,2,3}
+
+B = {4,5}
+
+तो
+
+A × B = {(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)}
+
+मान लो
+
+R = {(1,4),(2,5)}
+
+तो R, A और B के बीच एक Relation है।
+
+---
+
+# 3. Relation का Domain और Range
+
+मान लो
+
+R = {(1,4),(2,5),(3,4)}
+
+### Domain
+
+Ordered pair के पहले तत्वों का समुच्चय
+
+Domain = {1,2,3}
+
+### Range
+
+Ordered pair के दूसरे तत्वों का समुच्चय
+
+Range = {4,5}
+
+---
+
+# 4. Relation के प्रकार
+
+## (i) Empty Relation (रिक्त संबंध)
+
+जब Relation में कोई तत्व नहीं हो।
+
+R = ∅
+
+इसे Empty Relation कहते हैं।
+
+---
+
+## (ii) Universal Relation
+
+जब
+
+R = A × A
+
+यानी सभी संभव ordered pairs Relation में हों।
+
+उदाहरण:
+
+A = {1,2}
+
+R = {(1,1),(1,2),(2,1),(2,2)}
+
+---
+
+## (iii) Identity Relation
+
+जब हर तत्व स्वयं से संबंधित हो।
+
+R = {(a,a) : a ∈ A}
+
+उदाहरण:
+
+A = {1,2,3}
+
+R = {(1,1),(2,2),(3,3)}
+
+---
+
+# 5. Relation की विशेषताएँ
+
+मान लो A पर Relation R है।
+
+---
+
+## (i) Reflexive Relation
+
+यदि
+
+(a,a) ∈ R
+
+हर a ∈ A के लिए
+
+तो Relation Reflexive कहलाता है।
+
+उदाहरण:
+
+A = {1,2}
+
+R = {(1,1),(2,2),(1,2)}
+
+यह Reflexive है।
+
+---
+
+## (ii) Symmetric Relation
+
+यदि
+
+(a,b) ∈ R
+
+तो
+
+(b,a) ∈ R
+
+भी हो।
+
+उदाहरण:
+
+R = {(1,2),(2,1)}
+
+यह Symmetric है।
+
+---
+
+## (iii) Transitive Relation
+
+यदि
+
+(a,b) ∈ R
+
+और
+
+(b,c) ∈ R
+
+तो
+
+(a,c) ∈ R
+
+भी होना चाहिए।
+
+उदाहरण:
+
+R = {(1,2),(2,3),(1,3)}
+
+यह Transitive है।
+
+---
+
+## (iv) Equivalence Relation
+
+जो Relation
+
+✔ Reflexive
+
+✔ Symmetric
+
+✔ Transitive
+
+तीनों हो
+
+उसे Equivalence Relation कहते हैं।
+
+---
+
+# 6. फलन (Function)
+
+Function एक विशेष प्रकार का Relation है।
+
+### आसान भाषा में
+
+Domain के हर तत्व का Codomain में केवल एक ही image होना चाहिए।
+
+एक input → केवल एक output
+
+होना चाहिए।
+
+---
+
+## Function की परिभाषा
+
+यदि
+
+f : A → B
+
+हो और
+
+A के प्रत्येक तत्व का B में केवल एक image हो,
+
+तो f एक Function कहलाता है।
+
+---
+
+# 7. Function को पहचानने की ट्रिक
+
+### सही Function
+
+1 → 2
+
+2 → 4
+
+3 → 6
+
+हर input का एक output
+
+✔ Function
+
+---
+
+### Function नहीं
+
+1 → 2
+
+1 → 3
+
+एक ही input के दो outputs
+
+✘ Function नहीं
+
+---
+
+# 8. Domain, Codomain और Range
+
+मान लो
+
+f = {(1,2),(2,4),(3,6)}
+
+### Domain
+
+पहले तत्व
+
+Domain = {1,2,3}
+
+### Codomain
+
+जिस समुच्चय में output जाता है
+
+B = {2,4,6,8}
+
+### Range
+
+वास्तविक प्राप्त outputs
+
+Range = {2,4,6}
+
+ध्यान दें:
+
+Range ⊆ Codomain
+
+---
+
+# 9. Function के प्रकार
+
+## (i) One-One Function (Injective)
+
+अलग-अलग inputs के अलग-अलग outputs हों।
+
+उदाहरण:
+
+f(x)=2x
+
+1 → 2
+
+2 → 4
+
+3 → 6
+
+✔ One-One
+
+---
+
+## (ii) Many-One Function
+
+अलग-अलग inputs का output समान हो सकता है।
+
+उदाहरण:
+
+f(x)=x²
+
+f(2)=4
+
+f(-2)=4
+
+✔ Many-One
+
+---
+
+## (iii) Onto Function (Surjective)
+
+जब Codomain का हर तत्व Range में आ जाए।
+
+Range = Codomain
+
+तो Function Onto कहलाता है।
+
+---
+
+## (iv) Into Function
+
+जब Codomain के कुछ तत्व उपयोग न हों।
+
+Range ⊂ Codomain
+
+तो Function Into कहलाता है।
+
+---
+
+## (v) Bijective Function
+
+जो Function
+
+✔ One-One
+
+और
+
+✔ Onto
+
+दोनों हो।
+
+उसे Bijective Function कहते हैं।
+
+---
+
+# 10. कुछ महत्वपूर्ण Functions
+
+## Constant Function
+
+f(x)=5
+
+हर x के लिए उत्तर 5
+
+उदाहरण:
+
+f(1)=5
+
+f(2)=5
+
+f(100)=5
+
+---
+
+## Identity Function
+
+f(x)=x
+
+Input = Output
+
+उदाहरण:
+
+f(2)=2
+
+f(5)=5
+
+---
+
+## Polynomial Function
+
+f(x)=x²+3x+2
+
+यह Polynomial Function है।
+
+---
+
+## Modulus Function
+
+f(x)=|x|
+
+उदाहरण:
+
+|5|=5
+
+|-5|=5
+
+---
+
+## Greatest Integer Function
+
+f(x)=[x]
+
+यह x से छोटा या बराबर सबसे बड़ा पूर्णांक देता है।
+
+उदाहरण:
+
+[3.7]=3
+
+[5.9]=5
+
+[-2.3]=-3
+
+---
+
+# 11. Composite Function
+
+यदि
+
+f : A → B
+
+g : B → C
+
+तो
+
+(g∘f)(x)=g(f(x))
+
+इसे Composite Function कहते हैं।
+
+---
+
+### उदाहरण
+
+f(x)=2x
+
+g(x)=x+3
+
+निकालें:
+
+(g∘f)(x)
+
+हल:
+
+g(f(x))
+
+= g(2x)
+
+= 2x+3
+
+अतः
+
+(g∘f)(x)=2x+3
+
+---
+
+# 12. Inverse Function
+
+यदि Function One-One तथा Onto हो,
+
+तो उसका Inverse Function मौजूद होता है।
+
+### सूत्र
+
+यदि
+
+y=f(x)
+
+तो x को y के रूप में लिखें।
+
+फिर x और y को बदल दें।
+
+---
+
+### उदाहरण
+
+f(x)=2x+5
+
+मान लें
+
+y=2x+5
+
+⇒ y−5=2x
+
+⇒ x=(y−5)/2
+
+अब x और y बदल दें
+
+f⁻¹(x)=(x−5)/2
+
+---
+
+# 13. Chapter के सबसे महत्वपूर्ण Formula
+
+### Cartesian Product
+
+n(A×B)=n(A)n(B)
+
+---
+
+### Composite Function
+
+(g∘f)(x)=g(f(x))
+
+(f∘g)(x)=f(g(x))
+
+---
+
+### Identity Function
+
+I(x)=x
+
+---
+
+### Inverse Function
+
+f⁻¹(f(x))=x
+
+और
+
+f(f⁻¹(x))=x
+
+---
+
+# परीक्षा में आने वाले महत्वपूर्ण उदाहरण
+
+### Example 1
+
+A={1,2,3}
+
+B={4,5}
+
+तो n(A×B) ज्ञात करें।
+
+हल:
+
+n(A)=3
+
+n(B)=2
+
+n(A×B)=3×2=6
+
+उत्तर = 6
+
+---
+
+### Example 2
+
+जाँचें कि
+
+R={(1,1),(2,2),(1,2)}
+
+Reflexive है या नहीं।
+
+हल:
+
+(1,1) और (2,2) दोनों मौजूद हैं।
+
+अतः Relation Reflexive है।
+
+---
+
+### Example 3
+
+f(x)=3x−2
+
+f(5) ज्ञात करें।
+
+हल:
+
+f(5)=3(5)−2
+
+=15−2
+
+=13
+
+उत्तर = 13
+
+---
+
+### Example 4
+
+f(x)=x²
+
+क्या यह One-One है?
+
+हल:
+
+f(2)=4
+
+f(-2)=4
+
+दो अलग inputs का output समान है।
+
+अतः यह One-One नहीं है।
+
+---
+
+### Example 5
+
+f(x)=2x+1
+
+का inverse ज्ञात करें।
+
+हल:
+
+y=2x+1
+
+⇒ x=(y−1)/2
+
+x और y बदलने पर
+
+f⁻¹(x)=(x−1)/2
+
+---
+
+# Quick Revision (1 Minute)
+
+✔ Relation = Cartesian Product का Subset
+
+✔ Domain = First elements
+
+✔ Range = Second elements
+
+✔ Function में हर input का केवल एक output
+
+✔ One-One → अलग input, अलग output
+
+✔ Onto → Range = Codomain
+
+✔ Bijective → One-One + Onto
+
+✔ Composite Function → g(f(x))
+
+✔ Inverse Function केवल Bijective Function का होता है
+
+✔ Identity Function → f(x)=x
+
+✔ Constant Function → f(x)=k
+
+यह अध्याय बिहार बोर्ड में अक्सर 2, 3, 5 और 6 अंकों के प्रश्नों में पूछा जाता है, इसलिए Reflexive, Symmetric, Transitive, One-One, Onto और Inverse Function पर विशेष ध्यान दें।
