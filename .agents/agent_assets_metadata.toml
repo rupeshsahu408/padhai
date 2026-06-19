@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "AZ2xNEPedGKi20kOoW9nG"
+uri = "file://Chapter-4-Sarnik.md"
+type = "text"
+title = "Chapter 4 — सारणिक (Determinants) Notes"

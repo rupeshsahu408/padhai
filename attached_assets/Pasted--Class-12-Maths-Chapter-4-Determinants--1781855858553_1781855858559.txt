@@ -1,0 +1,662 @@
+बिलकुल समझ गया। 👍
+
+तुम चाहते हो कि **Class 12 Maths Chapter 4 – Determinants (सारणिक)** का ऐसा **One-Time Revision + Summary + Important Concepts + Formulas + Theorems + Common Mistakes + Examples** मिले कि NCERT की कठिन भाषा न हो, बल्कि बिल्कुल आसान भाषा में हो। ऐसा कि परीक्षा से पहले सिर्फ यही पढ़ लो और पूरा चैप्टर दिमाग में साफ हो जाए।
+
+# Chapter 4 : सारणिक (Determinants) – Complete Revision Notes
+
+---
+
+# 1. सारणिक (Determinant) क्या होता है?
+
+यदि कोई Square Matrix (पंक्ति = स्तम्भ) हो, तो उसके साथ एक संख्या जुड़ी होती है जिसे Determinant कहते हैं।
+
+जैसे
+
+[
+A=\begin{bmatrix}
+1&2\
+3&4
+\end{bmatrix}
+]
+
+तो
+
+[
+|A|=\begin{vmatrix}
+1&2\
+3&4
+\end{vmatrix}
+]
+
+इसे Determinant कहते हैं।
+
+### Real Life Idea
+
+Matrix = Data का Box
+
+Determinant = उस Box की ताकत या Value
+
+---
+
+# 2. Order of Determinant
+
+### 2×2 Determinant
+
+[
+\begin{vmatrix}
+a&b\
+c&d
+\end{vmatrix}
+]
+
+का मान
+
+[
+ad-bc
+]
+
+### Example
+
+[
+\begin{vmatrix}
+2&3\
+4&5
+\end{vmatrix}
+]
+
+[
+=(2)(5)-(3)(4)
+]
+
+[
+=10-12
+]
+
+[
+=-2
+]
+
+---
+
+# 3. 3×3 Determinant निकालना
+
+[
+\begin{vmatrix}
+a&b&c\
+d&e&f\
+g&h&i
+\end{vmatrix}
+]
+
+First Row Expansion:
+
+[
+=a(ei-fh)-b(di-fg)+c(dh-eg)
+]
+
+### Shortcut
+
+Signs हमेशा
+
+[
+
+* \quad - \quad +
+  ]
+
+रहेंगे।
+
+---
+
+### Example
+
+[
+\begin{vmatrix}
+1&2&3\
+4&5&6\
+7&8&9
+\end{vmatrix}
+]
+
+[
+=1(45-48)-2(36-42)+3(32-35)
+]
+
+[
+=-3+12-9
+]
+
+[
+=0
+]
+
+---
+
+# 4. Minor क्या होता है?
+
+किसी element की row और column हटाकर जो determinant बचता है, वह Minor कहलाता है।
+
+### Example
+
+[
+\begin{vmatrix}
+1&2&3\
+4&5&6\
+7&8&9
+\end{vmatrix}
+]
+
+Element = 5
+
+5 की row और column हटाओ
+
+[
+\begin{vmatrix}
+1&3\
+7&9
+\end{vmatrix}
+]
+
+Minor
+
+[
+=9-21
+]
+
+[
+=-12
+]
+
+---
+
+# 5. Cofactor क्या होता है?
+
+Formula:
+
+[
+A_{ij}=(-1)^{i+j}M_{ij}
+]
+
+जहाँ
+
+(M_{ij}) = Minor
+
+---
+
+### Sign Pattern
+
+बहुत Important
+
+[
+\begin{bmatrix}
++&-&+\
+-&+&-\
++&-&+
+\end{bmatrix}
+]
+
+इसे याद कर लो।
+
+---
+
+### Example
+
+Minor = -12
+
+Position = (2,2)
+
+[
+(-1)^{2+2}=+1
+]
+
+तो
+
+[
+A_{22}=(-12)
+]
+
+---
+
+# 6. Expansion by Cofactors
+
+किसी भी Row या Column से Determinant निकाला जा सकता है।
+
+Formula
+
+[
+|A|=a_{11}A_{11}+a_{12}A_{12}+a_{13}A_{13}
+]
+
+---
+
+# 7. Determinant की Important Properties
+
+## Property 1
+
+Row ↔ Row बदलने पर
+
+Determinant का Sign बदल जाता है।
+
+### Example
+
+Value = 5
+
+Rows exchange
+
+New Value = -5
+
+---
+
+## Property 2
+
+दो Rows समान हों
+
+Determinant = 0
+
+### Example
+
+[
+\begin{vmatrix}
+1&2\
+1&2
+\end{vmatrix}
+=0
+]
+
+---
+
+## Property 3
+
+दो Rows proportional हों
+
+Determinant = 0
+
+### Example
+
+[
+\begin{vmatrix}
+1&2\
+2&4
+\end{vmatrix}
+=0
+]
+
+---
+
+## Property 4
+
+किसी Row के सभी Terms को k से multiply करो
+
+तो Determinant भी k से multiply होगा।
+
+### Example
+
+Row ×3
+
+Determinant भी ×3
+
+---
+
+## Property 5
+
+पूरे Determinant के सभी Elements को k से multiply करो
+
+3×3 में
+
+[
+|kA|=k^3|A|
+]
+
+2×2 में
+
+[
+|kA|=k^2|A|
+]
+
+---
+
+## Property 6
+
+किसी Row में दूसरी Row का multiple जोड़ने से
+
+Determinant नहीं बदलता।
+
+### Example
+
+[
+R_2\to R_2+3R_1
+]
+
+Value same रहेगी।
+
+यह Simplification में सबसे ज्यादा उपयोग होती है।
+
+---
+
+# 8. Singular और Non-Singular Matrix
+
+## Singular Matrix
+
+[
+|A|=0
+]
+
+### Example
+
+[
+\begin{vmatrix}
+1&2\
+2&4
+\end{vmatrix}
+=0
+]
+
+Singular
+
+---
+
+## Non-Singular Matrix
+
+[
+|A|\neq0
+]
+
+Inverse निकलेगा।
+
+---
+
+# 9. Adjoint Matrix
+
+Step 1
+
+सभी Cofactors निकालो।
+
+Step 2
+
+Cofactor Matrix बनाओ।
+
+Step 3
+
+Transpose कर दो।
+
+जो मिलेगा वही Adjoint।
+
+[
+Adj(A)
+]
+
+---
+
+# 10. Inverse Matrix
+
+सबसे Important Formula
+
+[
+A^{-1}
+======
+
+\frac{Adj(A)}{|A|}
+]
+
+शर्त
+
+[
+|A|\neq0
+]
+
+---
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+1&2\
+3&4
+\end{bmatrix}
+]
+
+Determinant
+
+[
+=-2
+]
+
+Adjoint
+
+[
+\begin{bmatrix}
+4&-2\
+-3&1
+\end{bmatrix}
+]
+
+Inverse
+
+[
+A^{-1}
+======
+
+-\frac12
+\begin{bmatrix}
+4&-2\
+-3&1
+\end{bmatrix}
+]
+
+---
+
+# 11. Area of Triangle using Determinant
+
+Formula
+
+[
+Area=
+\frac12
+\left|
+\begin{vmatrix}
+x_1&y_1&1\
+x_2&y_2&1\
+x_3&y_3&1
+\end{vmatrix}
+\right|
+]
+
+---
+
+### Important Result
+
+यदि Area = 0
+
+तो तीनों बिंदु Collinear हैं।
+
+(एक ही सीधी रेखा पर)
+
+---
+
+# 12. Important Theorems
+
+### Theorem 1
+
+[
+|A^T|=|A|
+]
+
+Transpose करने से Determinant नहीं बदलता।
+
+---
+
+### Theorem 2
+
+[
+|AB|=|A||B|
+]
+
+बहुत Important
+
+---
+
+### Theorem 3
+
+[
+|I|=1
+]
+
+Identity Matrix का Determinant = 1
+
+---
+
+### Theorem 4
+
+[
+|A^{-1}|=\frac1{|A|}
+]
+
+---
+
+# 13. Exam में सबसे ज्यादा होने वाली गलतियाँ
+
+❌ + - + भूल जाना
+
+✔ Sign Pattern याद रखो
+
+---
+
+❌ Minor और Cofactor में Confuse होना
+
+✔ Cofactor = Sign × Minor
+
+---
+
+❌ Row Exchange के बाद Sign Change भूल जाना
+
+✔ Row बदलते ही Value का Sign उल्टा
+
+---
+
+❌ Determinant = 0 होने पर भी Inverse निकालना
+
+✔ Inverse तभी निकलेगा जब
+
+[
+|A|\neq0
+]
+
+---
+
+❌ Adjoint और Cofactor Matrix को Same समझना
+
+✔ Adjoint = Cofactor Matrix का Transpose
+
+---
+
+# 14. Chapter के Most Important Formulas
+
+### 2×2
+
+[
+\begin{vmatrix}
+a&b\
+c&d
+\end{vmatrix}
+=ad-bc
+]
+
+---
+
+### Cofactor
+
+[
+A_{ij}=(-1)^{i+j}M_{ij}
+]
+
+---
+
+### Inverse
+
+[
+A^{-1}
+======
+
+\frac{Adj(A)}{|A|}
+]
+
+---
+
+### Area
+
+[
+Area=
+\frac12
+\left|
+\begin{vmatrix}
+x_1&y_1&1\
+x_2&y_2&1\
+x_3&y_3&1
+\end{vmatrix}
+\right|
+]
+
+---
+
+### Product Property
+
+[
+|AB|=|A||B|
+]
+
+---
+
+### Transpose Property
+
+[
+|A^T|=|A|
+]
+
+---
+
+# 15. 30 सेकंड का Final Revision
+
+✅ Determinant केवल Square Matrix का निकलता है।
+
+✅ 2×2 में (ad-bc)
+
+✅ Minor = Row + Column हटाकर बचा determinant
+
+✅ Cofactor = Sign × Minor
+
+✅ Sign Pattern
+
+[
+
+* * +
+    ]
+
+[
+
+* * -
+    ]
+
+[
+
+* * +
+    ]
+
+✅ Row Exchange ⇒ Sign Change
+
+✅ Same Rows ⇒ Determinant = 0
+
+✅ Proportional Rows ⇒ Determinant = 0
+
+✅ ( |AB|=|A||B| )
+
+✅ ( |A^T|=|A| )
+
+✅ Inverse तभी जब ( |A| \neq 0 )
+
+✅ ( A^{-1}=Adj(A)/|A| )
+
+✅ Triangle Area = Determinant Method
+
+✅ Area = 0 ⇒ Points Collinear
+
+अगर तुम चाहो तो मैं इसी Chapter का **"NCERT + Board Exam + PYQ Based 2-3 पेज का Ultimate Crash Notes"** भी बना सकता हूँ जिसमें सिर्फ वही बातें हों जो बोर्ड में बार-बार पूछी जाती हैं।
