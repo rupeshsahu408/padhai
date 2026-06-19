@@ -44,7 +44,7 @@ export default function Landing() {
 
         <button
           onClick={() => navigate("/dashboard")}
-          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-semibold text-base hover:bg-primary/90 active:scale-[0.98] transition-all shadow-md shadow-primary/20"
+          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-semibold text-base hover:bg-primary/90 shadow-sm"
         >
           Get Started
           <ArrowRight className="w-4 h-4" />
