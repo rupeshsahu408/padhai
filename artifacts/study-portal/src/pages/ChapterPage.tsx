@@ -161,6 +161,9 @@ export default function ChapterPage() {
               if (num === 4 && folder.id === "revision-notes") {
                 window.open(import.meta.env.BASE_URL + "notes-ch4.html", "_blank");
               }
+              if (num === 1 && folder.id === "revision-notes") {
+                window.open(import.meta.env.BASE_URL + "notes-ch1.html", "_blank");
+              }
             };
             return (
             <button
