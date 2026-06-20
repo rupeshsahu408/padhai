@@ -17,44 +17,10 @@ const MATH_CHAPTERS: Record<number, string> = {
 
 const FOLDERS = [
   {
-    id: "unic-question",
-    label: "Unic Question",
-    desc: "Important & unique questions for exam",
-    color: "text-yellow-600 dark:text-yellow-400",
-    bg: "bg-yellow-50 dark:bg-yellow-950/30",
-    border: "border-yellow-200 dark:border-yellow-800/40",
-    svg: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-        <circle cx="12" cy="17" r=".5" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    id: "unic-objective",
-    label: "Unic Objective",
-    desc: "MCQs and objective type questions",
-    color: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    border: "border-blue-200 dark:border-blue-800/40",
-    svg: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
     id: "revision-notes",
     label: "Revision Notes",
-    desc: "Quick revision, formulas & key points",
-    color: "text-emerald-600 dark:text-emerald-400",
-    bg: "bg-emerald-50 dark:bg-emerald-950/30",
-    border: "border-emerald-200 dark:border-emerald-800/40",
     svg: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
         <line x1="9" y1="7" x2="15" y2="7" />
@@ -66,12 +32,8 @@ const FOLDERS = [
   {
     id: "trick",
     label: "Trick",
-    desc: "Smart tricks & shortcuts to solve faster",
-    color: "text-purple-600 dark:text-purple-400",
-    bg: "bg-purple-50 dark:bg-purple-950/30",
-    border: "border-purple-200 dark:border-purple-800/40",
     svg: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
@@ -79,12 +41,8 @@ const FOLDERS = [
   {
     id: "theory-concepts",
     label: "Theory Concepts",
-    desc: "Key theory points & important definitions",
-    color: "text-rose-600 dark:text-rose-400",
-    bg: "bg-rose-50 dark:bg-rose-950/30",
-    border: "border-rose-200 dark:border-rose-800/40",
     svg: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
         <path d="M2 17l10 5 10-5" />
         <path d="M2 12l10 5 10-5" />
@@ -101,9 +59,19 @@ export default function ChapterPage() {
   const num = parseInt(chapterNo ?? "0");
   const title = MATH_CHAPTERS[num] ?? "";
 
+  const handleClick = (folderId: string) => {
+    const base = import.meta.env.BASE_URL;
+    const go = (path: string) => { window.location.href = base + path; };
+    const revisionChapters = [1,2,3,4,5,7,9,10,11,12,13];
+    if (revisionChapters.includes(num) && folderId === "revision-notes") {
+      go(`ch${num}-revision/index.html`);
+    }
+    if (num === 1 && folderId === "theory-concepts") go("theory-ch1.html");
+    if (num === 1 && folderId === "trick")            go("tricks-ch1.html");
+  };
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Topbar */}
       <header className="border-b border-border bg-background">
         <div className="max-w-2xl mx-auto px-6 py-3.5 flex items-center justify-between">
           <button
@@ -145,7 +113,6 @@ export default function ChapterPage() {
       </header>
 
       <main className="flex-1 max-w-2xl mx-auto w-full px-6 py-8">
-        {/* Chapter heading */}
         <div className="mb-8">
           <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
             अध्याय {num}
@@ -154,50 +121,24 @@ export default function ChapterPage() {
           <p className="text-xs text-muted-foreground mt-1">बिहार बोर्ड · कक्षा 12 · Mathematics</p>
         </div>
 
-        {/* Folders — serial list */}
-        <div className="flex flex-col gap-3">
-          {FOLDERS.map((folder, i) => {
-            const handleClick = () => {
-              const base = import.meta.env.BASE_URL;
-              const go = (path: string) => { window.location.href = base + path; };
-              const revisionChapters = [1,2,3,4,5,7,9,10,11,12,13];
-              if (revisionChapters.includes(num) && folder.id === "revision-notes") {
-                go(`ch${num}-revision/index.html`);
-              }
-              if (num === 1 && folder.id === "theory-concepts") go("theory-ch1.html");
-              if (num === 1 && folder.id === "trick")            go("tricks-ch1.html");
-              if (num === 1 && folder.id === "unic-question")    go("unique-questions-ch1.html");
-              if (num === 1 && folder.id === "unic-objective")   go("unique-objective-ch1.html");
-            };
-            return (
+        <div className="flex flex-col gap-2">
+          {FOLDERS.map((folder) => (
             <button
               key={folder.id}
-              onClick={handleClick}
-              className={`w-full flex items-center gap-5 px-5 py-5 rounded-2xl border bg-card text-left hover:bg-muted/30 ${folder.border}`}
+              onClick={() => handleClick(folder.id)}
+              className="w-full flex items-center gap-4 px-4 py-4 rounded-xl border border-border bg-card text-left"
             >
-              {/* Number badge */}
-              <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center flex-shrink-0 text-xs font-bold text-muted-foreground">
-                {i + 1}
-              </div>
-
-              {/* SVG icon */}
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 ${folder.bg} ${folder.color}`}>
+              <div className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 text-foreground">
                 {folder.svg}
               </div>
-
-              {/* Text */}
               <div className="flex-1 min-w-0">
-                <p className="text-base font-semibold text-foreground">{folder.label}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">{folder.desc}</p>
+                <p className="text-sm font-semibold text-foreground">{folder.label}</p>
               </div>
-
-              {/* Arrow */}
               <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-muted-foreground flex-shrink-0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
-            );
-          })}
+          ))}
         </div>
       </main>
 
