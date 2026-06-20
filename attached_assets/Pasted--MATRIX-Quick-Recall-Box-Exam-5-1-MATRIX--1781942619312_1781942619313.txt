@@ -1,0 +1,197 @@
+# ⚡ MATRIX — Quick Recall Box
+## "Exam से 5 मिनट पहले — बस यही पढ़ो!"
+
+---
+
+## 🔷 1. MATRIX क्या है?
+
+- Numbers को rows और columns में सजाना = Matrix
+- Square brackets \[ ] में लिखते हैं
+- **स्मरण सूत्र:** *"Excel sheet की तरह — rows नीचे जाती हैं, columns साइड जाते हैं"*
+
+---
+
+## 🔷 2. ORDER
+
+- Order = **Rows × Columns**
+- 3 rows, 2 columns → Order = **3×2**
+- Total elements = m × n
+- **स्मरण सूत्र:** *"RC Cola पियो — Row पहले, Column बाद"* 🥤
+
+---
+
+## 🔷 3. aij NOTATION
+
+- aij = **i वीं row, j वाँ column** का element
+- a₂₃ = 2nd row, 3rd column
+- **स्मरण सूत्र:** *"पहले मंजिल (row), फिर कमरा नंबर (column)"* 🏠
+
+---
+
+## 🔷 4. TYPES OF MATRICES
+
+| Type | One-Line Rule |
+|---|---|
+| Row Matrix | सिर्फ 1 row → order 1×n |
+| Column Matrix | सिर्फ 1 column → order m×1 |
+| Square Matrix | rows = columns → m = n |
+| Zero Matrix (O) | सब elements = 0 |
+| Identity Matrix (I) | diagonal = 1, बाकी = 0 |
+| Diagonal Matrix | diagonal के अलावा सब = 0 |
+| Scalar Matrix | diagonal के सब elements equal |
+| Upper Triangular | diagonal के नीचे सब = 0 |
+| Lower Triangular | diagonal के ऊपर सब = 0 |
+| Symmetric | Aᵀ = A |
+| Skew-Symmetric | Aᵀ = −A |
+
+- **स्मरण सूत्र Identity:** *"I मतलब Identity — जैसे 1 से कुछ नहीं बदलता, वैसे AI = A"* 👑
+- **स्मरण सूत्र Skew:** *"Skew = diagonal पर हमेशा ZERO — बिना exception के!"*
+
+---
+
+## 🔷 5. EQUALITY (बराबरी)
+
+- Equal होने के लिए **दो शर्तें:**
+  - ① Order same होना चाहिए
+  - ② हर corresponding element equal होना चाहिए
+- **स्मरण सूत्र:** *"पहले कद मिलाओ (order), फिर चेहरा मिलाओ (elements)"* 👥
+
+---
+
+## 🔷 6. ADDITION / SUBTRACTION
+
+- Same order → तभी होगा
+- बस corresponding elements जोड़ो / घटाओ
+- **Formula:** (A ± B)ij = aij ± bij
+- Different order → **"Not Defined"** लिखो
+- **स्मरण सूत्र:** *"एक ही size के डिब्बे मिलाए जा सकते हैं — अलग size वाले नहीं"* 📦
+
+---
+
+## 🔷 7. SCALAR MULTIPLICATION
+
+- **Formula:** (kA)ij = k × aij
+- k को matrix के **हर element** से गुणा करो — एक भी मत छोड़ो!
+- **स्मरण सूत्र:** *"Tax की तरह — हर चीज़ पर लगता है, कोई बचता नहीं!"* 😄
+
+---
+
+## 🔷 8. MATRIX MULTIPLICATION (AB)
+
+**3 Steps — इसी order में:**
+
+- **Step 1 — CHECK करो:**
+  A(m×**n**) × B(**n**×p) → बीच के numbers same होने चाहिए
+- **Step 2 — RESULT का order:**
+  AB का order = **m × p** (बाहर के दो numbers)
+- **Step 3 — CALCULATE:**
+  (AB)ij = A की **i वीं row** × B का **j वाँ column** → element-wise multiply करके जोड़ो
+
+- **स्मरण सूत्र:** *"बीच में हाथ मिलाना जरूरी है — नहीं मिला तो multiplication नहीं होगी!"* 🤝
+
+---
+
+## 🔷 9. MULTIPLICATION के RULES
+
+- AB ≠ BA ❌ → **Commutative नहीं होती**
+- A(BC) = (AB)C ✅ → **Associative होती है**
+- A(B+C) = AB + AC ✅ → **Distributive होती है**
+- AI = IA = A ✅
+- AO = OA = O ✅
+- AB = O का मतलब A=O या B=O **नहीं** होता ⚠️
+- **स्मरण सूत्र:** *"Matrix में order matter करता है — जैसे पहले जूता पहनो फिर मोज़ा नहीं चलता!"* 👟
+
+---
+
+## 🔷 10. TRANSPOSE (Aᵀ या A')
+
+- Rows → Columns बन जाती हैं, Columns → Rows
+- Order **flip** होता है: m×n → **n×m**
+- **(Aᵀ)ᵀ = A** (double transpose = original)
+- **(A+B)ᵀ = Aᵀ + Bᵀ** ✅
+- **(kA)ᵀ = k.Aᵀ** ✅
+- **(AB)ᵀ = BᵀAᵀ** ← order reverse! ⚠️
+- **स्मरण सूत्र:** *"Transpose में matrix को 45° तिरछा घुमा दो — row, column बन जाती है!"* 🔄
+- **स्मरण सूत्र (AB)ᵀ:** *"जूते उतारो उल्टे — पहले B उतरेगा, फिर A"* 👟
+
+---
+
+## 🔷 11. SYMMETRIC MATRIX
+
+- **Condition:** Aᵀ = A
+- aij = aji (हर element अपनी mirror position पर same है)
+- **Diagonal पर कोई भी value** हो सकती है
+- **स्मरण सूत्र:** *"Symmetric = आईना — बाईं तरफ जो है, दाईं तरफ भी वही!"* 🪞
+
+---
+
+## 🔷 12. SKEW-SYMMETRIC MATRIX
+
+- **Condition:** Aᵀ = −A
+- aij = −aji
+- **Diagonal के सब elements = 0** (हमेशा!)
+- **स्मरण सूत्र:** *"Skew = उल्टा आईना — और diagonal खाली मैदान!"* ⚽
+
+---
+
+## 🔷 13. IMPORTANT SPLIT FORMULA
+
+```
+A = ½(A + Aᵀ)  +  ½(A − Aᵀ)
+   [Symmetric]    [Skew-Symmetric]
+```
+- हर square matrix को इन दोनों के sum में तोड़ सकते हैं
+- **स्मरण सूत्र:** *"हर इंसान में अच्छाई और बुराई दोनों होती है — matrix भी Symmetric + Skew में टूटता है!"* 😄
+
+---
+
+## 🔷 14. IDENTITY MATRICES (याद करो — directly!)
+
+```
+I₂ = [ 1  0 ]       I₃ = [ 1  0  0 ]
+     [ 0  1 ]            [ 0  1  0 ]
+                          [ 0  0  1 ]
+```
+- **स्मरण सूत्र:** *"I = हीरो नंबर 1 — सभी की diagonal पर बैठा है!"*
+
+---
+
+## 🔷 15. IMPORTANT RESULTS — ONE LINERS
+
+- A + O = A → Zero matrix, addition में कोई effect नहीं
+- A − A = O → खुद से घटाओ तो zero
+- (A + B) + C = A + (B + C) → Addition associative है
+- k(A + B) = kA + kB → Scalar distributive है
+- (k + l)A = kA + lA → Scalar distributive है
+- A²  का मतलब = **A × A** (elements square नहीं होते!) ⚠️
+
+---
+
+## 🔷 16. "NOT DEFINED" कब लिखते हैं?
+
+- Addition/Subtraction → order अलग हो तो
+- Multiplication AB → A के columns ≠ B के rows तो
+- **स्मरण सूत्र:** *"जब fit नहीं होता, तो 'Not Defined' लिखो और आगे बढ़ो!"*
+
+---
+
+## ⚡ LAST 60 SECONDS — FLASH REVISION
+
+```
+✅ Order  →  Row × Column (RC Cola!)
+✅ Equal  →  Same order + same elements
+✅ Add    →  Same order वाले, element-wise
+✅ kA     →  हर element × k
+✅ AB     →  A के col = B के row (बीच मिलाओ!)
+✅ AB ≠ BA →  हमेशा याद रखो!
+✅ Aᵀ     →  Row↔Column swap, order flip
+✅ (AB)ᵀ  →  BᵀAᵀ  (reverse order!)
+✅ Sym    →  Aᵀ = A
+✅ Skew   →  Aᵀ = −A, diagonal = 0
+✅ A²     →  A×A है, elements² नहीं!
+✅ Split  →  A = ½(A+Aᵀ) + ½(A−Aᵀ)
+```
+
+---
+
+> 💪 **"Matrix का एक ही मंत्र — पहले Order check करो, फिर काम करो। All the best Bihar Board 2026!"** 🌟

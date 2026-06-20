@@ -41,12 +41,9 @@
       box-shadow:0 2px 28px rgba(0,0,0,.07);
     }
 
-    /* Topbar */
     .topbar{
-      background:var(--white);
-      border-bottom:1px solid var(--border);
-      padding:0 24px;
-      position:sticky;top:0;z-index:10;
+      background:var(--white);border-bottom:1px solid var(--border);
+      padding:0 24px;position:sticky;top:0;z-index:10;
     }
     .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:50px}
     .back-btn{
@@ -55,7 +52,6 @@
     }
     .back-btn:hover{color:var(--text)}
 
-    /* Cover */
     .cover{
       background:linear-gradient(135deg,#0f2027,#203a43,#1a1a2e);
       color:#fff;padding:36px 32px 28px;
@@ -73,11 +69,7 @@
       padding:4px 14px;border-radius:20px;letter-spacing:.5px;
     }
 
-    /* Section */
-    .section{
-      padding:24px 28px 20px;
-      border-bottom:1px solid var(--border);
-    }
+    .section{padding:22px 28px 18px;border-bottom:1px solid var(--border)}
     .section:last-child{border-bottom:none}
 
     .sec-label{
@@ -90,15 +82,11 @@
       border-bottom:1px solid var(--accent-light);
     }
 
-    /* Bullet list */
     ul.points{list-style:none;margin:0 0 8px}
     ul.points li{
-      padding:5px 0 5px 18px;
-      position:relative;
-      font-size:.85rem;
-      color:var(--text);
-      border-bottom:1px solid #f5f5fa;
-      line-height:1.65;
+      padding:5px 0 5px 18px;position:relative;
+      font-size:.85rem;color:var(--text);
+      border-bottom:1px solid #f5f5fa;line-height:1.65;
     }
     ul.points li:last-child{border-bottom:none}
     ul.points li::before{
@@ -106,31 +94,26 @@
       width:5px;height:5px;background:var(--accent);border-radius:50%;
     }
     ul.points li b{color:var(--navy)}
+    .warn{color:#dc2626!important;font-weight:700}
 
-    /* Trick box */
     .trick{
       background:#f5f0ff;border:1px solid #d8c8f8;
       border-radius:8px;padding:9px 14px;margin:10px 0;
-      font-size:.82rem;color:#3b0a8a;line-height:1.6;
+      font-size:.82rem;color:#3b0a8a;line-height:1.65;
     }
     .trick-label{
       font-size:.58rem;font-weight:700;letter-spacing:1.5px;
       text-transform:uppercase;color:#6d28d9;display:block;margin-bottom:2px;
     }
 
-    /* Formula inline block */
-    .formula-row{
-      background:var(--accent-light);border:1px solid #c5d4f5;
-      border-radius:6px;padding:8px 14px;margin:6px 0;
-      font-size:.84rem;display:flex;gap:12px;align-items:baseline;
-      flex-wrap:wrap;
-    }
-    .formula-row .label{
-      font-size:.68rem;font-weight:700;color:var(--accent);
-      min-width:120px;flex-shrink:0;
+    .alert{
+      background:#fff1f1;border:1px solid #fecaca;
+      border-left:3px solid #dc2626;border-radius:0 6px 6px 0;
+      padding:8px 14px;font-size:.82rem;color:#7f1d1d;
+      margin:8px 0;line-height:1.6;
     }
 
-    /* Types table */
+    /* Tables */
     .types-table{width:100%;border-collapse:collapse;font-size:.8rem;margin:10px 0}
     .types-table th{
       background:var(--navy);color:#fff;padding:7px 10px;
@@ -143,7 +126,6 @@
     .types-table tr:nth-child(even) td{background:#f7f8fc}
     .types-table .t{font-weight:700;color:var(--navy)}
 
-    /* Formula table */
     .formula-table{width:100%;border-collapse:collapse;font-size:.8rem;margin:10px 0}
     .formula-table th{
       background:var(--accent);color:#fff;padding:7px 10px;
@@ -153,51 +135,88 @@
       padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:middle;
     }
     .formula-table tr:nth-child(even) td{background:#f7f8fc}
-    .formula-table .warn{color:#dc2626;font-weight:700;font-size:.75rem}
+    .formula-table .rev{color:#dc2626;font-weight:700;font-size:.75rem}
 
-    /* Alert */
-    .alert{
-      background:#fff1f1;border:1px solid #fecaca;border-left:3px solid #dc2626;
-      border-radius:0 6px 6px 0;padding:8px 14px;
-      font-size:.82rem;color:#7f1d1d;margin:8px 0;line-height:1.6;
+    /* Identity block */
+    .identity-box{
+      display:flex;gap:24px;flex-wrap:wrap;margin:10px 0;
+    }
+    .id-card{
+      background:var(--accent-light);border:1px solid #c5d4f5;
+      border-radius:8px;padding:12px 18px;font-size:.85rem;
+      flex:1;min-width:140px;
+    }
+    .id-card .id-label{
+      font-size:.65rem;font-weight:700;color:var(--accent);
+      text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;
+    }
+
+    /* Steps */
+    .steps{display:flex;flex-direction:column;gap:0;margin:10px 0}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:8px 0;border-bottom:1px solid #f0f0f5;font-size:.85rem;
+    }
+    .step:last-child{border-bottom:none}
+    .step-n{
+      min-width:22px;height:22px;background:var(--accent);
+      color:#fff;font-weight:700;font-size:.72rem;
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;margin-top:1px;
     }
 
     /* Math */
     .math-block{overflow-x:auto;padding:4px 0;font-size:.88rem}
 
-    /* Final box */
-    .final-box{
+    /* Flash cards */
+    .flash-box{
       background:var(--navy);margin:24px 28px 28px;
       border-radius:12px;padding:22px 24px;color:#fff;
     }
-    .final-title{
+    .flash-title{
       font-size:.6rem;font-weight:700;letter-spacing:2px;
-      text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:14px;
+      text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px;
     }
-    .final-list{list-style:none;display:flex;flex-direction:column;gap:6px}
-    .final-list li{
-      font-size:.83rem;color:rgba(255,255,255,.82);
-      display:flex;gap:10px;line-height:1.55;
+    .flash-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:6px;
     }
-    .final-list li .n{color:#a5b4fc;font-weight:700;flex-shrink:0;width:20px}
+    .flash-item{
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+      border-radius:6px;padding:8px 10px;font-size:.78rem;
+      color:rgba(255,255,255,.85);line-height:1.5;
+    }
+    .flash-item .fi-label{
+      font-size:.62rem;color:rgba(255,255,255,.4);
+      font-weight:700;display:block;margin-bottom:2px;
+      text-transform:uppercase;letter-spacing:.5px;
+    }
+    .flash-item .fi-val{font-weight:700;color:#a5b4fc}
+
+    .mantra{
+      background:rgba(255,255,255,.08);border-radius:8px;
+      padding:14px 16px;margin-top:14px;
+      font-size:.85rem;color:rgba(255,255,255,.9);
+      text-align:center;font-weight:600;line-height:1.6;
+    }
 
     .footer{
-      text-align:center;padding:20px;
-      font-size:.72rem;color:var(--muted);border-top:1px solid var(--border);
+      text-align:center;padding:20px;font-size:.72rem;
+      color:var(--muted);border-top:1px solid var(--border);
     }
 
     @media(max-width:600px){
-      .section{padding:20px 18px 16px}
+      .section{padding:18px 18px 14px}
       .cover{padding:28px 18px 22px}
       .topbar{padding:0 16px}
-      .final-box{margin:20px 18px 24px}
+      .flash-box{margin:20px 18px 24px}
+      .flash-grid{grid-template-columns:1fr}
+      .identity-box{flex-direction:column}
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-inner">
       <a class="back-btn" href="index.html">
@@ -209,193 +228,193 @@
     </div>
   </div>
 
-  <!-- Cover -->
   <div class="cover">
-    <div class="cover-tag">Chapter 3 · Bihar Board Class 12 · 5-Minute Revision</div>
+    <div class="cover-tag">Chapter 3 · Bihar Board Class 12 · Merged Best Version</div>
     <h1>⚡ Quick Recall Box<br><span style="font-size:.95rem;font-weight:400;opacity:.5">आव्यूह — Matrices</span></h1>
     <div class="sub">Exam से पहले — सिर्फ points, formulas, tricks। कोई explanation नहीं।</div>
     <div class="timer-badge">⏱ 5 मिनट में पूरा Chapter</div>
   </div>
 
 
-  <!-- 1. Matrix क्या है -->
+  <!-- Block 1: Matrix Basic -->
   <div class="section">
     <div class="sec-label">Block 1</div>
     <h2>Matrix — Basic</h2>
     <ul class="points">
       <li>Rows और Columns में सजी संख्याओं को <b>Matrix</b> कहते हैं — Square Brackets [ ] में</li>
-      <li>Order = <b>m × n</b> → m = Rows, n = Columns</li>
-      <li>Total elements = <b>m × n</b></li>
-      <li>$a_{ij}$ = <b>i वीं Row</b>, <b>j वाँ Column</b> का element</li>
-      <li>अगर 8 elements हों → possible orders: 1×8, 8×1, 2×4, 4×2</li>
+      <li>जैसे Excel sheet — rows नीचे जाती हैं, columns साइड में</li>
+      <li>Order = <b>m × n</b> → m = Rows, n = Columns | Total elements = <b>m × n</b></li>
+      <li>$a_{ij}$ = <b>i वीं Row</b>, <b>j वाँ Column</b> का element &nbsp;|&nbsp; $a_{23}$ = 2nd row, 3rd column</li>
+      <li>8 elements हों → possible orders: <b>1×8, 8×1, 2×4, 4×2</b></li>
     </ul>
     <div class="trick">
       <span class="trick-label">🧠 स्मरण सूत्र — RC Cola</span>
-      Order लिखते हो → पहले <b>R</b>ow, फिर <b>C</b>olumn। RC Cola की तरह — R पहले आता है।
+      Order लिखते हो → पहले <b>R</b>ow, फिर <b>C</b>olumn। RC Cola की तरह — R पहले आता है। 🥤
+    </div>
+    <div class="trick" style="margin-top:8px">
+      <span class="trick-label">🧠 स्मरण सूत्र — $a_{ij}$</span>
+      पहले <b>मंजिल</b> (row = i), फिर <b>कमरा नंबर</b> (column = j)। 🏠<br>
+      Hotel में पहले floor देखते हैं, फिर room number।
     </div>
   </div>
 
 
-  <!-- 2. Types -->
+  <!-- Block 2: Types -->
   <div class="section">
     <div class="sec-label">Block 2</div>
     <h2>Matrix के प्रकार — सब एक नज़र में</h2>
     <table class="types-table">
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td class="t">Row Matrix</td>
-        <td>सिर्फ 1 Row (order 1×n)</td>
-        <td>$[3\ -1\ 7]$</td>
-      </tr>
-      <tr>
-        <td class="t">Column Matrix</td>
-        <td>सिर्फ 1 Column (order m×1)</td>
-        <td>$\begin{bmatrix}2\\5\end{bmatrix}$</td>
-      </tr>
-      <tr>
-        <td class="t">Rectangular</td>
-        <td>Rows ≠ Columns (m ≠ n)</td>
-        <td>2×3 matrix</td>
-      </tr>
-      <tr>
-        <td class="t">Square</td>
-        <td>Rows = Columns (m = n)</td>
-        <td>2×2, 3×3</td>
-      </tr>
-      <tr>
-        <td class="t">Zero — O</td>
-        <td>सभी elements = 0</td>
-        <td>$\begin{bmatrix}0&0\\0&0\end{bmatrix}$</td>
-      </tr>
-      <tr>
-        <td class="t">Diagonal</td>
-        <td>Diagonal के बाहर सब 0</td>
-        <td>$\begin{bmatrix}2&0\\0&5\end{bmatrix}$</td>
-      </tr>
-      <tr>
-        <td class="t">Scalar</td>
-        <td>Diagonal + सब diagonal equal</td>
-        <td>$\begin{bmatrix}4&0\\0&4\end{bmatrix}$</td>
-      </tr>
-      <tr>
-        <td class="t">Identity — I</td>
-        <td>Scalar + diagonal = 1</td>
-        <td>$\begin{bmatrix}1&0\\0&1\end{bmatrix}$</td>
-      </tr>
-      <tr>
-        <td class="t">Upper Triangular</td>
-        <td>Diagonal के नीचे सब 0</td>
-        <td>$\begin{bmatrix}1&2\\0&3\end{bmatrix}$</td>
-      </tr>
-      <tr>
-        <td class="t">Lower Triangular</td>
-        <td>Diagonal के ऊपर सब 0</td>
-        <td>$\begin{bmatrix}1&0\\2&3\end{bmatrix}$</td>
-      </tr>
+      <tr><th>Type</th><th>Condition / Rule</th><th>Example</th></tr>
+      <tr><td class="t">Row Matrix</td><td>सिर्फ 1 Row (1×n)</td><td>$[3\ {-1}\ 7]$</td></tr>
+      <tr><td class="t">Column Matrix</td><td>सिर्फ 1 Column (m×1)</td><td>$\begin{bmatrix}2\\5\end{bmatrix}$</td></tr>
+      <tr><td class="t">Rectangular</td><td>Rows ≠ Columns (m ≠ n)</td><td>2×3 matrix</td></tr>
+      <tr><td class="t">Square</td><td>Rows = Columns (m = n)</td><td>2×2, 3×3</td></tr>
+      <tr><td class="t">Zero — O</td><td>सभी elements = 0</td><td>$\begin{bmatrix}0&0\\0&0\end{bmatrix}$</td></tr>
+      <tr><td class="t">Diagonal</td><td>Diagonal के बाहर सब 0</td><td>$\begin{bmatrix}2&0\\0&5\end{bmatrix}$</td></tr>
+      <tr><td class="t">Scalar</td><td>Diagonal + सब diagonal equal</td><td>$\begin{bmatrix}4&0\\0&4\end{bmatrix}$</td></tr>
+      <tr><td class="t">Identity — I</td><td>Diagonal = 1, बाकी = 0</td><td>$\begin{bmatrix}1&0\\0&1\end{bmatrix}$</td></tr>
+      <tr><td class="t">Upper Triangular</td><td>Diagonal के नीचे सब 0</td><td>$\begin{bmatrix}1&2\\0&3\end{bmatrix}$</td></tr>
+      <tr><td class="t">Lower Triangular</td><td>Diagonal के ऊपर सब 0</td><td>$\begin{bmatrix}1&0\\2&3\end{bmatrix}$</td></tr>
     </table>
     <div class="trick">
       <span class="trick-label">🧠 स्मरण सूत्र — Hierarchy</span>
       <b>Identity ⊂ Scalar ⊂ Diagonal ⊂ Square</b><br>
-      जैसे: दादा → बाबा → पिता → बेटा। हर बड़ा छोटे को cover करता है।
-    </div>
-  </div>
-
-
-  <!-- 3. Equality -->
-  <div class="section">
-    <div class="sec-label">Block 3</div>
-    <h2>समानता (Equality)</h2>
-    <ul class="points">
-      <li>A = B तभी जब: <b>1. Same Order</b> हो और <b>2. हर $a_{ij} = b_{ij}$</b> हो</li>
-      <li>Order अलग है → बस लिखो "Not Equal" — elements देखने की ज़रूरत नहीं</li>
-    </ul>
-    <div class="trick">
-      <span class="trick-label">🧠 स्मरण सूत्र</span>
-      जैसे दो जोड़ी जुते compare करते हो — पहले size check (order), फिर design check (elements)।
-    </div>
-  </div>
-
-
-  <!-- 4. Operations -->
-  <div class="section">
-    <div class="sec-label">Block 4</div>
-    <h2>जोड़, घटाव, Scalar Multiplication</h2>
-    <ul class="points">
-      <li><b>Addition/Subtraction:</b> Same order ज़रूरी → Corresponding elements को जोड़ो/घटाओ</li>
-      <li>$(A+B)_{ij} = a_{ij}+b_{ij}$ &nbsp;|&nbsp; $(A-B)_{ij} = a_{ij}-b_{ij}$</li>
-      <li><b>Scalar kA:</b> हर एक element को k से गुणा करो — एक भी नहीं छोड़ना</li>
-      <li>$(kA)_{ij} = k\cdot a_{ij}$ &nbsp;|&nbsp; $-A = (-1)A$</li>
-    </ul>
-    <ul class="points" style="margin-top:8px">
-      <li><b>Commutative:</b> $A+B = B+A$ ✓</li>
-      <li><b>Associative:</b> $(A+B)+C = A+(B+C)$ ✓</li>
-      <li><b>Identity:</b> $A+O = A$ &nbsp;|&nbsp; <b>Inverse:</b> $A+(-A) = O$</li>
-      <li>$k(A+B) = kA+kB$ &nbsp;|&nbsp; $(k+l)A = kA+lA$</li>
-    </ul>
-    <div class="alert">⚠️ $A+B$ possible नहीं अगर order अलग हो। "Not defined" लिखो।</div>
-  </div>
-
-
-  <!-- 5. Multiplication -->
-  <div class="section">
-    <div class="sec-label">Block 5</div>
-    <h2>Matrix Multiplication — सबसे Important</h2>
-    <ul class="points">
-      <li>AB possible तभी: <b>A के columns = B के rows</b></li>
-      <li>$A(m\times n) \times B(n\times p)$ → $AB$ का order = <b>$m\times p$</b></li>
-      <li>$(AB)_{ij} = \sum_{k=1}^{n} a_{ik}\cdot b_{kj}$ → i वीं row × j वाँ column, फिर जोड़ो</li>
-      <li><b>$A^2 = A\times A$</b> — matrix multiplication। Elements को square नहीं करते!</li>
-    </ul>
-    <ul class="points" style="margin-top:8px">
-      <li><b>Associative:</b> $(AB)C = A(BC)$ ✓</li>
-      <li><b>Distributive:</b> $A(B+C) = AB+AC$ ✓</li>
-      <li><b>Identity:</b> $AI = IA = A$</li>
-      <li class="points"><b style="color:#dc2626">Commutative नहीं:</b> $AB \neq BA$ generally ✗</li>
-      <li><b>Zero Product नहीं:</b> $AB=O$ का मतलब $A=O$ या $B=O$ नहीं!</li>
-    </ul>
-    <div class="trick">
-      <span class="trick-label">🧠 स्मरण सूत्र</span>
-      $A(m\times\underline{n})\times B(\underline{n}\times p)$ — बीच के दो numbers match होने चाहिए।<br>
-      जैसे ताला और चाबी — साइज match करेगी तभी खुलेगा।
+      जैसे दादा → बाबा → पिता → बेटा। हर बड़ा छोटे को cover करता है।
     </div>
     <div class="trick" style="margin-top:8px">
-      <span class="trick-label">🧠 AB ≠ BA — स्मरण</span>
-      Traffic rule की तरह — Delhi से Patna का रास्ता, Patna से Delhi का रास्ता अलग हो सकता है।
+      <span class="trick-label">🧠 Identity याद करो</span>
+      "I मतलब Identity — जैसे 1 से कुछ नहीं बदलता, वैसे AI = IA = A" 👑<br>
+      "Skew = diagonal पर हमेशा ZERO — बिना exception के!"
     </div>
   </div>
 
 
-  <!-- 6. Transpose -->
+  <!-- Block 3: Identity Matrices Direct -->
+  <div class="section">
+    <div class="sec-label">Block 3</div>
+    <h2>$I_2$ और $I_3$ — Direct याद करो</h2>
+    <div class="identity-box">
+      <div class="id-card">
+        <div class="id-label">$I_2$ (2×2)</div>
+        <div class="math-block">$$I_2 = \begin{bmatrix}1&0\\0&1\end{bmatrix}$$</div>
+      </div>
+      <div class="id-card">
+        <div class="id-label">$I_3$ (3×3)</div>
+        <div class="math-block">$$I_3 = \begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$$</div>
+      </div>
+    </div>
+    <ul class="points">
+      <li>$AI = IA = A$ — Identity से गुणा करने पर matrix नहीं बदलती</li>
+      <li>$AO = OA = O$ — Zero matrix से गुणा करने पर Zero ही मिलेगा</li>
+    </ul>
+  </div>
+
+
+  <!-- Block 4: Equality -->
+  <div class="section">
+    <div class="sec-label">Block 4</div>
+    <h2>समानता (Equality)</h2>
+    <ul class="points">
+      <li>A = B तभी जब: <b>① Same Order</b> और <b>② हर $a_{ij} = b_{ij}$</b></li>
+      <li>Order अलग है → तुरंत "Not Equal" — elements देखने की ज़रूरत नहीं</li>
+    </ul>
+    <div class="trick">
+      <span class="trick-label">🧠 स्मरण सूत्र</span>
+      दो लोगों को compare करते हो → पहले <b>कद मिलाओ</b> (order), फिर <b>चेहरा मिलाओ</b> (elements)। 👥
+    </div>
+  </div>
+
+
+  <!-- Block 5: Addition + Scalar -->
+  <div class="section">
+    <div class="sec-label">Block 5</div>
+    <h2>जोड़, घटाव, Scalar Multiplication</h2>
+    <ul class="points">
+      <li><b>Addition/Subtraction:</b> Same order ज़रूरी → $(A\pm B)_{ij} = a_{ij} \pm b_{ij}$</li>
+      <li>Different order → <b>"Not Defined"</b> — बस इतना लिखो</li>
+      <li><b>Scalar $kA$:</b> हर एक element को k से गुणा — एक भी नहीं छोड़ना → $(kA)_{ij} = k\cdot a_{ij}$</li>
+      <li>$-A = (-1)A$ &nbsp;|&nbsp; $A - B = A + (-1)B$</li>
+    </ul>
+    <ul class="points" style="margin-top:6px">
+      <li>$A+B = B+A$ ✓ (Commutative) &nbsp;|&nbsp; $(A+B)+C = A+(B+C)$ ✓ (Associative)</li>
+      <li>$A + O = O + A = A$ &nbsp;|&nbsp; $A + (-A) = O$</li>
+      <li>$k(A+B) = kA+kB$ &nbsp;|&nbsp; $(k+l)A = kA+lA$</li>
+    </ul>
+    <div class="trick">
+      <span class="trick-label">🧠 स्मरण सूत्र — Addition</span>
+      एक ही <b>size के डिब्बे</b> मिलाए जा सकते हैं — अलग size वाले नहीं। 📦
+    </div>
+    <div class="trick" style="margin-top:8px">
+      <span class="trick-label">🧠 स्मरण सूत्र — Scalar kA</span>
+      Tax की तरह — हर चीज़ पर लगता है, कोई element बचता नहीं! 😄
+    </div>
+  </div>
+
+
+  <!-- Block 6: Multiplication -->
   <div class="section">
     <div class="sec-label">Block 6</div>
-    <h2>Transpose (परिवर्त) — $A'$ या $A^T$</h2>
+    <h2>Matrix Multiplication — 3 Steps में</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div><b>Check करो:</b> $A(m\times\underline{n})\times B(\underline{n}\times p)$ → बीच के दोनों numbers same होने चाहिए। नहीं तो → "Not Defined"</div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div><b>Result का order:</b> AB = $m\times p$ (बाहर के दो numbers)</div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div><b>Calculate:</b> $(AB)_{ij}$ = A की i वीं row × B का j वाँ column → element-wise multiply करके जोड़ो</div>
+      </div>
+    </div>
+    <ul class="points" style="margin-top:10px">
+      <li class="warn">AB ≠ BA — Commutative नहीं! ✗</li>
+      <li>$(AB)C = A(BC)$ ✓ Associative &nbsp;|&nbsp; $A(B+C)=AB+AC$ ✓ Distributive</li>
+      <li>$AI = IA = A$ ✓ &nbsp;|&nbsp; $AO = OA = O$ ✓</li>
+      <li class="warn">$AB = O$ का मतलब $A=O$ या $B=O$ नहीं! ✗</li>
+      <li class="warn">$A^2 = A\times A$ — Elements को square नहीं करते! ✗</li>
+    </ul>
+    <div class="trick">
+      <span class="trick-label">🧠 स्मरण सूत्र — Compatibility</span>
+      बीच में <b>हाथ मिलाना</b> ज़रूरी है — $n = n$ match नहीं? तो multiplication नहीं होगी! 🤝
+    </div>
+    <div class="trick" style="margin-top:8px">
+      <span class="trick-label">🧠 स्मरण सूत्र — AB ≠ BA</span>
+      Delhi से Patna का रास्ता, Patna से Delhi का रास्ता अलग हो सकता है।<br>
+      Matrix में order matter करता है — जैसे पहले जूता पहनो, फिर मोज़ा नहीं चलता! 👟
+    </div>
+  </div>
+
+
+  <!-- Block 7: Transpose -->
+  <div class="section">
+    <div class="sec-label">Block 7</div>
+    <h2>Transpose — $A'$ या $A^T$</h2>
     <ul class="points">
-      <li>Rows → Columns बना दो, Columns → Rows। Order पलट जाता है: $m\times n \to n\times m$</li>
-      <li>$A'=[a_{ji}]$ → i और j की जगह बदल जाती है</li>
+      <li>Rows → Columns, Columns → Rows। Order पलटता है: $m\times n \to n\times m$</li>
+      <li>$A'=[a_{ji}]$ → Transpose में matrix को 45° तिरछा घुमा दो</li>
     </ul>
     <table class="formula-table" style="margin:10px 0">
       <tr><th>Property</th><th>Formula</th><th></th></tr>
       <tr><td>Double Transpose</td><td>$(A')' = A$</td><td></td></tr>
       <tr><td>Scalar</td><td>$(kA)' = kA'$</td><td></td></tr>
       <tr><td>Addition</td><td>$(A+B)' = A'+B'$</td><td></td></tr>
-      <tr><td>Multiplication</td><td>$(AB)' = B'A'$</td><td class="warn">← Order REVERSE!</td></tr>
-      <tr><td>Three matrices</td><td>$(ABC)' = C'B'A'$</td><td class="warn">← सब उल्टा</td></tr>
+      <tr><td>Multiplication</td><td>$(AB)' = B'A'$</td><td class="rev">← Order REVERSE ⚠️</td></tr>
+      <tr><td>Three matrices</td><td>$(ABC)' = C'B'A'$</td><td class="rev">← सब उल्टा</td></tr>
     </table>
     <div class="trick">
       <span class="trick-label">🧠 स्मरण सूत्र — जूते-मोज़े</span>
-      जूते उतारते हो → पहले जूते, फिर मोज़े (उल्टा)।<br>
-      $(AB)' = B'A'$ — पहले $B'$, फिर $A'$। उल्टा क्रम।
+      जूते उतारते हो → पहले जूता, फिर मोज़ा (उल्टा क्रम)।<br>
+      $(AB)' = B'A'$ — पहले $B'$, फिर $A'$। उल्टा। 👟
     </div>
   </div>
 
 
-  <!-- 7. Symmetric & Skew -->
+  <!-- Block 8: Symmetric & Skew -->
   <div class="section">
-    <div class="sec-label">Block 7</div>
+    <div class="sec-label">Block 8</div>
     <h2>Symmetric और Skew Symmetric</h2>
     <table class="types-table">
       <tr>
@@ -403,21 +422,9 @@
         <th>Symmetric (सममित)</th>
         <th>Skew Symmetric (विषम सममित)</th>
       </tr>
-      <tr>
-        <td><b>Condition</b></td>
-        <td>$A' = A$</td>
-        <td>$A' = -A$</td>
-      </tr>
-      <tr>
-        <td><b>$a_{ij}$</b></td>
-        <td>$a_{ij} = a_{ji}$</td>
-        <td>$a_{ij} = -a_{ji}$</td>
-      </tr>
-      <tr>
-        <td><b>Diagonal</b></td>
-        <td>कोई भी value</td>
-        <td><b>हमेशा 0</b></td>
-      </tr>
+      <tr><td><b>Condition</b></td><td>$A' = A$</td><td>$A' = -A$</td></tr>
+      <tr><td><b>Elements</b></td><td>$a_{ij} = a_{ji}$</td><td>$a_{ij} = -a_{ji}$</td></tr>
+      <tr><td><b>Diagonal</b></td><td>कोई भी value</td><td><b>हमेशा 0</b></td></tr>
       <tr>
         <td><b>Example</b></td>
         <td>$\begin{bmatrix}1&2\\2&5\end{bmatrix}$</td>
@@ -427,109 +434,166 @@
     <ul class="points" style="margin-top:10px">
       <li>$(A+A')$ → हमेशा <b>Symmetric</b></li>
       <li>$(A-A')$ → हमेशा <b>Skew Symmetric</b></li>
-      <li><b>Most Important:</b> $A = \dfrac{1}{2}(A+A') + \dfrac{1}{2}(A-A')$ → हर square matrix = Sym + Skew</li>
+      <li><b>Most Important:</b> &nbsp;$A = \dfrac{1}{2}(A+A') + \dfrac{1}{2}(A-A')$ → Sym + Skew</li>
     </ul>
     <div class="trick">
-      <span class="trick-label">🧠 स्मरण सूत्र — Skew Diagonal</span>
-      Skew Symmetric देखते ही → <b>पहले diagonal check करो।</b><br>
-      Diagonal में 0 नहीं? → Skew Symmetric हो ही नहीं सकता। Done।
+      <span class="trick-label">🧠 स्मरण सूत्र — Symmetric</span>
+      Symmetric = <b>आईना</b> — बाईं तरफ जो है, दाईं तरफ भी वही। 🪞<br>
+      Skew = <b>उल्टा आईना</b> — और diagonal पर खाली मैदान (= 0)! ⚽
     </div>
     <div class="trick" style="margin-top:8px">
       <span class="trick-label">🧠 स्मरण सूत्र — Sum Formula</span>
-      हर आदमी = उसका अच्छा आधा + बुरा आधा।<br>
-      हर Matrix = $\frac{1}{2}$(Symmetric part) + $\frac{1}{2}$(Skew part)।
+      हर इंसान में अच्छाई + बुराई दोनों होती है।<br>
+      हर Matrix = $\frac{1}{2}$(Symmetric) + $\frac{1}{2}$(Skew Symmetric)। 😄
     </div>
   </div>
 
 
-  <!-- 8. Elementary Ops -->
-  <div class="section">
-    <div class="sec-label">Block 8</div>
-    <h2>Elementary Operations (प्रारंभिक संक्रियाएँ)</h2>
-    <ul class="points">
-      <li><b>Type 1:</b> दो rows/columns की अदला-बदली → $R_i \leftrightarrow R_j$</li>
-      <li><b>Type 2:</b> Row/Column को non-zero k से गुणा → $R_i \to kR_i$, ($k\neq0$)</li>
-      <li><b>Type 3:</b> एक row में दूसरे का k गुना जोड़ो → $R_i \to R_i + kR_j$</li>
-    </ul>
-    <div class="trick">
-      <span class="trick-label">🧠 स्मरण सूत्र</span>
-      3 operations — Swap, Scale, Add। SSA याद करो।
-    </div>
-  </div>
-
-
-  <!-- 9. Inverse -->
+  <!-- Block 9: Elementary Ops -->
   <div class="section">
     <div class="sec-label">Block 9</div>
+    <h2>Elementary Operations — 3 Types</h2>
+    <ul class="points">
+      <li><b>① Swap:</b> दो rows/columns की अदला-बदली → $R_i \leftrightarrow R_j$</li>
+      <li><b>② Scale:</b> Row/Column को non-zero k से गुणा → $R_i \to kR_i$, ($k\neq0$)</li>
+      <li><b>③ Add:</b> एक row में दूसरे का k गुना जोड़ो → $R_i \to R_i + kR_j$</li>
+    </ul>
+    <div class="trick">
+      <span class="trick-label">🧠 स्मरण सूत्र — SSA</span>
+      <b>S</b>wap → <b>S</b>cale → <b>A</b>dd। बस तीन काम। SSA याद करो।
+    </div>
+  </div>
+
+
+  <!-- Block 10: Inverse -->
+  <div class="section">
+    <div class="sec-label">Block 10</div>
     <h2>Invertible Matrix — Inverse</h2>
     <ul class="points">
       <li>$AB = BA = I$ → $B = A^{-1}$ (A का inverse)</li>
-      <li>Inverse सिर्फ <b>Square Matrix</b> का होता है</li>
-      <li>Inverse हमेशा <b>Unique</b> होता है</li>
-      <li>$(AB)^{-1} = B^{-1}A^{-1}$ ← <b>Order REVERSE</b></li>
-      <li>$(A')^{-1} = (A^{-1})'$ — दोनों order में होता है</li>
+      <li>Inverse सिर्फ <b>Square Matrix</b> का &nbsp;|&nbsp; Inverse हमेशा <b>Unique</b></li>
+      <li class="warn">$(AB)^{-1} = B^{-1}A^{-1}$ ← Order REVERSE!</li>
+      <li>$(A')^{-1} = (A^{-1})'$</li>
+      <li><b>Row Method:</b> $A = IA$ → Row operations → Left side = I → Right side = $A^{-1}$</li>
+      <li><b>Column Method:</b> $A = AI$ → Column operations → Left side = I → Right side = $A^{-1}$</li>
+      <li class="warn">Row और Column operations mix मत करो — एक ही method!</li>
     </ul>
-    <ul class="points" style="margin-top:8px">
-      <li><b>Row Method:</b> $A = IA$ लिखो → Row operations → जब left side = I → right side = $A^{-1}$</li>
-      <li><b>Column Method:</b> $A = AI$ लिखो → Column operations → जब left side = I → right side = $A^{-1}$</li>
-      <li><b>Row और Column operations mix मत करो</b> — एक method ही use करो</li>
-    </ul>
-    <div class="alert">⚠️ अगर कोई row/column पूरी 0 हो जाए → Inverse exist नहीं करता। लिखो: "Inverse does not exist।"</div>
+    <div class="alert">⚠️ Operations करते वक्त कोई row/column पूरी 0 हो जाए → लिखो: "Inverse does not exist।"</div>
     <div class="trick">
       <span class="trick-label">🧠 स्मरण सूत्र</span>
-      $(AB)^{-1} = B^{-1}A^{-1}$ याद नहीं रहता?<br>
-      जूते पहनने का reverse — पहले जूता, फिर मोज़ा उतारो।<br>
-      AB में B बाद में था → Inverse में B⁻¹ पहले आता है।
+      $(AB)^{-1} = B^{-1}A^{-1}$ — जूते उतारने का उल्टा क्रम।<br>
+      AB में B बाद में था → Inverse में $B^{-1}$ पहले। 👟
     </div>
   </div>
 
 
-  <!-- 10. Full Formula Sheet -->
+  <!-- Block 11: NOT DEFINED कब -->
   <div class="section">
-    <div class="sec-label">Block 10 — Last Read</div>
+    <div class="sec-label">Block 11</div>
+    <h2>"Not Defined" — कब लिखते हैं?</h2>
+    <ul class="points">
+      <li><b>Addition/Subtraction:</b> दोनों matrices का order अलग हो</li>
+      <li><b>Multiplication AB:</b> A के columns ≠ B के rows</li>
+      <li><b>Inverse:</b> Matrix square नहीं है, या operations में row all-zero हो जाए</li>
+    </ul>
+    <div class="trick">
+      <span class="trick-label">🧠 स्मरण सूत्र</span>
+      जब fit नहीं होता — "Not Defined" लिखो और आगे बढ़ो। ✌️<br>
+      Half-answer लिखने से अच्छा है clearly लिखना: "Not Defined।"
+    </div>
+  </div>
+
+
+  <!-- Block 12: Full Formula Table -->
+  <div class="section">
+    <div class="sec-label">Block 12 — Last Read</div>
     <h2>सभी Formulas — एक नज़र में</h2>
     <table class="formula-table">
-      <tr><th>Formula</th><th>Value / Rule</th></tr>
+      <tr><th>Formula</th><th>Rule / Value</th></tr>
       <tr><td>Order</td><td>m × n (RC Cola — Row पहले)</td></tr>
-      <tr><td>Element $a_{ij}$</td><td>i वीं Row, j वाँ Column</td></tr>
-      <tr><td>Addition</td><td>Same order → $(A+B)_{ij}=a_{ij}+b_{ij}$</td></tr>
-      <tr><td>Scalar</td><td>$(kA)_{ij}=k\cdot a_{ij}$ — हर element</td></tr>
-      <tr><td>Multiplication</td><td>$A(m\times n)\times B(n\times p)=AB(m\times p)$</td></tr>
-      <tr><td>$A^2$</td><td>$= A\times A$ (Matrix Mult.) — Elements square नहीं!</td></tr>
-      <tr><td>$AB$ vs $BA$</td><td class="warn">AB ≠ BA generally</td></tr>
-      <tr><td>$AB = O$</td><td class="warn">A≠O या B≠O हो सकते हैं!</td></tr>
-      <tr><td>$AI = IA$</td><td>$= A$ (Identity property)</td></tr>
-      <tr><td>Transpose $(A')'$</td><td>$= A$</td></tr>
+      <tr><td>$a_{ij}$</td><td>i वीं Row, j वाँ Column (मंजिल → कमरा)</td></tr>
+      <tr><td>Addition</td><td>Same order → $(A+B)_{ij} = a_{ij}+b_{ij}$</td></tr>
+      <tr><td>Scalar $kA$</td><td>हर element × k → $(kA)_{ij} = k\cdot a_{ij}$</td></tr>
+      <tr><td>Mult. Possible</td><td>A के columns = B के rows</td></tr>
+      <tr><td>AB order</td><td>A(m×n) × B(n×p) → AB(m×p)</td></tr>
+      <tr><td>$A^2$</td><td>$= A\times A$ (Matrix Mult.) ⚠️ Elements² नहीं!</td></tr>
+      <tr><td>AB vs BA</td><td class="rev">AB ≠ BA generally ✗</td></tr>
+      <tr><td>$AB = O$</td><td class="rev">≠ A=O या B=O ✗</td></tr>
+      <tr><td>$AI = IA$</td><td>$= A$ &nbsp;|&nbsp; $AO = OA = O$</td></tr>
+      <tr><td>$(A')'$</td><td>$= A$</td></tr>
       <tr><td>$(A+B)'$</td><td>$= A'+B'$</td></tr>
-      <tr><td>$(AB)'$</td><td class="warn">$= B'A'$ ← Order REVERSE</td></tr>
-      <tr><td>Symmetric</td><td>$A' = A$ &nbsp;|&nbsp; $a_{ij}=a_{ji}$</td></tr>
+      <tr><td>$(AB)'$</td><td class="rev">$= B'A'$ ← Order REVERSE ⚠️</td></tr>
+      <tr><td>Symmetric</td><td>$A' = A$ &nbsp;|&nbsp; $a_{ij} = a_{ji}$</td></tr>
       <tr><td>Skew Symmetric</td><td>$A' = -A$ &nbsp;|&nbsp; Diagonal = 0</td></tr>
       <tr><td>Sum Formula</td><td>$A = \frac{1}{2}(A+A') + \frac{1}{2}(A-A')$</td></tr>
-      <tr><td>Inverse Condition</td><td>$AB = BA = I \Rightarrow B = A^{-1}$</td></tr>
-      <tr><td>$(AB)^{-1}$</td><td class="warn">$= B^{-1}A^{-1}$ ← Order REVERSE</td></tr>
+      <tr><td>Inverse</td><td>$AB = I \Rightarrow B = A^{-1}$ (Square matrix only)</td></tr>
+      <tr><td>$(AB)^{-1}$</td><td class="rev">$= B^{-1}A^{-1}$ ← Order REVERSE ⚠️</td></tr>
     </table>
   </div>
 
 
-  <!-- Final Flash Cards -->
-  <div class="final-box">
-    <div class="final-title">⚡ Last 60 Seconds — इन्हें दोहराओ</div>
-    <ul class="final-list">
-      <li><span class="n">1</span>Order = RC Cola → Row पहले, Column बाद</li>
-      <li><span class="n">2</span>AB possible → A के columns = B के rows</li>
-      <li><span class="n">3</span>AB ≠ BA — Commutative नहीं!</li>
-      <li><span class="n">4</span>$A^2 = A\times A$ — Elements square नहीं</li>
-      <li><span class="n">5</span>$(AB)' = B'A'$ — Reverse order</li>
-      <li><span class="n">6</span>$(AB)^{-1} = B^{-1}A^{-1}$ — Reverse order</li>
-      <li><span class="n">7</span>Skew Symmetric → Diagonal = 0</li>
-      <li><span class="n">8</span>$A = \frac{1}{2}(A+A') + \frac{1}{2}(A-A')$ — याद करो!</li>
-      <li><span class="n">9</span>$AB = O \neq A=O$ या $B=O$</li>
-      <li><span class="n">10</span>Inverse सिर्फ Square Matrix का — Row या Column, एक method</li>
-    </ul>
+  <!-- Flash Box -->
+  <div class="flash-box">
+    <div class="flash-title">⚡ Last 60 Seconds — Flash Revision</div>
+    <div class="flash-grid">
+      <div class="flash-item">
+        <span class="fi-label">Order</span>
+        <span class="fi-val">RC Cola → Row × Column</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">$a_{ij}$</span>
+        <span class="fi-val">मंजिल (i) → कमरा (j)</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">Equality</span>
+        <span class="fi-val">Same order + same elements</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">Addition</span>
+        <span class="fi-val">Same order — element-wise</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">AB possible?</span>
+        <span class="fi-val">A के col = B के row</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">AB vs BA</span>
+        <span class="fi-val" style="color:#f87171">AB ≠ BA ✗</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">$A^2$</span>
+        <span class="fi-val">A × A है, elements² नहीं ✗</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">$AB = O$</span>
+        <span class="fi-val" style="color:#f87171">A≠O या B≠O हो सकते ✗</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">$(AB)'$</span>
+        <span class="fi-val">$B'A'$ ← Reverse ⚠️</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">Skew diagonal</span>
+        <span class="fi-val">हमेशा 0 — बिना exception</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">Sum Formula</span>
+        <span class="fi-val">$A = \frac{1}{2}(A+A') + \frac{1}{2}(A-A')$</span>
+      </div>
+      <div class="flash-item">
+        <span class="fi-label">$(AB)^{-1}$</span>
+        <span class="fi-val">$B^{-1}A^{-1}$ ← Reverse ⚠️</span>
+      </div>
+    </div>
+    <div class="mantra">
+      💪 "Matrix का एक ही मंत्र —<br>
+      पहले Order check करो, फिर काम करो।<br>
+      All the best Bihar Board 2026!" 🌟
+    </div>
   </div>
 
   <div class="footer">
-    Alone 12th · Bihar Board · Class 12 · Chapter 3 आव्यूह · Quick Recall · 5-Minute Revision
+    Alone 12th · Bihar Board · Class 12 · Chapter 3 आव्यूह · Quick Recall · Merged Best Version
   </div>
 
 </div>
