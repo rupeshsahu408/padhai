@@ -167,6 +167,9 @@ export default function ChapterPage() {
               if (num === 1 && folder.id === "theory-concepts") {
                 window.open(import.meta.env.BASE_URL + "theory-ch1.html", "_blank");
               }
+              if (num === 1 && folder.id === "trick") {
+                window.open(import.meta.env.BASE_URL + "tricks-ch1.html", "_blank");
+              }
             };
             return (
             <button
