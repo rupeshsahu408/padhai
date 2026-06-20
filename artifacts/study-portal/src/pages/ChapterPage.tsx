@@ -158,11 +158,9 @@ export default function ChapterPage() {
         <div className="flex flex-col gap-3">
           {FOLDERS.map((folder, i) => {
             const handleClick = () => {
-              if (num === 4 && folder.id === "revision-notes") {
-                window.open(import.meta.env.BASE_URL + "notes-ch4.html", "_blank");
-              }
-              if (num === 1 && folder.id === "revision-notes") {
-                window.open(import.meta.env.BASE_URL + "ch1-revision/index.html", "_blank");
+              const revisionChapters = [1,2,3,4,5,7,9,10,11,12,13];
+              if (revisionChapters.includes(num) && folder.id === "revision-notes") {
+                window.open(import.meta.env.BASE_URL + `ch${num}-revision/index.html`, "_blank");
               }
               if (num === 1 && folder.id === "theory-concepts") {
                 window.open(import.meta.env.BASE_URL + "theory-ch1.html", "_blank");
