@@ -3,36 +3,682 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Concepts + Formulas — Chapter 3 | Alone 12th</title>
+  <title>Concepts + Formulas — Chapter 3 आव्यूह | Alone 12th</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:#f7f8fc;color:#1e1e2e;min-height:100vh;display:flex;flex-direction:column}
-    .topbar{background:#fff;border-bottom:1px solid #e2e6f0;padding:0 24px;position:sticky;top:0}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:52px}
-    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:#6b7280;text-decoration:none;font-weight:500}
-    .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px}
-    .icon{font-size:3.5rem;margin-bottom:20px;opacity:.3}
-    h2{font-size:1.25rem;font-weight:700;color:#1a1a2e;margin-bottom:8px}
-    p{font-size:.88rem;color:#6b7280;max-width:280px;line-height:1.7}
-    .tag{display:inline-block;background:#e8edfb;color:#2d4a8a;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:.5px}
+
+    :root{
+      --navy:#1a1a2e;
+      --accent:#2d4a8a;
+      --accent-light:#eef2fb;
+      --border:#e8eaed;
+      --text:#1e1e2e;
+      --muted:#6b7280;
+      --bg:#f7f8fc;
+      --white:#ffffff;
+    }
+
+    body{
+      font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.9;
+      font-size:15.5px;
+    }
+
+    .page{
+      max-width:740px;
+      margin:0 auto;
+      background:var(--white);
+      min-height:100vh;
+      box-shadow:0 2px 28px rgba(0,0,0,.07);
+    }
+
+    /* ── Topbar ── */
+    .topbar{
+      background:var(--white);
+      border-bottom:1px solid var(--border);
+      padding:0 24px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:50px;
+    }
+    .back-btn{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:.82rem;
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .back-btn:hover{color:var(--text)}
+    .topbar-label{font-size:.78rem;font-weight:700;color:var(--text)}
+
+    /* ── Cover ── */
+    .cover{
+      background:var(--navy);
+      color:#fff;
+      padding:40px 32px 32px;
+    }
+    .cover-tag{
+      font-size:.63rem;
+      font-weight:700;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.4);
+      margin-bottom:10px;
+    }
+    .cover h1{
+      font-size:1.7rem;
+      font-weight:800;
+      line-height:1.2;
+      margin-bottom:6px;
+    }
+    .cover .sub{
+      font-size:.78rem;
+      color:rgba(255,255,255,.35);
+    }
+
+    /* ── TOC ── */
+    .toc{
+      background:#f1f5fe;
+      border-bottom:1px solid var(--border);
+      padding:20px 32px;
+    }
+    .toc-label{
+      font-size:.63rem;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:12px;
+    }
+    .toc-list{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .toc-item{
+      font-size:.82rem;
+      color:var(--muted);
+      display:flex;
+      gap:10px;
+    }
+    .toc-n{
+      color:var(--accent);
+      font-weight:700;
+      min-width:18px;
+    }
+
+    /* ── Section ── */
+    .section{
+      padding:36px 32px 32px;
+      border-bottom:1px solid var(--border);
+    }
+    .section:last-child{border-bottom:none}
+
+    .section-num{
+      font-size:.62rem;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+    .section h2{
+      font-size:1.15rem;
+      font-weight:800;
+      color:var(--navy);
+      margin-bottom:16px;
+      padding-bottom:10px;
+      border-bottom:2px solid var(--accent-light);
+    }
+
+    /* ── Typography ── */
+    p{
+      margin-bottom:14px;
+      color:var(--text);
+    }
+    b, strong{
+      font-weight:700;
+      color:var(--navy);
+    }
+
+    h3{
+      font-size:.95rem;
+      font-weight:700;
+      color:var(--navy);
+      margin:24px 0 8px;
+    }
+
+    /* ── Example box ── */
+    .example{
+      background:#f8f9fb;
+      border-left:3px solid var(--accent);
+      border-radius:0 8px 8px 0;
+      padding:14px 18px;
+      margin:16px 0;
+      font-size:.88rem;
+    }
+    .example-label{
+      font-size:.62rem;
+      font-weight:700;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+
+    /* ── Formula box ── */
+    .formula{
+      background:var(--accent-light);
+      border:1px solid #c5d4f5;
+      border-radius:8px;
+      padding:14px 18px;
+      margin:16px 0;
+      font-size:.9rem;
+    }
+    .formula-label{
+      font-size:.62rem;
+      font-weight:700;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+
+    /* ── Type list ── */
+    .type-item{
+      padding:14px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .type-item:last-child{border-bottom:none}
+    .type-name{
+      font-size:.88rem;
+      font-weight:700;
+      color:var(--navy);
+      margin-bottom:4px;
+    }
+    .type-desc{
+      font-size:.85rem;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    /* ── Property list ── */
+    .prop-list{
+      list-style:none;
+      margin:10px 0 0;
+    }
+    .prop-list li{
+      padding:7px 0 7px 18px;
+      position:relative;
+      font-size:.88rem;
+      border-bottom:1px solid #f0f0f5;
+      line-height:1.7;
+    }
+    .prop-list li:last-child{border-bottom:none}
+    .prop-list li::before{
+      content:'';
+      position:absolute;
+      left:0;top:16px;
+      width:6px;height:6px;
+      background:var(--accent);
+      border-radius:50%;
+    }
+
+    /* ── Yaad rakho (Remember) ── */
+    .yaad{
+      background:#fffbeb;
+      border:1px solid #fde68a;
+      border-radius:8px;
+      padding:13px 18px;
+      margin:16px 0;
+      font-size:.85rem;
+      color:#78350f;
+    }
+    .yaad strong{display:block;margin-bottom:3px;font-size:.8rem}
+
+    /* ── Footer ── */
+    .footer{
+      text-align:center;
+      padding:28px;
+      font-size:.75rem;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+    }
+
+    /* ── Math display ── */
+    .math-block{
+      overflow-x:auto;
+      padding:10px 4px;
+      font-size:.92rem;
+    }
+
+    @media(max-width:600px){
+      .section{padding:28px 20px 24px}
+      .cover{padding:32px 20px 24px}
+      .toc{padding:18px 20px}
+      .topbar{padding:0 16px}
+    }
   </style>
 </head>
 <body>
+<div class="page">
+
+  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-inner">
       <a class="back-btn" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Revision Notes
       </a>
-      <span style="font-size:.82rem;font-weight:700;color:#1e1e2e">Ch 3 · Concepts + Formulas</span>
-      <span style="width:80px"></span>
+      <span class="topbar-label">Ch 3 · Concepts + Formulas</span>
+      <span style="width:90px"></span>
     </div>
   </div>
-  <div class="center">
-    <div class="tag">Chapter 3 · आव्यूह</div>
-    <div class="icon">📖</div>
-    <h2>Concepts + Formulas</h2>
-    <p>यह section जल्द आएगा।<br>Content prepare हो रहा है।</p>
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-tag">Chapter 3 · Bihar Board Class 12</div>
+    <h1>आव्यूह<br><span style="font-size:1.1rem;font-weight:500;opacity:.6">Matrices</span></h1>
+    <div class="sub">Concepts · Formulas · Examples</div>
   </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-label">इस page में क्या है</div>
+    <div class="toc-list">
+      <div class="toc-item"><span class="toc-n">1.</span><span>Matrix क्या होती है — सरल भाषा में</span></div>
+      <div class="toc-item"><span class="toc-n">2.</span><span>Order (कोटि) — rows × columns</span></div>
+      <div class="toc-item"><span class="toc-n">3.</span><span>Matrix के प्रकार (7 types)</span></div>
+      <div class="toc-item"><span class="toc-n">4.</span><span>दो Matrices की समानता</span></div>
+      <div class="toc-item"><span class="toc-n">5.</span><span>जोड़, घटाव, Scalar गुणन</span></div>
+      <div class="toc-item"><span class="toc-n">6.</span><span>Matrix Multiplication</span></div>
+      <div class="toc-item"><span class="toc-n">7.</span><span>Transpose</span></div>
+      <div class="toc-item"><span class="toc-n">8.</span><span>Symmetric और Skew Symmetric</span></div>
+      <div class="toc-item"><span class="toc-n">9.</span><span>Elementary Operations</span></div>
+      <div class="toc-item"><span class="toc-n">10.</span><span>Invertible Matrix — Inverse निकालना</span></div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-num">Section 1</div>
+    <h2>Matrix क्या होती है?</h2>
+
+    <p>देखो, matrix कोई मुश्किल चीज़ नहीं है। <b>Matrix बस संख्याओं को rows और columns में सजाकर रखने का एक तरीका है।</b></p>
+
+    <p>मान लो तुम्हारे school में तीन दोस्त हैं — राधा, फौजिया, सिमरन। हर एक के पास कितनी <b>किताबें</b> और कितने <b>कलम</b> हैं, यह हम इस तरह लिख सकते हैं:</p>
+
+    <div class="example">
+      <div class="example-label">रोज़मर्रा का उदाहरण</div>
+      <p style="margin:0">राधा → 15 किताबें, 6 कलम<br>
+      फौजिया → 10 किताबें, 2 कलम<br>
+      सिमरन → 13 किताबें, 5 कलम</p>
+      <br>
+      <p style="margin:0">इसे matrix में लिखें:</p>
+      <div class="math-block">$$A = \begin{bmatrix} 15 & 6 \\ 10 & 2 \\ 13 & 5 \end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.83rem;color:var(--muted)">यह 3×2 matrix है — 3 rows, 2 columns।</p>
+    </div>
+
+    <p><b>सरल परिभाषा:</b> Matrix संख्याओं या functions का एक आयताकार (rectangular) क्रम-विन्यास है। इसे हम capital letter जैसे A, B, C से दर्शाते हैं।</p>
+
+    <div class="formula">
+      <div class="formula-label">General Form</div>
+      <div class="math-block">$$A = [a_{ij}]_{m \times n}, \quad 1 \leq i \leq m,\ 1 \leq j \leq n$$</div>
+      <p style="margin:0;font-size:.84rem">यहाँ $a_{ij}$ का मतलब है — <b>i वीं row और j वें column का element</b></p>
+    </div>
+  </div>
+
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-num">Section 2</div>
+    <h2>Order (कोटि) — m × n</h2>
+
+    <p>अगर किसी matrix में <b>m rows</b> और <b>n columns</b> हैं, तो उसकी order होती है <b>m × n</b> (पढ़ो: m by n)।</p>
+
+    <p>Total elements = <b>m × n</b></p>
+
+    <div class="example">
+      <div class="example-label">Example</div>
+      <p style="margin:0">
+      $A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix}$ → <b>3×2 matrix</b> (3 rows, 2 columns, 6 elements)
+      </p>
+    </div>
+
+    <div class="yaad">
+      <strong>📌 याद रखो</strong>
+      अगर matrix में 8 elements हैं, तो possible orders हैं: 1×8, 8×1, 2×4, 4×2 — यानी वो सभी pairs जिनका गुणनफल 8 हो।
+    </div>
+
+    <div class="example">
+      <div class="example-label">Bihar Board Style Example</div>
+      <p style="margin:0">एक 3×2 matrix बनाओ जिसके elements $a_{ij} = \dfrac{1}{2}|i - 3j|$ से मिलते हों।</p>
+      <br>
+      <p style="margin:0;font-size:.85rem">
+      $a_{11} = \frac{1}{2}|1-3| = 1,\quad a_{12} = \frac{1}{2}|1-6| = \frac{5}{2}$<br>
+      $a_{21} = \frac{1}{2}|2-3| = \frac{1}{2},\quad a_{22} = \frac{1}{2}|2-6| = 2$<br>
+      $a_{31} = \frac{1}{2}|3-3| = 0,\quad a_{32} = \frac{1}{2}|3-6| = \frac{3}{2}$
+      </p>
+      <div class="math-block">$$A = \begin{bmatrix} 1 & \frac{5}{2} \\ \frac{1}{2} & 2 \\ 0 & \frac{3}{2} \end{bmatrix}$$</div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-num">Section 3</div>
+    <h2>Matrix के प्रकार (Types)</h2>
+
+    <div class="type-item">
+      <div class="type-name">① Column Matrix (स्तम्भ आव्यूह)</div>
+      <div class="type-desc">सिर्फ <b>1 column</b> होता है। Order: m×1<br>
+      Example: $\begin{bmatrix} 2 \\ -1 \\ 5 \end{bmatrix}$ — यह 3×1 matrix है।</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">② Row Matrix (पंक्ति आव्यूह)</div>
+      <div class="type-desc">सिर्फ <b>1 row</b> होती है। Order: 1×n<br>
+      Example: $\begin{bmatrix} 3 & -1 & 7 & 2 \end{bmatrix}$ — यह 1×4 matrix है।</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">③ Square Matrix (वर्ग आव्यूह)</div>
+      <div class="type-desc"><b>rows = columns</b>, यानी m = n। इसे "n order का square matrix" कहते हैं।<br>
+      Example: $\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ — 2×2 square matrix।<br>
+      <b>Diagonal elements:</b> $a_{11}, a_{22}, a_{33}, \ldots$ (जहाँ i = j)</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">④ Diagonal Matrix (विकर्ण आव्यूह)</div>
+      <div class="type-desc">Square matrix जिसमें <b>diagonal के अलावा सभी elements = 0</b> हों।<br>
+      Condition: $b_{ij} = 0$ जब $i \neq j$<br>
+      Example: $\begin{bmatrix} -1 & 0 \\ 0 & 2 \end{bmatrix}$</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">⑤ Scalar Matrix (अदिश आव्यूह)</div>
+      <div class="type-desc">Diagonal matrix जिसमें <b>सभी diagonal elements समान (equal)</b> हों।<br>
+      Condition: $b_{ij} = 0$ (जब $i \neq j$) और $b_{ij} = k$ (जब $i = j$)<br>
+      Example: $\begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}$</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">⑥ Identity Matrix — I (तत्समक आव्यूह)</div>
+      <div class="type-desc">Scalar matrix जिसमें <b>सभी diagonal elements = 1</b> और बाकी सब = 0।<br>
+      $a_{ij} = 1$ (जब $i = j$) और $a_{ij} = 0$ (जब $i \neq j$)<br>
+      Example: $I_2 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix},\quad I_3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$<br>
+      <b>हर Identity matrix एक Scalar matrix होती है, लेकिन हर Scalar matrix Identity नहीं होती।</b></div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">⑦ Zero Matrix — O (शून्य आव्यूह)</div>
+      <div class="type-desc"><b>सभी elements = 0।</b> किसी भी order की हो सकती है।<br>
+      Example: $\begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix},\quad \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}$</div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-num">Section 4</div>
+    <h2>दो Matrices कब Equal होती हैं?</h2>
+
+    <p>दो matrices A और B <b>बराबर</b> होती हैं अगर:</p>
+    <ul class="prop-list">
+      <li>दोनों की <b>order same</b> हो (same rows, same columns)</li>
+      <li>दोनों के <b>हर corresponding element बराबर</b> हों — यानी $a_{ij} = b_{ij}$ सब के लिए</li>
+    </ul>
+
+    <div class="example">
+      <div class="example-label">Example — x, y निकालो</div>
+      <div class="math-block">$$\begin{bmatrix} x+3 & z+4 \\ b-3 & -21 \end{bmatrix} = \begin{bmatrix} 0 & 6 \\ 2b+4 & -21 \end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.85rem">
+      सामने वाले elements equal करो:<br>
+      $x+3 = 0 \Rightarrow x = -3$<br>
+      $z+4 = 6 \Rightarrow z = 2$<br>
+      $b-3 = 2b+4 \Rightarrow b = -7$
+      </p>
+    </div>
+  </div>
+
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-num">Section 5</div>
+    <h2>जोड़, घटाव और Scalar Multiplication</h2>
+
+    <h3>जोड़ (Addition)</h3>
+    <p><b>Same order</b> की matrices ही जोड़ी जा सकती हैं। Corresponding elements को जोड़ो।</p>
+
+    <div class="formula">
+      <div class="formula-label">Formula</div>
+      <p style="margin:0">$C = A + B$ जहाँ $c_{ij} = a_{ij} + b_{ij}$</p>
+    </div>
+
+    <p><b>जोड़ के गुणधर्म (Properties):</b></p>
+    <ul class="prop-list">
+      <li><b>Commutative:</b> $A + B = B + A$</li>
+      <li><b>Associative:</b> $(A + B) + C = A + (B + C)$</li>
+      <li><b>Additive Identity:</b> $A + O = O + A = A$ (O = zero matrix)</li>
+      <li><b>Additive Inverse:</b> $A + (-A) = O$</li>
+    </ul>
+
+    <h3>Scalar Multiplication</h3>
+    <p>किसी matrix के <b>हर element को एक संख्या (scalar) k से गुणा</b> करो।</p>
+
+    <div class="formula">
+      <div class="formula-label">Formula</div>
+      <p style="margin:0">$kA = k[a_{ij}] = [k \cdot a_{ij}]$</p>
+    </div>
+
+    <p><b>Properties:</b></p>
+    <ul class="prop-list">
+      <li>$k(A+B) = kA + kB$</li>
+      <li>$(k+l)A = kA + lA$</li>
+      <li>Negative matrix: $-A = (-1)A$</li>
+      <li>Difference: $A - B = A + (-1)B$</li>
+    </ul>
+
+    <div class="example">
+      <div class="example-label">Example — 2A – B निकालो</div>
+      <p style="margin:0;font-size:.85rem">
+      $A = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{bmatrix},\quad B = \begin{bmatrix} 3 & -1 & 3 \\ -1 & 0 & 2 \end{bmatrix}$
+      </p>
+      <div class="math-block">$$2A - B = \begin{bmatrix} 2-3 & 4+1 & 6-3 \\ 4+1 & 6-0 & 2-2 \end{bmatrix} = \begin{bmatrix} -1 & 5 & 3 \\ 5 & 6 & 0 \end{bmatrix}$$</div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-num">Section 6</div>
+    <h2>Matrix Multiplication (गुणन)</h2>
+
+    <p><b>AB तभी possible है जब A के columns = B के rows।</b></p>
+    <p>अगर A का order m×n है और B का order n×p है, तो AB का order होगा <b>m×p</b>।</p>
+
+    <div class="formula">
+      <div class="formula-label">Formula</div>
+      <p style="margin:0">$(AB)_{ij} = \sum_{k=1}^{n} a_{ik} \cdot b_{kj}$</p>
+      <p style="margin:6px 0 0;font-size:.83rem">यानी i वीं row के elements को j वें column के elements से गुणा करके जोड़ो।</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example</div>
+      <div class="math-block">$$A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix},\quad B = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.85rem">
+      $(AB)_{11} = 1\times5 + 2\times7 = 19$<br>
+      $(AB)_{12} = 1\times6 + 2\times8 = 22$<br>
+      $(AB)_{21} = 3\times5 + 4\times7 = 43$<br>
+      $(AB)_{22} = 3\times6 + 4\times8 = 50$
+      </p>
+      <div class="math-block">$$AB = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}$$</div>
+    </div>
+
+    <p><b>Properties of Matrix Multiplication:</b></p>
+    <ul class="prop-list">
+      <li><b>Associative:</b> $(AB)C = A(BC)$</li>
+      <li><b>Distributive:</b> $A(B+C) = AB + AC$ और $(B+C)A = BA + CA$</li>
+      <li><b>Identity:</b> $AI = IA = A$</li>
+    </ul>
+
+    <div class="yaad">
+      <strong>⚠️ सबसे जरूरी बात</strong>
+      Matrix multiplication generally <b>Commutative नहीं होती</b> — यानी $AB \neq BA$ generally। यह exam में बहुत पूछा जाता है।
+    </div>
+  </div>
+
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-num">Section 7</div>
+    <h2>Transpose (परिवर्त)</h2>
+
+    <p>किसी matrix A का Transpose निकालने के लिए <b>rows और columns को आपस में बदल दो।</b></p>
+    <p>अगर $A = [a_{ij}]_{m \times n}$ है, तो $A' = [a_{ji}]_{n \times m}$</p>
+
+    <div class="example">
+      <div class="example-label">Example</div>
+      <div class="math-block">$$A = \begin{bmatrix} 3 & 5 \\ 3 & 1 \\ 0 & -1 \end{bmatrix}_{3 \times 2} \implies A' = \begin{bmatrix} 3 & 3 & 0 \\ 5 & 1 & -1 \end{bmatrix}_{2 \times 3}$$</div>
+    </div>
+
+    <p><b>Transpose के गुणधर्म:</b></p>
+    <ul class="prop-list">
+      <li>$(A')' = A$</li>
+      <li>$(kA)' = kA'$</li>
+      <li>$(A+B)' = A' + B'$</li>
+      <li>$(AB)' = B'A'$ — <b>क्रम उलट जाता है!</b></li>
+    </ul>
+
+    <div class="yaad">
+      <strong>📌 याद रखो</strong>
+      $(AB)' = B'A'$ — इसमें order reverse होती है। यह बहुत common mistake है।
+    </div>
+  </div>
+
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <div class="section-num">Section 8</div>
+    <h2>Symmetric और Skew Symmetric Matrix</h2>
+
+    <h3>Symmetric Matrix (सममित)</h3>
+    <p>एक square matrix <b>symmetric</b> होती है अगर <b>$A' = A$</b>, यानी $a_{ij} = a_{ji}$ सब के लिए।</p>
+
+    <div class="example">
+      <div class="example-label">Example</div>
+      <div class="math-block">$$A = \begin{bmatrix} 3 & 2 & 3 \\ 2 & -1.5 & -1 \\ 3 & -1 & 1 \end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.84rem">यहाँ $A' = A$ — तो यह symmetric है।</p>
+    </div>
+
+    <h3>Skew Symmetric Matrix (विषम सममित)</h3>
+    <p>एक square matrix <b>skew symmetric</b> होती है अगर <b>$A' = -A$</b>, यानी $a_{ji} = -a_{ij}$।</p>
+    <p><b>इसका diagonal हमेशा zero होता है</b> — क्योंकि $a_{ii} = -a_{ii} \Rightarrow a_{ii} = 0$</p>
+
+    <div class="example">
+      <div class="example-label">Example</div>
+      <div class="math-block">$$B = \begin{bmatrix} 0 & e & f \\ -e & 0 & g \\ -f & -g & 0 \end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.84rem">$B' = -B$ — तो यह skew symmetric है।</p>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">सबसे Important Theorem</div>
+      <p style="margin:0 0 8px">किसी भी square matrix A को symmetric और skew symmetric के <b>योगफल</b> के रूप में लिखा जा सकता है:</p>
+      <div class="math-block">$$A = \underbrace{\frac{1}{2}(A+A')}_{\text{Symmetric}} + \underbrace{\frac{1}{2}(A-A')}_{\text{Skew Symmetric}}$$</div>
+      <p style="margin:0;font-size:.83rem">$A+A'$ हमेशा symmetric होती है। $A-A'$ हमेशा skew symmetric होती है।</p>
+    </div>
+  </div>
+
+
+  <!-- SECTION 9 -->
+  <div class="section">
+    <div class="section-num">Section 9</div>
+    <h2>Elementary Operations (प्रारंभिक संक्रियाएँ)</h2>
+
+    <p>Matrix पर <b>6 प्रकार की elementary operations</b> होती हैं — 3 rows पर, 3 columns पर।</p>
+
+    <div class="type-item">
+      <div class="type-name">① दो rows/columns की अदला-बदली</div>
+      <div class="type-desc">$R_i \leftrightarrow R_j$ या $C_i \leftrightarrow C_j$<br>
+      Example: $R_1 \leftrightarrow R_2$ — पहली और दूसरी row को swap करो।</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">② किसी row/column को non-zero scalar से गुणा</div>
+      <div class="type-desc">$R_i \to kR_i$ या $C_i \to kC_i$ (जहाँ $k \neq 0$)<br>
+      Example: $R_2 \to 3R_2$ — दूसरी row के हर element को 3 से गुणा करो।</div>
+    </div>
+
+    <div class="type-item">
+      <div class="type-name">③ एक row में दूसरी row का k गुना जोड़ो</div>
+      <div class="type-desc">$R_i \to R_i + kR_j$ या $C_i \to C_i + kC_j$<br>
+      Example: $R_2 \to R_2 - 2R_1$ — दूसरी row में से पहली row का 2 गुना घटाओ।</div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 10 -->
+  <div class="section">
+    <div class="section-num">Section 10</div>
+    <h2>Invertible Matrix — Inverse (व्युत्क्रम)</h2>
+
+    <p>अगर किसी square matrix A के लिए कोई matrix B ऐसी हो कि <b>$AB = BA = I$</b>, तो B को A का <b>inverse</b> कहते हैं।</p>
+    <p>इसे $B = A^{-1}$ लिखते हैं।</p>
+
+    <div class="yaad">
+      <strong>📌 जरूरी बातें</strong>
+      • सिर्फ <b>square matrix</b> का inverse हो सकता है।<br>
+      • Inverse हमेशा <b>unique</b> होता है।<br>
+      • $(AB)^{-1} = B^{-1}A^{-1}$ — order reverse होता है।
+    </div>
+
+    <h3>Elementary Operations से Inverse कैसे निकालें?</h3>
+
+    <p><b>Row operations से:</b> लिखो $A = IA$, फिर row operations करो जब तक बायीं तरफ $I$ न आ जाए। तब दायीं तरफ $A^{-1}$ मिलेगा।</p>
+
+    <p><b>Column operations से:</b> लिखो $A = AI$, फिर column operations करो जब तक बायीं तरफ $I$ न आ जाए। तब दायीं तरफ $A^{-1}$ मिलेगा।</p>
+
+    <div class="example">
+      <div class="example-label">Example — Row operations से Inverse निकालो</div>
+      <div class="math-block">$$A = \begin{bmatrix} 1 & 2 \\ 2 & -1 \end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.85rem">
+      लिखो: $\begin{bmatrix} 1 & 2 \\ 2 & -1 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} A$<br><br>
+      $R_2 \to R_2 - 2R_1$: $\begin{bmatrix} 1 & 2 \\ 0 & -5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix} A$<br><br>
+      $R_2 \to -\frac{1}{5}R_2$: $\begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ \frac{2}{5} & -\frac{1}{5} \end{bmatrix} A$<br><br>
+      $R_1 \to R_1 - 2R_2$: $\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} \frac{1}{5} & \frac{2}{5} \\ \frac{2}{5} & -\frac{1}{5} \end{bmatrix} A$
+      </p>
+      <div class="math-block">$$A^{-1} = \begin{bmatrix} \frac{1}{5} & \frac{2}{5} \\[4pt] \frac{2}{5} & -\frac{1}{5} \end{bmatrix}$$</div>
+    </div>
+
+    <div class="yaad">
+      <strong>⚠️ Inverse नहीं होता जब —</strong>
+      अगर row operations करते करते किसी row के सभी elements 0 हो जाएँ, तो उस matrix का inverse exist नहीं करता।
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Alone 12th · Bihar Board · Class 12 · Chapter 3 आव्यूह
+  </div>
+
+</div>
 </body>
 </html>
