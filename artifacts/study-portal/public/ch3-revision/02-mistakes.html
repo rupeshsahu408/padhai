@@ -47,7 +47,6 @@
       box-shadow:0 2px 28px rgba(0,0,0,.07);
     }
 
-    /* Topbar */
     .topbar{
       background:var(--white);
       border-bottom:1px solid var(--border);
@@ -57,191 +56,129 @@
       z-index:10;
     }
     .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      height:50px;
+      display:flex;align-items:center;justify-content:space-between;height:50px;
     }
     .back-btn{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      font-size:.82rem;
-      color:var(--muted);
-      text-decoration:none;
-      font-weight:600;
+      display:flex;align-items:center;gap:6px;font-size:.82rem;
+      color:var(--muted);text-decoration:none;font-weight:600;
     }
     .back-btn:hover{color:var(--text)}
     .topbar-label{font-size:.78rem;font-weight:700;color:var(--text)}
 
-    /* Cover */
     .cover{
       background:#7f1d1d;
       color:#fff;
       padding:40px 32px 32px;
     }
     .cover-tag{
-      font-size:.63rem;
-      font-weight:700;
-      letter-spacing:2.5px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.45);
-      margin-bottom:10px;
+      font-size:.63rem;font-weight:700;letter-spacing:2.5px;
+      text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;
     }
-    .cover h1{
-      font-size:1.7rem;
-      font-weight:800;
-      line-height:1.2;
-      margin-bottom:6px;
-    }
-    .cover .sub{
-      font-size:.78rem;
-      color:rgba(255,255,255,.38);
-    }
+    .cover h1{font-size:1.7rem;font-weight:800;line-height:1.2;margin-bottom:6px}
+    .cover .sub{font-size:.78rem;color:rgba(255,255,255,.38)}
 
-    /* TOC */
     .toc{
       background:#fff5f5;
       border-bottom:1px solid var(--red-border);
       padding:20px 32px;
     }
     .toc-label{
-      font-size:.63rem;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--red);
-      margin-bottom:12px;
+      font-size:.63rem;font-weight:700;letter-spacing:2px;
+      text-transform:uppercase;color:var(--red);margin-bottom:12px;
     }
     .toc-list{display:flex;flex-direction:column;gap:5px}
     .toc-item{font-size:.82rem;color:var(--muted);display:flex;gap:10px}
-    .toc-n{color:var(--red);font-weight:700;min-width:22px}
+    .toc-n{color:var(--red);font-weight:700;min-width:24px}
 
-    /* Mistake block */
     .mistake{
       padding:32px 32px 28px;
       border-bottom:1px solid var(--border);
     }
-    .mistake:last-child{border-bottom:none}
+    .mistake:last-of-type{border-bottom:none}
 
     .mistake-num{
-      font-size:.62rem;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--red);
-      margin-bottom:6px;
+      font-size:.62rem;font-weight:700;letter-spacing:2px;
+      text-transform:uppercase;color:var(--red);margin-bottom:6px;
     }
+    .badge{
+      display:inline-block;font-size:.6rem;font-weight:700;
+      padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle;
+      letter-spacing:.5px;text-transform:uppercase;
+    }
+    .badge-hot{background:#fef2f2;color:var(--red);border:1px solid var(--red-border)}
+    .badge-exam{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+
     .mistake h2{
-      font-size:1.08rem;
-      font-weight:800;
-      color:var(--navy);
-      margin-bottom:14px;
-      padding-bottom:10px;
+      font-size:1.08rem;font-weight:800;color:var(--navy);
+      margin-bottom:14px;padding-bottom:10px;
       border-bottom:2px solid var(--red-bg);
     }
 
-    /* Wrong box */
     .wrong{
       background:var(--red-bg);
       border:1px solid var(--red-border);
       border-left:4px solid var(--red);
       border-radius:0 8px 8px 0;
-      padding:14px 18px;
-      margin:12px 0;
-      font-size:.87rem;
+      padding:14px 18px;margin:12px 0;font-size:.87rem;
     }
     .wrong-label{
-      font-size:.62rem;
-      font-weight:700;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      color:var(--red);
-      margin-bottom:5px;
+      font-size:.62rem;font-weight:700;letter-spacing:1.5px;
+      text-transform:uppercase;color:var(--red);margin-bottom:5px;
     }
 
-    /* Right box */
     .right{
       background:var(--green-bg);
       border:1px solid var(--green-border);
       border-left:4px solid var(--green);
       border-radius:0 8px 8px 0;
-      padding:14px 18px;
-      margin:12px 0;
-      font-size:.87rem;
+      padding:14px 18px;margin:12px 0;font-size:.87rem;
     }
     .right-label{
-      font-size:.62rem;
-      font-weight:700;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      color:var(--green);
-      margin-bottom:5px;
+      font-size:.62rem;font-weight:700;letter-spacing:1.5px;
+      text-transform:uppercase;color:var(--green);margin-bottom:5px;
     }
 
-    /* Note box */
     .note{
-      background:#fffbeb;
-      border:1px solid #fde68a;
-      border-radius:8px;
-      padding:12px 16px;
-      margin:12px 0;
-      font-size:.85rem;
-      color:#78350f;
+      background:#fffbeb;border:1px solid #fde68a;
+      border-radius:8px;padding:12px 16px;margin:12px 0;
+      font-size:.85rem;color:#78350f;
     }
     .note strong{display:block;font-size:.8rem;margin-bottom:2px}
 
-    /* Explanation */
     p{margin-bottom:12px;color:var(--text);font-size:.9rem}
     b,strong{font-weight:700;color:var(--navy)}
-
-    /* Math */
     .math-block{overflow-x:auto;padding:6px 0;font-size:.9rem}
 
-    /* Summary */
+    /* Summary table */
     .summary{
       background:var(--navy);
-      margin:32px;
-      border-radius:12px;
-      padding:24px 26px;
-      color:#fff;
+      margin:32px;border-radius:12px;padding:24px 26px;color:#fff;
     }
     .summary-title{
-      font-size:.7rem;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.4);
-      margin-bottom:14px;
+      font-size:.7rem;font-weight:700;letter-spacing:2px;
+      text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;
     }
-    .summary-list{
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
+    .sum-table{width:100%;border-collapse:collapse;font-size:.83rem}
+    .sum-table th{
+      color:rgba(255,255,255,.45);font-size:.72rem;font-weight:700;
+      text-align:left;padding:6px 10px;border-bottom:1px solid rgba(255,255,255,.1);
     }
-    .summary-list li{
-      font-size:.85rem;
-      color:rgba(255,255,255,.85);
-      display:flex;
-      gap:10px;
-      line-height:1.6;
+    .sum-table td{
+      padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.07);
+      color:rgba(255,255,255,.82);vertical-align:top;line-height:1.55;
     }
-    .summary-list li span{color:var(--red);font-weight:700;flex-shrink:0}
+    .sum-table .mn{color:#f87171;font-weight:700;width:32px}
+    .sum-table tr:last-child td{border-bottom:none}
 
-    /* Footer */
     .footer{
-      text-align:center;
-      padding:24px;
-      font-size:.75rem;
-      color:var(--muted);
-      border-top:1px solid var(--border);
+      text-align:center;padding:24px;font-size:.75rem;
+      color:var(--muted);border-top:1px solid var(--border);
     }
 
     @media(max-width:600px){
       .mistake{padding:24px 20px 20px}
       .cover{padding:32px 20px 24px}
-      .toc{padding:18px 20px}
+      .toc,.summary{padding:18px 20px}
       .topbar{padding:0 16px}
       .summary{margin:20px}
     }
@@ -250,7 +187,6 @@
 <body>
 <div class="page">
 
-  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-inner">
       <a class="back-btn" href="index.html">
@@ -262,372 +198,394 @@
     </div>
   </div>
 
-  <!-- Cover -->
   <div class="cover">
-    <div class="cover-tag">Chapter 3 · Bihar Board Class 12 · Matrices</div>
-    <h1>Common Mistakes<br><span style="font-size:1rem;font-weight:400;opacity:.55">वो गलतियाँ जो exam में सबसे ज़्यादा होती हैं</span></h1>
-    <div class="sub">हर गलती के साथ — ❌ गलत क्या है और ✅ सही क्या है</div>
+    <div class="cover-tag">Chapter 3 · Bihar Board Class 12 · Matrices · Merged Best Version</div>
+    <h1>Common Mistakes<br><span style="font-size:1rem;font-weight:400;opacity:.55">वो गलतियाँ जो exam में सबसे ज़्यादा marks काटती हैं</span></h1>
+    <div class="sub">हर गलती — ❌ गलत क्या है, ✅ सही क्या है, और याद करने का shortcut</div>
   </div>
 
-  <!-- TOC -->
   <div class="toc">
-    <div class="toc-label">इस page में कौन-कौन सी गलतियाँ हैं</div>
+    <div class="toc-label">15 Mistakes — इस page में</div>
     <div class="toc-list">
-      <div class="toc-item"><span class="toc-n">M1</span><span>AB = BA समझ लेना — सबसे Common गलती</span></div>
-      <div class="toc-item"><span class="toc-n">M2</span><span>Multiplication से पहले Compatibility check नहीं करना</span></div>
-      <div class="toc-item"><span class="toc-n">M3</span><span>Order लिखने में Columns पहले, Rows बाद</span></div>
-      <div class="toc-item"><span class="toc-n">M4</span><span>Transpose में order reverse नहीं करना — (AB)' = A'B' लिखना</span></div>
-      <div class="toc-item"><span class="toc-n">M5</span><span>Inverse में order reverse नहीं करना — (AB)⁻¹ = A⁻¹B⁻¹ लिखना</span></div>
-      <div class="toc-item"><span class="toc-n">M6</span><span>aij और aji में confusion — element गलत जगह से लेना</span></div>
+      <div class="toc-item"><span class="toc-n">M1</span><span>Order गलत — Columns पहले, Rows बाद (RC Cola)</span></div>
+      <div class="toc-item"><span class="toc-n">M2</span><span>AB = BA मान लेना — सबसे ज़्यादा होने वाली गलती</span></div>
+      <div class="toc-item"><span class="toc-n">M3</span><span>Multiplication से पहले Compatibility check नहीं करना</span></div>
+      <div class="toc-item"><span class="toc-n">M4</span><span>$(AB)' = A'B'$ लिखना — order reverse नहीं करना</span></div>
+      <div class="toc-item"><span class="toc-n">M5</span><span>Transpose में नया order नहीं लिखना (m×n → n×m)</span></div>
+      <div class="toc-item"><span class="toc-n">M6</span><span>$(AB)^{-1} = A^{-1}B^{-1}$ लिखना</span></div>
       <div class="toc-item"><span class="toc-n">M7</span><span>Skew Symmetric में diagonal 0 भूलना</span></div>
-      <div class="toc-item"><span class="toc-n">M8</span><span>Identity, Scalar, Diagonal में अंतर न समझना</span></div>
-      <div class="toc-item"><span class="toc-n">M9</span><span>अलग Order की matrices जोड़ने की कोशिश करना</span></div>
-      <div class="toc-item"><span class="toc-n">M10</span><span>Symmetric check गलत करना — A' = A verify नहीं करना</span></div>
-      <div class="toc-item"><span class="toc-n">M11</span><span>Inverse के लिए row और column operations मिलाना</span></div>
-      <div class="toc-item"><span class="toc-n">M12</span><span>Zero matrix को "O" की जगह "0" लिखना</span></div>
+      <div class="toc-item"><span class="toc-n">M8</span><span>अलग Order की matrices जोड़ना या घटाना</span></div>
+      <div class="toc-item"><span class="toc-n">M9</span><span>Equality में Order check किए बिना elements compare करना</span></div>
+      <div class="toc-item"><span class="toc-n">M10</span><span>$kA$ में कुछ elements को multiply नहीं करना</span></div>
+      <div class="toc-item"><span class="toc-n">M11</span><span>$A^2$ को elements का square समझना — Bihar Board में हर साल!</span></div>
+      <div class="toc-item"><span class="toc-n">M12</span><span>$AB = O$ का मतलब $A = O$ या $B = O$ समझना</span></div>
+      <div class="toc-item"><span class="toc-n">M13</span><span>Identity, Scalar, Diagonal matrix में अंतर न समझना</span></div>
+      <div class="toc-item"><span class="toc-n">M14</span><span>$a_{ij}$ और $a_{ji}$ में confusion</span></div>
+      <div class="toc-item"><span class="toc-n">M15</span><span>Inverse सिर्फ Square matrix का होता है — यह भूलना</span></div>
     </div>
   </div>
 
 
-  <!-- MISTAKE 1 -->
+  <!-- M1 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 1 — सबसे Common</div>
-    <h2>AB = BA समझ लेना</h2>
+    <div class="mistake-num">Mistake 1 <span class="badge badge-hot">Most Common</span></div>
+    <h2>Order गलत लिखना — Columns पहले, Rows बाद</h2>
+    <p>Pressure में बच्चे Rows और Columns उलट देते हैं। यह सबसे basic लेकिन marks काटने वाली गलती है।</p>
+    <div class="wrong">
+      <div class="wrong-label">❌ गलत</div>
+      <p style="margin:0">$\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}$ का order = <b>3×2</b> (columns पहले लिख दिया)</p>
+    </div>
+    <div class="right">
+      <div class="right-label">✅ सही</div>
+      <p style="margin:0">Rows = 2 (ऊपर से नीचे), Columns = 3 (बाएं से दाएं)<br>
+      Order = <b>2×3</b> — पहले Rows, फिर Columns।</p>
+    </div>
+    <div class="note">
+      <strong>🧠 RC Cola Trick — कभी नहीं भूलोगे</strong>
+      <b>R</b>ow पहले, <b>C</b>olumn बाद — RC Cola! जैसे Cola की bottle में RC पहले आता है।
+    </div>
+  </div>
 
-    <p>यह chapter की <b>सबसे बड़ी गलती</b> है। बहुत से students numbers की तरह सोचते हैं — "3×5 = 5×3, तो AB भी BA के बराबर होगा।" लेकिन matrices में यह बिल्कुल गलत है।</p>
 
+  <!-- M2 -->
+  <div class="mistake">
+    <div class="mistake-num">Mistake 2 <span class="badge badge-hot">Most Common</span></div>
+    <h2>AB = BA मान लेना</h2>
+    <p>सबसे बड़ी गलती। Numbers में $3\times4 = 4\times3$ होता है — बच्चे यही matrices में भी लगा देते हैं। <b>Matrices में यह बिल्कुल गलत है।</b></p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत सोच</div>
-      <p style="margin:0">अगर $AB = \begin{bmatrix}1&2\\3&4\end{bmatrix}$ है, तो $BA$ भी यही होगा।</p>
+      <p style="margin:0">अगर $AB$ निकाल लिया तो $BA$ automatically वही होगा।</p>
     </div>
-
     <div class="right">
-      <div class="right-label">✅ सही बात</div>
+      <div class="right-label">✅ Proof — खुद देख लो</div>
       <div class="math-block">$$A=\begin{bmatrix}1&2\\3&4\end{bmatrix},\ B=\begin{bmatrix}0&1\\1&0\end{bmatrix}$$</div>
       <p style="margin:0;font-size:.85rem">
-      $AB = \begin{bmatrix}2&1\\4&3\end{bmatrix}$ &nbsp;&nbsp; लेकिन &nbsp;&nbsp; $BA = \begin{bmatrix}3&4\\1&2\end{bmatrix}$<br>
-      <b>AB ≠ BA</b> — दोनों बिल्कुल अलग हैं।
+      $AB=\begin{bmatrix}2&1\\4&3\end{bmatrix}$ &nbsp;&nbsp; लेकिन &nbsp;&nbsp; $BA=\begin{bmatrix}3&4\\1&2\end{bmatrix}$<br>
+      <b>AB ≠ BA</b> — दोनों बिल्कुल अलग।
       </p>
     </div>
-
     <div class="note">
-      <strong>📌 याद रखो</strong>
-      Matrix multiplication generally commutative नहीं होती। सवाल में अगर AB दिया है तो BA automatically नहीं लिख सकते।
+      <strong>📌 Rule</strong>
+      Matrix multiplication <b>commutative नहीं</b> है। Exam में अगर prove करने बोलें कि $AB \neq BA$, तो दोनों निकालो और दिखाओ।
     </div>
   </div>
 
 
-  <!-- MISTAKE 2 -->
+  <!-- M3 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 2</div>
+    <div class="mistake-num">Mistake 3 <span class="badge badge-exam">Exam Important</span></div>
     <h2>Multiplication से पहले Compatibility Check नहीं करना</h2>
-
-    <p>बहुत से students directly multiply करना शुरू कर देते हैं बिना यह check किये कि multiplication possible है या नहीं।</p>
-
+    <p>बिना सोचे AB निकालने लग जाते हैं — लेकिन पहले check करना ज़रूरी है।</p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत</div>
-      <p style="margin:0">$A$ (2×3) और $B$ (2×4) को directly multiply करने लगना।<br>
-      ऐसे: $(AB)_{11} = a_{11}b_{11} + \ldots$ — यह सब गलत है।</p>
+      <p style="margin:0">$A$ (2×2) और $B$ (1×3) को directly multiply करना शुरू कर देना।</p>
     </div>
-
     <div class="right">
       <div class="right-label">✅ सही तरीका</div>
-      <p style="margin:0"><b>पहले check करो:</b> A के columns = B के rows?<br>
-      A(2×<b>3</b>) और B(<b>2</b>×4) → 3 ≠ 2 → <b>AB possible नहीं।</b><br><br>
-      A(2×<b>3</b>) और B(<b>3</b>×4) → 3 = 3 → AB possible। Result = 2×4 matrix।</p>
+      <p style="margin:0"><b>Check करो:</b> A के columns = B के rows?<br>
+      A(2×<b>2</b>) और B(<b>1</b>×3) → 2 ≠ 1 → <b>AB defined नहीं।</b><br>
+      A(2×<b>3</b>) और B(<b>3</b>×4) → 3 = 3 → AB possible। Result = <b>2×4</b></p>
     </div>
-
     <div class="note">
-      <strong>⚡ RC Trick</strong>
-      A(m×<u>n</u>) × B(<u>n</u>×p) — बीच वाले दोनों n बराबर होने चाहिए। Result = m×p।
+      <strong>⚡ Easy Trick</strong>
+      $A(m\times\underline{n}) \times B(\underline{n}\times p)$ — बीच के दोनों numbers same होने चाहिए। Result = $m\times p$।
     </div>
   </div>
 
 
-  <!-- MISTAKE 3 -->
+  <!-- M4 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 3</div>
-    <h2>Order लिखने में Columns पहले, Rows बाद</h2>
-
-    <p>Order याद करते वक्त अक्सर उलझन होती है — पहले row लिखें या column?</p>
-
-    <div class="wrong">
-      <div class="wrong-label">❌ गलत</div>
-      <p style="margin:0">$\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}$ का order = <b>3×2</b> (पहले columns लिख दिया)</p>
-    </div>
-
-    <div class="right">
-      <div class="right-label">✅ सही</div>
-      <p style="margin:0">इस matrix में 2 rows और 3 columns हैं।<br>
-      Order = <b>2×3</b> — पहले Rows (2), फिर Columns (3)।</p>
-    </div>
-
-    <div class="note">
-      <strong>🧠 RC Cola Trick</strong>
-      <b>R</b>ow पहले, <b>C</b>olumn बाद — RC Cola! कभी नहीं भूलोगे।
-    </div>
-  </div>
-
-
-  <!-- MISTAKE 4 -->
-  <div class="mistake">
-    <div class="mistake-num">Mistake 4 — Exam में बहुत आता है</div>
+    <div class="mistake-num">Mistake 4 <span class="badge badge-exam">Exam Important</span></div>
     <h2>$(AB)' = A'B'$ लिखना — Order Reverse नहीं करना</h2>
-
-    <p>Transpose लेते वक्त students सीधे $A'B'$ लिख देते हैं — यह गलती exam में marks काटती है।</p>
-
+    <p>Transpose "distribute" होता है — students यह सोचकर $A'B'$ लिख देते हैं। <b>यह 2-4 marks काटने वाली गलती है।</b></p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत</div>
-      <p style="margin:0">$(AB)' = A'B'$ — order same रखना।</p>
+      <div class="math-block">$$(AB)' = A'B'$$</div>
     </div>
-
     <div class="right">
-      <div class="right-label">✅ सही</div>
-      <p style="margin:0">$(AB)' = \mathbf{B'A'}$ — order <b>reverse</b> होती है।</p>
-      <div class="math-block">$$\text{जैसे जूते पहनते हैं तो मोज़े पहले — उतारते हैं तो जूते पहले}$$</div>
-      <p style="margin:0;font-size:.84rem">पहले B का transpose, फिर A का। यही order है।</p>
+      <div class="right-label">✅ सही Formula</div>
+      <div class="math-block">$$(AB)' = B'A' \quad \longleftarrow \text{Order REVERSE हो जाती है!}$$</div>
+      <p style="margin:0;font-size:.85rem">पहले $B$ का transpose, फिर $A$ का।</p>
     </div>
-
     <div class="note">
-      <strong>📌 एक साथ याद करो</strong>
-      $(AB)' = B'A'$ और $(ABC)' = C'B'A'$ — सब उल्टा।<br>
-      $(A+B)' = A'+B'$ — यहाँ order नहीं बदलती।
+      <strong>🧠 जूते-मोज़े Trick</strong>
+      जूते पहनते हो → पहले मोज़े। उतारते हो → पहले जूते (उल्टा क्रम)।<br>
+      AB में पहले A, फिर B था → Transpose में पहले B', फिर A'।<br>
+      <b>Extra:</b> $(ABC)' = C'B'A'$ — तीन हों तो भी सब उल्टा।
     </div>
   </div>
 
 
-  <!-- MISTAKE 5 -->
+  <!-- M5 -->
   <div class="mistake">
     <div class="mistake-num">Mistake 5</div>
-    <h2>$(AB)^{-1} = A^{-1}B^{-1}$ लिखना</h2>
-
-    <p>Transpose की तरह ही Inverse में भी order reverse होती है — students यह भूल जाते हैं।</p>
-
+    <h2>Transpose में नया Order नहीं लिखना</h2>
+    <p>Elements सही transpose करते हैं, लेकिन नया order लिखना भूल जाते हैं — या गलत order लिखते हैं।</p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत</div>
-      <p style="margin:0">$(AB)^{-1} = A^{-1}B^{-1}$</p>
+      <div class="math-block">$$A=\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}_{2\times3} \implies A'=\begin{bmatrix}1&4\\2&5\\3&6\end{bmatrix}_{\mathbf{2\times3}}$$</div>
+      <p style="margin:0;font-size:.84rem">Elements सही हैं — लेकिन order 2×3 ही रहने दिया।</p>
     </div>
-
     <div class="right">
       <div class="right-label">✅ सही</div>
-      <p style="margin:0">$(AB)^{-1} = \mathbf{B^{-1}A^{-1}}$ — order reverse होती है।</p>
+      <div class="math-block">$$A'=\begin{bmatrix}1&4\\2&5\\3&6\end{bmatrix}_{\mathbf{3\times2}}$$</div>
+      <p style="margin:0;font-size:.85rem">Order पलट जाता है: $m\times n \rightarrow n\times m$। यहाँ 2×3 → <b>3×2</b>।</p>
     </div>
-
     <div class="note">
-      <strong>🧠 एक साथ याद करो</strong>
-      Transpose में: $(AB)' = B'A'$ ← reverse<br>
-      Inverse में: $(AB)^{-1} = B^{-1}A^{-1}$ ← reverse<br>
-      दोनों में एक ही rule — order उलट जाता है।
+      <strong>📌 Rule</strong>
+      Transpose लेने के बाद order लिखना ज़रूरी है — $m\times n$ matrix का transpose $n\times m$ होता है।
     </div>
   </div>
 
 
-  <!-- MISTAKE 6 -->
+  <!-- M6 -->
   <div class="mistake">
     <div class="mistake-num">Mistake 6</div>
-    <h2>$a_{ij}$ और $a_{ji}$ में Confusion</h2>
-
-    <p>Element का notation गलत समझने से पूरा सवाल गलत हो जाता है।</p>
-
+    <h2>$(AB)^{-1} = A^{-1}B^{-1}$ लिखना</h2>
+    <p>Inverse में भी Transpose जैसा ही rule है — order reverse होती है। Students यह भूल जाते हैं।</p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत</div>
-      <p style="margin:0">$a_{23}$ = 3rd row, 2nd column का element।</p>
+      <div class="math-block">$$(AB)^{-1} = A^{-1}B^{-1}$$</div>
     </div>
-
     <div class="right">
       <div class="right-label">✅ सही</div>
-      <p style="margin:0">$a_{23}$ = <b>2nd row, 3rd column</b> का element।<br>
-      $a_{ij}$ में — पहला subscript (i) = row, दूसरा (j) = column।</p>
-      <div class="math-block">$$A=\begin{bmatrix}1&2&3\\4&5&\mathbf{6}\\7&8&9\end{bmatrix} \implies a_{23} = \mathbf{6}$$</div>
+      <div class="math-block">$$(AB)^{-1} = B^{-1}A^{-1} \quad \longleftarrow \text{Order REVERSE}$$</div>
     </div>
-
     <div class="note">
-      <strong>📌 Transpose में</strong>
-      $A' = [a_{ji}]$ — यहाँ i और j उलट जाते हैं।<br>
-      मतलब A का $a_{23}$ = A' का $a_{32}$।
+      <strong>🧠 एक साथ याद करो</strong>
+      Transpose: $(AB)' = B'A'$ ← reverse<br>
+      Inverse: $(AB)^{-1} = B^{-1}A^{-1}$ ← reverse<br>
+      दोनों में एक ही pattern — order उलट जाता है।
     </div>
   </div>
 
 
-  <!-- MISTAKE 7 -->
+  <!-- M7 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 7</div>
+    <div class="mistake-num">Mistake 7 <span class="badge badge-exam">Exam Important</span></div>
     <h2>Skew Symmetric में Diagonal 0 भूलना</h2>
-
-    <p>Skew symmetric matrix का एक golden rule है जो students अक्सर prove करते वक्त ignore कर देते हैं।</p>
-
+    <p>Skew Symmetric matrix बनाते या check करते वक्त diagonal elements 0 होने की condition ignore हो जाती है।</p>
     <div class="wrong">
-      <div class="wrong-label">❌ गलत — ऐसा matrix skew symmetric नहीं हो सकता</div>
-      <div class="math-block">$$B=\begin{bmatrix}\mathbf{3}&2\\-2&\mathbf{5}\end{bmatrix}$$</div>
-      <p style="margin:0;font-size:.84rem">यहाँ diagonal elements 3 और 5 हैं — यह skew symmetric नहीं है।</p>
+      <div class="wrong-label">❌ गलत Skew Symmetric</div>
+      <div class="math-block">$$A=\begin{bmatrix}2&3\\-3&5\end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.84rem">Diagonal पर 2 और 5 हैं — यह skew symmetric नहीं है।</p>
     </div>
-
     <div class="right">
-      <div class="right-label">✅ सही Skew Symmetric Matrix</div>
-      <div class="math-block">$$B=\begin{bmatrix}\mathbf{0}&3\\-3&\mathbf{0}\end{bmatrix}$$</div>
-      <p style="margin:0;font-size:.84rem">Diagonal हमेशा <b>0</b> होता है। Proof: $a_{ii} = -a_{ii} \Rightarrow 2a_{ii}=0 \Rightarrow a_{ii}=0$</p>
+      <div class="right-label">✅ सही Skew Symmetric</div>
+      <div class="math-block">$$A=\begin{bmatrix}0&3\\-3&0\end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.85rem">Proof: यदि $A' = -A$ तो $a_{ii} = -a_{ii}$ → $2a_{ii}=0$ → $a_{ii}=0$<br>
+      Diagonal हमेशा 0 — यह prove होता है।</p>
     </div>
-
     <div class="note">
       <strong>⚡ Quick Check</strong>
-      किसी matrix को check करना हो कि skew symmetric है या नहीं — <b>पहले diagonal देखो।</b> Diagonal में 0 नहीं है तो skew symmetric हो ही नहीं सकता।
+      किसी matrix को देखते ही — <b>पहले diagonal देखो।</b> Diagonal में कोई भी element 0 नहीं है? तो skew symmetric हो ही नहीं सकता।
     </div>
   </div>
 
 
-  <!-- MISTAKE 8 -->
+  <!-- M8 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 8 — Definition Confusion</div>
-    <h2>Identity, Scalar, Diagonal में अंतर न समझना</h2>
-
-    <p>Bihar Board में directly पूछते हैं — "यह कौन सा matrix है?" Students इन तीनों को mix कर देते हैं।</p>
-
+    <div class="mistake-num">Mistake 8</div>
+    <h2>अलग Order की Matrices जोड़ने की कोशिश</h2>
+    <p>Addition के लिए order same होना ज़रूरी है — pressure में यह rule भूल जाते हैं।</p>
     <div class="wrong">
-      <div class="wrong-label">❌ गलत सोच</div>
-      <p style="margin:0">"$\begin{bmatrix}3&0\\0&3\end{bmatrix}$ एक Identity matrix है।"</p>
+      <div class="wrong-label">❌ गलत</div>
+      <div class="math-block">$$A=[1\ 2\ 3]_{1\times3},\quad B=[4\ 5]_{1\times2}$$</div>
+      <p style="margin:0;font-size:.84rem">$A+B = [5\ 7\ 3]$ — यह बिल्कुल गलत है, possible ही नहीं।</p>
     </div>
-
     <div class="right">
-      <div class="right-label">✅ सही अंतर</div>
-      <div style="font-size:.85rem;line-height:2">
-        <b>Diagonal Matrix:</b> बाकी सब 0, diagonal कुछ भी → $\begin{bmatrix}2&0\\0&5\end{bmatrix}$<br>
-        <b>Scalar Matrix:</b> Diagonal matrix + सभी diagonal elements <u>equal</u> → $\begin{bmatrix}3&0\\0&3\end{bmatrix}$<br>
-        <b>Identity Matrix:</b> Scalar matrix + diagonal elements = <u>1</u> → $\begin{bmatrix}1&0\\0&1\end{bmatrix}$<br><br>
-        <b>Relation:</b> Identity ⊂ Scalar ⊂ Diagonal ⊂ Square
-      </div>
+      <div class="right-label">✅ सही</div>
+      <p style="margin:0">A(1×3) और B(1×2) — same order नहीं।<br>
+      सीधे लिखो: <b>"A + B is not defined"</b> — इससे ज़्यादा कुछ नहीं।</p>
     </div>
-
     <div class="note">
-      <strong>📌 याद रखो</strong>
-      हर Identity matrix, Scalar matrix है।<br>
-      हर Scalar matrix, Diagonal matrix है।<br>
-      लेकिन हर Diagonal matrix, Scalar नहीं। हर Scalar, Identity नहीं।
+      <strong>📌 Rule</strong>
+      Addition और Subtraction सिर्फ <b>same order</b> की matrices में। Multiplication के लिए अलग rule है।
     </div>
   </div>
 
 
-  <!-- MISTAKE 9 -->
+  <!-- M9 -->
   <div class="mistake">
     <div class="mistake-num">Mistake 9</div>
-    <h2>अलग Order की Matrices जोड़ने की कोशिश</h2>
-
-    <p>Addition के लिए order same होना ज़रूरी है — यह basic rule है जो pressure में भूल जाते हैं।</p>
-
-    <div class="wrong">
-      <div class="wrong-label">❌ गलत</div>
-      <div class="math-block">$$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}_{2\times2},\ B=\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}_{2\times3}$$</div>
-      <p style="margin:0;font-size:.84rem">A+B का attempt करना — यह defined नहीं है।</p>
-    </div>
-
-    <div class="right">
-      <div class="right-label">✅ सही</div>
-      <p style="margin:0">A(2×2) और B(2×3) — different order → <b>Addition possible नहीं।</b><br>
-      Addition और Subtraction सिर्फ <b>same order</b> की matrices के बीच होती है।</p>
-    </div>
-  </div>
-
-
-  <!-- MISTAKE 10 -->
-  <div class="mistake">
-    <div class="mistake-num">Mistake 10</div>
-    <h2>Symmetric Check गलत तरीके से करना</h2>
-
-    <p>Students कभी-कभी बिना $A'$ निकाले ही कह देते हैं — "यह symmetric है।"</p>
-
+    <h2>Equality में Order Check किए बिना Elements Compare करना</h2>
+    <p>दो matrices equal हैं या नहीं — पहले order देखो, elements बाद में।</p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत approach</div>
-      <div class="math-block">$$A=\begin{bmatrix}1&2\\3&1\end{bmatrix}$$</div>
-      <p style="margin:0;font-size:.84rem">"Diagonal same है, तो symmetric होगा।" — यह reasoning गलत है।</p>
+      <div class="math-block">$$A=\begin{bmatrix}1&2&3\end{bmatrix}_{1\times3},\quad B=\begin{bmatrix}1&2\\3&4\end{bmatrix}_{2\times2}$$</div>
+      <p style="margin:0;font-size:.84rem">"1=1, 2=2... elements same हैं तो equal होगा!" — गलत।</p>
     </div>
-
     <div class="right">
-      <div class="right-label">✅ सही तरीका — A' निकालो और compare करो</div>
-      <div class="math-block">$$A'=\begin{bmatrix}1&3\\2&1\end{bmatrix} \neq A$$</div>
-      <p style="margin:0;font-size:.84rem">$A' \neq A$ → यह symmetric नहीं है।<br>
-      Symmetric के लिए ज़रूरी: $a_{ij} = a_{ji}$ <u>सब के लिए</u> — यानी $a_{12}=a_{21}$, $a_{13}=a_{31}$ etc.</p>
+      <div class="right-label">✅ सही Step-by-Step</div>
+      <p style="margin:0">Step 1: Order check — A(1×3), B(2×2) → <b>different order → A ≠ B। Done।</b><br>
+      Elements देखने की ज़रूरत ही नहीं। Order अलग है तो बराबर हो ही नहीं सकते।</p>
     </div>
-
     <div class="note">
-      <strong>📌 Correct Example</strong>
-      $A=\begin{bmatrix}1&2\\2&5\end{bmatrix}$ → $A'=\begin{bmatrix}1&2\\2&5\end{bmatrix}=A$ → ✅ Symmetric।<br>
-      यहाँ $a_{12}=a_{21}=2$ — यही condition है।
+      <strong>📌 Equality के दो conditions</strong>
+      1. Same order &nbsp; 2. हर corresponding element बराबर ($a_{ij} = b_{ij}$ सब के लिए)<br>
+      दोनों ज़रूरी — एक भी fail हो तो matrices equal नहीं।
     </div>
   </div>
 
 
-  <!-- MISTAKE 11 -->
+  <!-- M10 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 11 — Inverse निकालते वक्त</div>
-    <h2>Row और Column Operations एक साथ Mix करना</h2>
-
-    <p>Inverse निकालते वक्त एक ही method use करना है — या तो सिर्फ Row operations, या सिर्फ Column operations। दोनों को mix करने से गलत answer आता है।</p>
-
+    <div class="mistake-num">Mistake 10</div>
+    <h2>$kA$ में कुछ Elements को Multiply नहीं करना</h2>
+    <p>Scalar multiply करते वक्त जल्दी में कुछ elements छूट जाते हैं।</p>
     <div class="wrong">
       <div class="wrong-label">❌ गलत</div>
-      <p style="margin:0">$A = IA$ लिखकर कुछ Row operations करो, फिर बीच में Column operation भी कर दो।<br>
-      यह बिल्कुल गलत है।</p>
+      <div class="math-block">$$A=\begin{bmatrix}2&4\\6&8\end{bmatrix},\quad 2A=\begin{bmatrix}4&8\\6&8\end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.84rem">नीचे वाली row multiply नहीं की!</p>
     </div>
-
     <div class="right">
       <div class="right-label">✅ सही</div>
-      <p style="margin:0"><b>Row method:</b> $A = IA$ लिखो → सिर्फ Row operations करो → जब A की जगह I आ जाए → दाईं तरफ $A^{-1}$</p>
-      <p style="margin:8px 0 0"><b>Column method:</b> $A = AI$ लिखो → सिर्फ Column operations करो → जब A की जगह I आ जाए → दाईं तरफ $A^{-1}$</p>
-    </div>
-
-    <div class="note">
-      <strong>⚠️ Inverse exist नहीं करता जब</strong>
-      Operations करते वक्त अगर किसी row (या column) के <b>सभी elements 0</b> हो जाएँ → $A^{-1}$ exist नहीं करता। वहीं रुक जाओ और लिखो "Inverse does not exist।"
+      <div class="math-block">$$2A=\begin{bmatrix}2\times2&2\times4\\2\times6&2\times8\end{bmatrix}=\begin{bmatrix}4&8\\12&16\end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.85rem"><b>हर एक element multiply होता है</b> — एक भी नहीं छोड़ना।</p>
     </div>
   </div>
 
 
-  <!-- MISTAKE 12 -->
+  <!-- M11 -->
   <div class="mistake">
-    <div class="mistake-num">Mistake 12</div>
-    <h2>Zero Matrix को "0" लिखना — "O" नहीं</h2>
-
-    <p>यह छोटी लेकिन marks काटने वाली गलती है।</p>
-
+    <div class="mistake-num">Mistake 11 <span class="badge badge-hot">Bihar Board Trap!</span></div>
+    <h2>$A^2$ को Elements का Square समझना</h2>
+    <p>यह गलती 9वीं-10वीं की पुरानी habit से आती है और Bihar Board में हर साल यह सवाल आता है।</p>
     <div class="wrong">
-      <div class="wrong-label">❌ गलत notation</div>
-      <p style="margin:0">$A + (-A) = \mathbf{0}$ या $AB = \mathbf{0}$</p>
+      <div class="wrong-label">❌ गलत — बहुत बड़ी गलती</div>
+      <div class="math-block">$$A=\begin{bmatrix}1&2\\3&4\end{bmatrix} \implies A^2=\begin{bmatrix}1^2&2^2\\3^2&4^2\end{bmatrix}=\begin{bmatrix}1&4\\9&16\end{bmatrix}$$</div>
+      <p style="margin:0;font-size:.84rem">Elements को individually square कर दिया — यह scalar operation है, matrix नहीं!</p>
     </div>
-
     <div class="right">
-      <div class="right-label">✅ सही notation</div>
-      <p style="margin:0">$A + (-A) = \mathbf{O}$ — यहाँ O (capital letter) = Zero Matrix<br>
-      $AB = \mathbf{O}$ — Zero Matrix को O से लिखते हैं, अंक 0 से नहीं।</p>
+      <div class="right-label">✅ सही — A² = A × A (Matrix Multiplication)</div>
+      <div class="math-block">$$A^2 = A\times A = \begin{bmatrix}1&2\\3&4\end{bmatrix}\times\begin{bmatrix}1&2\\3&4\end{bmatrix}$$</div>
+      <div class="math-block">$$=\begin{bmatrix}1\times1+2\times3 & 1\times2+2\times4\\3\times1+4\times3 & 3\times2+4\times4\end{bmatrix}=\begin{bmatrix}7&10\\15&22\end{bmatrix}$$</div>
     </div>
-
     <div class="note">
-      <strong>📌 और एक बात</strong>
-      $AB = O$ का मतलब यह नहीं कि $A = O$ या $B = O$ — matrices में यह नियम नहीं चलता। यह numbers जैसा नहीं है।
+      <strong>🎯 Exam Alert</strong>
+      Bihar Board में "$A^2$, $A^3$ निकालो" वाले सवाल हर साल आते हैं। हमेशा याद रखो — $A^n$ मतलब $A$ को खुद से $n$ बार matrix multiplication करना।
+    </div>
+  </div>
+
+
+  <!-- M12 -->
+  <div class="mistake">
+    <div class="mistake-num">Mistake 12 <span class="badge badge-exam">Concept Trap</span></div>
+    <h2>$AB = O$ का मतलब $A = O$ या $B = O$ समझना</h2>
+    <p>Numbers में अगर $a \times b = 0$ है तो $a = 0$ या $b = 0$ — यही rule students matrices पर लगा देते हैं। <b>Matrix में यह बिल्कुल गलत है।</b></p>
+    <div class="wrong">
+      <div class="wrong-label">❌ गलत सोच</div>
+      <p style="margin:0">$AB = O$ दिया है → "तो ज़रूर $A = O$ या $B = O$ होगा।"</p>
+    </div>
+    <div class="right">
+      <div class="right-label">✅ Counter Example — Proof</div>
+      <div class="math-block">$$A=\begin{bmatrix}1&0\\0&0\end{bmatrix},\quad B=\begin{bmatrix}0&0\\1&1\end{bmatrix}$$</div>
+      <div class="math-block">$$AB=\begin{bmatrix}1\times0+0\times1&1\times0+0\times1\\0\times0+0\times1&0\times0+0\times1\end{bmatrix}=\begin{bmatrix}0&0\\0&0\end{bmatrix}=O$$</div>
+      <p style="margin:0;font-size:.85rem">लेकिन $A \neq O$ और $B \neq O$ — दोनों में non-zero elements हैं!</p>
+    </div>
+    <div class="note">
+      <strong>📌 Rule</strong>
+      $AB = O$ → इसका मतलब <b>ज़रूरी नहीं</b> कि $A = O$ या $B = O$।<br>
+      Matrix में zero product property नहीं चलती।
+    </div>
+  </div>
+
+
+  <!-- M13 -->
+  <div class="mistake">
+    <div class="mistake-num">Mistake 13 <span class="badge badge-exam">Exam Important</span></div>
+    <h2>Identity, Scalar, Diagonal Matrix में अंतर नहीं समझना</h2>
+    <p>Bihar Board directly पूछता है — "यह कौन सा matrix है?" तीनों को clearly जानना ज़रूरी है।</p>
+    <div class="wrong">
+      <div class="wrong-label">❌ गलत</div>
+      <p style="margin:0">"$\begin{bmatrix}3&0\\0&3\end{bmatrix}$ एक Identity Matrix है।" — गलत।</p>
+    </div>
+    <div class="right">
+      <div class="right-label">✅ सही Hierarchy</div>
+      <div style="font-size:.85rem;line-height:2.1">
+        <b>Diagonal:</b> बाकी सब 0, diagonal = कुछ भी &nbsp;→&nbsp; $\begin{bmatrix}2&0\\0&5\end{bmatrix}$<br>
+        <b>Scalar:</b> Diagonal + सभी diagonal elements <u>equal</u> &nbsp;→&nbsp; $\begin{bmatrix}3&0\\0&3\end{bmatrix}$<br>
+        <b>Identity:</b> Scalar + diagonal = <u>1</u> &nbsp;→&nbsp; $\begin{bmatrix}1&0\\0&1\end{bmatrix}$
+      </div>
+    </div>
+    <div class="note">
+      <strong>📌 Relation (याद करो)</strong>
+      Identity ⊂ Scalar ⊂ Diagonal ⊂ Square<br>
+      हर Identity → Scalar है। हर Scalar → Diagonal है।<br>
+      उल्टा नहीं — हर Diagonal, Scalar नहीं। हर Scalar, Identity नहीं।
+    </div>
+  </div>
+
+
+  <!-- M14 -->
+  <div class="mistake">
+    <div class="mistake-num">Mistake 14</div>
+    <h2>$a_{ij}$ और $a_{ji}$ में Confusion — Element गलत जगह से लेना</h2>
+    <p>Element notation उलटा समझने से transpose, symmetric — सब गलत हो जाता है।</p>
+    <div class="wrong">
+      <div class="wrong-label">❌ गलत</div>
+      <p style="margin:0">"$a_{23}$ = 3rd row, 2nd column का element।"</p>
+    </div>
+    <div class="right">
+      <div class="right-label">✅ सही</div>
+      <div class="math-block">$$A=\begin{bmatrix}1&2&3\\4&5&\mathbf{6}\\7&8&9\end{bmatrix} \implies a_{23}=\mathbf{6}\ (\text{2nd row, 3rd column})$$</div>
+      <p style="margin:0;font-size:.85rem">$a_{ij}$ → <b>i = row</b>, <b>j = column</b>। पहले row, फिर column।<br>
+      Transpose में: $A'=[a_{ji}]$ → row और column उलट जाते हैं।</p>
+    </div>
+  </div>
+
+
+  <!-- M15 -->
+  <div class="mistake">
+    <div class="mistake-num">Mistake 15</div>
+    <h2>Inverse सिर्फ Square Matrix का होता है — यह भूलना</h2>
+    <p>Students किसी भी matrix का inverse निकालने की कोशिश करने लगते हैं।</p>
+    <div class="wrong">
+      <div class="wrong-label">❌ गलत</div>
+      <p style="margin:0">$A=\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}$ (2×3 matrix) का inverse निकालने की कोशिश।</p>
+    </div>
+    <div class="right">
+      <div class="right-label">✅ सही</div>
+      <p style="margin:0">Inverse सिर्फ <b>Square Matrix</b> (m = n) का हो सकता है।<br>
+      2×3 matrix का inverse कभी नहीं होगा।<br>
+      Square matrix का भी inverse तभी होगा जब row operations में कोई row all-zero न बने।</p>
+    </div>
+    <div class="note">
+      <strong>⚠️ Inverse exist नहीं करता जब</strong>
+      Elementary row operations करते वक्त किसी भी row के <b>सभी elements 0</b> हो जाएँ → वहीं रुको, लिखो: <b>"Inverse does not exist।"</b>
     </div>
   </div>
 
 
   <!-- Summary -->
   <div class="summary">
-    <div class="summary-title">Quick Summary — इन 12 गलतियों से बचो</div>
-    <ul class="summary-list">
-      <li><span>M1</span>AB ≠ BA — matrix multiplication commutative नहीं</li>
-      <li><span>M2</span>Multiply करने से पहले columns = rows check करो</li>
-      <li><span>M3</span>Order में पहले Row, फिर Column (RC Cola)</li>
-      <li><span>M4</span>$(AB)' = B'A'$ — order reverse होती है, $A'B'$ नहीं</li>
-      <li><span>M5</span>$(AB)^{-1} = B^{-1}A^{-1}$ — यहाँ भी order reverse</li>
-      <li><span>M6</span>$a_{ij}$ = i वीं row, j वाँ column — उल्टा मत समझो</li>
-      <li><span>M7</span>Skew Symmetric में diagonal हमेशा 0</li>
-      <li><span>M8</span>Identity ⊂ Scalar ⊂ Diagonal — hierarchy याद करो</li>
-      <li><span>M9</span>Addition सिर्फ same order matrices में होती है</li>
-      <li><span>M10</span>Symmetric check के लिए A' निकालो और compare करो</li>
-      <li><span>M11</span>Inverse में Row और Column operations mix मत करो</li>
-      <li><span>M12</span>Zero Matrix को O लिखो, 0 नहीं</li>
-    </ul>
+    <div class="summary-title">Quick Summary — 15 Mistakes एक जगह</div>
+    <table class="sum-table">
+      <tr>
+        <th style="width:32px">#</th>
+        <th>गलती</th>
+        <th>सही बात</th>
+      </tr>
+      <tr><td class="mn">M1</td><td>Column पहले, Row बाद</td><td>RC Cola → Row पहले</td></tr>
+      <tr><td class="mn">M2</td><td>AB = BA मानना</td><td>AB ≠ BA (generally)</td></tr>
+      <tr><td class="mn">M3</td><td>Compatibility check नहीं</td><td>A के columns = B के rows ज़रूरी</td></tr>
+      <tr><td class="mn">M4</td><td>$(AB)' = A'B'$</td><td>$(AB)' = B'A'$ — reverse!</td></tr>
+      <tr><td class="mn">M5</td><td>Transpose में order same रखना</td><td>$m\times n \to n\times m$ हो जाता है</td></tr>
+      <tr><td class="mn">M6</td><td>$(AB)^{-1} = A^{-1}B^{-1}$</td><td>$(AB)^{-1} = B^{-1}A^{-1}$ — reverse!</td></tr>
+      <tr><td class="mn">M7</td><td>Skew में diagonal 0 नहीं</td><td>Skew Symmetric में diagonal हमेशा 0</td></tr>
+      <tr><td class="mn">M8</td><td>अलग order में addition</td><td>Same order होने पर ही जोड़ेंगे</td></tr>
+      <tr><td class="mn">M9</td><td>Order check किए बिना equality</td><td>पहले order, फिर elements</td></tr>
+      <tr><td class="mn">M10</td><td>kA में कुछ elements छोड़ना</td><td>हर element को k से गुणा करो</td></tr>
+      <tr><td class="mn">M11</td><td>$A^2$ = elements square करना</td><td>$A^2 = A\times A$ (matrix multiplication)</td></tr>
+      <tr><td class="mn">M12</td><td>$AB=O$ → A या B = O</td><td>Matrix में zero product property नहीं चलती</td></tr>
+      <tr><td class="mn">M13</td><td>Identity/Scalar/Diagonal mix</td><td>Identity ⊂ Scalar ⊂ Diagonal hierarchy</td></tr>
+      <tr><td class="mn">M14</td><td>$a_{ij}$ उलटा समझना</td><td>$a_{ij}$ = i वीं row, j वाँ column</td></tr>
+      <tr><td class="mn">M15</td><td>किसी भी matrix का inverse निकालना</td><td>Inverse सिर्फ Square matrix का</td></tr>
+    </table>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-    Alone 12th · Bihar Board · Class 12 · Chapter 3 आव्यूह · Common Mistakes
+    Alone 12th · Bihar Board · Class 12 · Chapter 3 आव्यूह · Common Mistakes · Merged Best Version
   </div>
 
 </div>
