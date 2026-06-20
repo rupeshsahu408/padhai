@@ -4,139 +4,157 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Revision Notes — 11 | Alone 12th</title>
+  <script>
+    (function(){
+      var t = localStorage.getItem('sp-theme');
+      if(t==='dark' || (!t && window.matchMedia('(prefers-color-scheme:dark)').matches))
+        document.documentElement.classList.add('dark');
+    })();
+  </script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1a1a2e;--accent:#2d4a8a;--border:#e2e6f0;--text:#1e1e2e;--muted:#6b7280;--bg:#f7f8fc;--white:#fff}
-    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-    .page{max-width:600px;margin:0 auto;background:var(--white);min-height:100vh;box-shadow:0 2px 24px rgba(0,0,0,.08)}
-    .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:10}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:52px}
-    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:500}
+    :root{
+      --bg:#f7f8fc;--surface:#ffffff;--navy:#1a1a2e;--accent:#2d4a8a;
+      --border:#e2e6f0;--text:#1e1e2e;--muted:#6b7280;--sub:#9ca3af;
+      --card-bg:#ffffff;--card-border:#e2e6f0;--card-hover:#f1f5fe;
+      --cover-bg:#1a1a2e;--tip-bg:#fffbeb;--tip-border:#fde68a;--tip-text:#78350f;
+    }
+    html.dark{
+      --bg:#0f0f1a;--surface:#1a1a2e;--navy:#0f0f1a;
+      --border:#2a2a45;--text:#e8e8f0;--muted:#9ca3af;--sub:#6b7280;
+      --card-bg:#1e1e35;--card-border:#2a2a45;--card-hover:#252540;
+      --cover-bg:#0a0a18;--tip-bg:#1a1500;--tip-border:#3d3000;--tip-text:#c8a000;
+    }
+    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .2s,color .2s}
+    .page{max-width:600px;margin:0 auto;background:var(--surface);min-height:100vh;box-shadow:0 2px 32px rgba(0,0,0,.12)}
+    /* Topbar */
+    .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 22px;position:sticky;top:0;z-index:10}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:50px}
+    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:600;padding:6px 0}
     .back-btn:hover{color:var(--text)}
-    .cover{background:var(--navy);color:#fff;padding:32px 24px 26px}
-    .cover-tag{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
-    .cover h1{font-size:1.55rem;font-weight:800;line-height:1.25;margin-bottom:6px}
-    .cover .meta{font-size:.78rem;color:rgba(255,255,255,.45);display:flex;gap:8px;flex-wrap:wrap}
-    .sec-label{padding:16px 24px 8px;font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-    .cards{padding:0 16px 24px;display:flex;flex-direction:column;gap:10px}
-    .card{display:flex;align-items:center;gap:14px;background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s}
-    .card:hover{border-color:#a5b4fc;box-shadow:0 2px 12px rgba(45,74,138,.1)}
-    .card:active{background:#f8faff}
-    .card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .card-icon svg{width:22px;height:22px}
+    .back-btn svg{width:16px;height:16px}
+    .topbar-title{font-size:.8rem;font-weight:700;color:var(--text)}
+    /* Cover */
+    .cover{background:var(--cover-bg);color:#fff;padding:28px 22px 24px}
+    .cover-tag{font-size:.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:7px}
+    .cover h1{font-size:1.5rem;font-weight:800;line-height:1.25;margin-bottom:5px;color:#fff}
+    .cover .meta{font-size:.75rem;color:rgba(255,255,255,.38);display:flex;gap:8px}
+    /* Cards */
+    .cards{padding:14px 14px 20px;display:flex;flex-direction:column;gap:9px}
+    .card{display:flex;align-items:center;gap:13px;background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:13px;padding:14px 16px;text-decoration:none;color:inherit;transition:border-color .15s,background .15s}
+    .card:hover{border-color:#818cf8;background:var(--card-hover)}
+    .card:active{opacity:.85}
+    .icon-wrap{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .icon-wrap svg{width:20px;height:20px}
     .card-body{flex:1;min-width:0}
-    .card-num{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-    .card-title{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:2px}
-    .card-desc{font-size:.76rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .card-arrow{color:#cbd5e1;flex-shrink:0}
-    .card-arrow svg{width:18px;height:18px}
-    .tip-box{margin:0 16px 32px;background:#fff8e1;border:1px solid #fde68a;border-radius:12px;padding:13px 16px;font-size:.83rem;color:#78350f;display:flex;gap:10px;align-items:flex-start}
-    .tip-box svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;color:#f59e0b}
-    .tip-text strong{color:#92400e;display:block;margin-bottom:3px}
+    .card-label{font-size:.62rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin-bottom:2px}
+    .card-title{font-size:.94rem;font-weight:700;color:var(--text);margin-bottom:1px}
+    .card-desc{font-size:.74rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .arrow{color:var(--sub);flex-shrink:0}
+    .arrow svg{width:17px;height:17px}
+    /* Tip */
+    .tip{margin:4px 14px 24px;background:var(--tip-bg);border:1px solid var(--tip-border);border-radius:11px;padding:12px 15px;font-size:.8rem;color:var(--tip-text);display:flex;gap:9px;align-items:flex-start}
+    .tip svg{width:16px;height:16px;flex-shrink:0;margin-top:1px;opacity:.8}
+    .tip-body strong{display:block;font-size:.78rem;margin-bottom:2px}
   </style>
 </head>
 <body>
 <div class="page">
+
   <div class="topbar">
     <div class="topbar-inner">
       <a class="back-btn" href="javascript:history.back()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Back
       </a>
-      <span style="font-size:.82rem;font-weight:700;color:var(--text)">अध्याय 11</span>
-      <span style="width:60px"></span>
+      <span class="topbar-title">11 · Revision Notes</span>
+      <span style="width:52px"></span>
     </div>
   </div>
 
   <div class="cover">
-    <div class="cover-tag">Revision Notes · Chapter 11</div>
+    <div class="cover-tag">Chapter 11 · Revision Notes</div>
     <h1>त्रि-विमीय ज्यामिति</h1>
-    <div class="meta"><span>बिहार बोर्ड</span><span>·</span><span>कक्षा 12</span><span>·</span><span>Mathematics</span></div>
+    <div class="meta"><span>बिहार बोर्ड</span><span>·</span><span>कक्षा 12</span><span>·</span><span>Maths</span></div>
   </div>
-
-  <div class="sec-label">इस FOLDER में 5 SECTIONS हैं</div>
 
   <div class="cards">
 
     <a class="card" href="01-concepts.html">
-      <div class="card-icon" style="background:#eef2fb">
+      <div class="icon-wrap" style="background:#eef2fb">
         <svg viewBox="0 0 24 24" fill="none" stroke="#2d4a8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          <line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/>
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-num">Section 1</div>
-        <div class="card-title">Concepts + Formulas + Examples</div>
+        <div class="card-label">Section 1</div>
+        <div class="card-title">Concepts + Formulas</div>
         <div class="card-desc">सरल भाषा · स्मरण सूत्र · Exam examples</div>
       </div>
-      <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
     </a>
 
     <a class="card" href="02-mistakes.html">
-      <div class="card-icon" style="background:#fff0f0">
+      <div class="icon-wrap" style="background:#fff1f1">
         <svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-num">Section 2</div>
+        <div class="card-label">Section 2</div>
         <div class="card-title">Common Mistakes</div>
-        <div class="card-desc">ये गलतियाँ मत करो — top errors Bihar Board में</div>
+        <div class="card-desc">Top errors जो Bihar Board में होती हैं</div>
       </div>
-      <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
     </a>
 
     <a class="card" href="03-quick-recall.html">
-      <div class="card-icon" style="background:#f0fdf4">
+      <div class="icon-wrap" style="background:#f0fdf4">
         <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-num">Section 3</div>
-        <div class="card-title">Quick Recall Box</div>
-        <div class="card-desc">5 मिनट में पूरा chapter — सिर्फ key points</div>
+        <div class="card-label">Section 3</div>
+        <div class="card-title">Quick Recall</div>
+        <div class="card-desc">5 मिनट में पूरा chapter — key points only</div>
       </div>
-      <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
     </a>
 
     <a class="card" href="04-formula-sheet.html">
-      <div class="card-icon" style="background:#eff6ff">
+      <div class="icon-wrap" style="background:#eff6ff">
         <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-num">Section 4</div>
+        <div class="card-label">Section 4</div>
         <div class="card-title">Formula Sheet</div>
-        <div class="card-desc">सभी formulas एक जगह — exam hall में काम आएगी</div>
+        <div class="card-desc">सभी formulas एक जगह</div>
       </div>
-      <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
     </a>
 
     <a class="card" href="05-summary.html">
-      <div class="card-icon" style="background:#faf5ff">
+      <div class="icon-wrap" style="background:#faf5ff">
         <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-num">Section 5</div>
+        <div class="card-label">Section 5</div>
         <div class="card-title">Summary</div>
-        <div class="card-desc">Chapter का निचोड़ · Exam tips · क्या ज़रूर पढ़ो</div>
+        <div class="card-desc">Chapter का निचोड़ · Exam tips</div>
       </div>
-      <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
     </a>
 
   </div>
 
-  <div class="tip-box">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <div class="tip-text">
-      <strong>पढ़ने का सही order</strong>
-      पहले Concepts → फिर Formula Sheet एक बार देखो → फिर Common Mistakes ज़रूर पढ़ो → Exam से पहले Quick Recall Box।
-    </div>
+  <div class="tip">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M12 2a7 7 0 0 1 7 7c0 2.5-1.3 4.7-3.3 6L15 17H9l-.7-2C6.3 13.7 5 11.5 5 9a7 7 0 0 1 7-7z"/></svg>
+    <div class="tip-body"><strong>सही order:</strong> Concepts → Formula Sheet → Common Mistakes → Quick Recall</div>
   </div>
 
 </div>
