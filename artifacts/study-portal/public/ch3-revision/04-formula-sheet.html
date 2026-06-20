@@ -3,36 +3,775 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formula Sheet — Chapter 3 | Alone 12th</title>
+  <title>Formula Sheet — Chapter 3 आव्यूह | Alone 12th</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:#f7f8fc;color:#1e1e2e;min-height:100vh;display:flex;flex-direction:column}
-    .topbar{background:#fff;border-bottom:1px solid #e2e6f0;padding:0 24px;position:sticky;top:0}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:52px}
-    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:#6b7280;text-decoration:none;font-weight:500}
-    .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px}
-    .icon{font-size:3.5rem;margin-bottom:20px;opacity:.3}
-    h2{font-size:1.25rem;font-weight:700;color:#1a1a2e;margin-bottom:8px}
-    p{font-size:.88rem;color:#6b7280;max-width:280px;line-height:1.7}
-    .tag{display:inline-block;background:#e8edfb;color:#2d4a8a;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:.5px}
+
+    :root{
+      --navy:#1a1a2e;
+      --accent:#2d4a8a;
+      --accent-light:#eef2fb;
+      --border:#e0e4ef;
+      --text:#1e1e2e;
+      --muted:#6b7280;
+      --bg:#f7f8fc;
+      --white:#ffffff;
+      --star:#b45309;
+      --star-bg:#fffbeb;
+      --star-border:#fde68a;
+    }
+
+    body{
+      font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;
+      background:var(--bg);color:var(--text);
+      font-size:14px;line-height:1.7;
+    }
+
+    .page{
+      max-width:780px;margin:0 auto;
+      background:var(--white);min-height:100vh;
+      box-shadow:0 2px 28px rgba(0,0,0,.07);
+    }
+
+    /* Topbar */
+    .topbar{
+      background:var(--white);border-bottom:1px solid var(--border);
+      padding:0 24px;position:sticky;top:0;z-index:10;
+    }
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:50px}
+    .back-btn{
+      display:flex;align-items:center;gap:6px;
+      font-size:.8rem;color:var(--muted);text-decoration:none;font-weight:600;
+    }
+    .back-btn:hover{color:var(--text)}
+
+    /* Cover */
+    .cover{
+      background:var(--navy);color:#fff;
+      padding:34px 28px 26px;
+    }
+    .cover-tag{
+      font-size:.58rem;font-weight:700;letter-spacing:2.5px;
+      text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;
+    }
+    .cover h1{font-size:1.55rem;font-weight:800;line-height:1.2;margin-bottom:4px}
+    .cover .sub{font-size:.74rem;color:rgba(255,255,255,.32)}
+    .star-note{
+      display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+      background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3);
+      color:#fbbf24;font-size:.72rem;font-weight:700;
+      padding:4px 12px;border-radius:20px;
+    }
+
+    /* Topic block */
+    .topic{padding:22px 28px 18px;border-bottom:1px solid var(--border)}
+    .topic:last-child{border-bottom:none}
+
+    .topic-label{
+      font-size:.58rem;font-weight:700;letter-spacing:2.5px;
+      text-transform:uppercase;color:var(--accent);margin-bottom:4px;
+    }
+    .topic h2{
+      font-size:.9rem;font-weight:800;color:var(--navy);
+      margin-bottom:14px;padding-bottom:8px;
+      border-bottom:2px solid var(--accent-light);
+    }
+
+    /* Formula table */
+    .ftable{
+      width:100%;border-collapse:collapse;
+      font-size:.8rem;margin-bottom:6px;
+    }
+    .ftable thead th{
+      background:var(--navy);color:#fff;
+      padding:7px 10px;text-align:left;
+      font-size:.68rem;font-weight:700;letter-spacing:.5px;
+    }
+    .ftable tbody tr:nth-child(even) td{background:#f8f9fc}
+    .ftable tbody td{
+      padding:8px 10px;border-bottom:1px solid var(--border);
+      vertical-align:top;line-height:1.6;
+    }
+    .ftable tbody tr:last-child td{border-bottom:none}
+
+    /* Column styles */
+    .col-name{
+      font-weight:700;color:var(--navy);
+      min-width:130px;font-size:.78rem;
+    }
+    .col-formula{
+      color:#1e3a6e;font-size:.82rem;
+      min-width:160px;
+    }
+    .col-meaning{
+      color:var(--text);font-size:.78rem;
+    }
+    .col-note{
+      color:var(--muted);font-size:.74rem;font-style:italic;
+    }
+
+    /* Star row */
+    .star-row td{background:var(--star-bg)!important}
+    .star-row .col-name::before{content:'⭐ ';font-style:normal}
+
+    /* Condition box */
+    .condition{
+      background:#f0f4ff;border:1px solid #c5d4f5;
+      border-radius:6px;padding:8px 12px;
+      font-size:.76rem;color:#1e3a6e;margin-top:8px;
+    }
+    .condition b{color:var(--accent)}
+
+    /* Properties list inside table */
+    .prop-list{list-style:none}
+    .prop-list li{
+      padding:2px 0 2px 12px;position:relative;
+      font-size:.78rem;color:var(--text);
+    }
+    .prop-list li::before{
+      content:'';position:absolute;left:0;top:10px;
+      width:4px;height:4px;background:var(--accent);border-radius:50%;
+    }
+    .prop-list .warn{color:#dc2626;font-weight:700}
+
+    /* Math */
+    .math-block{overflow-x:auto;padding:2px 0}
+
+    /* Footer */
+    .footer{
+      text-align:center;padding:20px;font-size:.72rem;
+      color:var(--muted);border-top:1px solid var(--border);
+    }
+
+    @media(max-width:600px){
+      .topic{padding:18px 16px 14px}
+      .cover{padding:28px 18px 22px}
+      .topbar{padding:0 16px}
+      .ftable{font-size:.74rem}
+      .ftable thead th{font-size:.62rem}
+    }
   </style>
 </head>
 <body>
+<div class="page">
+
+  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-inner">
       <a class="back-btn" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Revision Notes
       </a>
-      <span style="font-size:.82rem;font-weight:700;color:#1e1e2e">Ch 3 · Formula Sheet</span>
-      <span style="width:80px"></span>
+      <span style="font-size:.78rem;font-weight:700;color:var(--text)">Ch 3 · Formula Sheet</span>
+      <span style="width:90px"></span>
     </div>
   </div>
-  <div class="center">
-    <div class="tag">Chapter 3 · आव्यूह</div>
-    <div class="icon">📋</div>
-    <h2>Formula Sheet</h2>
-    <p>यह section जल्द आएगा।<br>Content prepare हो रहा है।</p>
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-tag">Chapter 3 · Bihar Board Class 12 · सभी Formulas एक जगह</div>
+    <h1>📋 Formula Sheet<br><span style="font-size:.95rem;font-weight:400;opacity:.45">आव्यूह — Matrices</span></h1>
+    <div class="sub">Topic-wise tables · Hindi नाम · एक-line meaning · Conditions</div>
+    <div class="star-note">⭐ = Exam में सबसे ज़्यादा आने वाले formulas</div>
   </div>
+
+
+  <!-- TOPIC 1: Order & Notation -->
+  <div class="topic">
+    <div class="topic-label">Topic 1</div>
+    <h2>कोटि और संकेत (Order &amp; Notation)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula</th>
+          <th>एक-line meaning (Hindi)</th>
+          <th style="width:140px">Note / Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">कोटि (Order)</td>
+          <td class="col-formula math-block">$m \times n$</td>
+          <td class="col-meaning">m = Rows की संख्या, n = Columns की संख्या। RC Cola — Row पहले, Column बाद।</td>
+          <td class="col-note">m और n positive integers होते हैं</td>
+        </tr>
+        <tr>
+          <td class="col-name">कुल अवयव (Total Elements)</td>
+          <td class="col-formula math-block">$m \times n$</td>
+          <td class="col-meaning">Order का गुणनफल = matrix में कुल elements की संख्या</td>
+          <td class="col-note">8 elements → orders: 1×8, 8×1, 2×4, 4×2</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">अवयव संकेत (Element Notation)</td>
+          <td class="col-formula math-block">$a_{ij}$</td>
+          <td class="col-meaning">i वीं row और j वें column का element। "मंजिल (i) → कमरा (j)"</td>
+          <td class="col-note">$1 \le i \le m,\ 1 \le j \le n$</td>
+        </tr>
+        <tr>
+          <td class="col-name">व्यापक रूप (General Form)</td>
+          <td class="col-formula math-block">$A = [a_{ij}]_{m \times n}$</td>
+          <td class="col-meaning">A एक m×n matrix है जिसका (i,j)वाँ element $a_{ij}$ है</td>
+          <td class="col-note">Capital letter से matrix, small से element</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TOPIC 2: Types -->
+  <div class="topic">
+    <div class="topic-label">Topic 2</div>
+    <h2>आव्यूह के प्रकार (Types of Matrices)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">प्रकार</th>
+          <th style="width:170px">Condition</th>
+          <th>Meaning / Example</th>
+          <th style="width:140px">Special Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-name">पंक्ति आव्यूह (Row)</td>
+          <td class="col-formula">Order = 1×n</td>
+          <td class="col-meaning">सिर्फ 1 row होती है। उदा: $[3\ -1\ 7]$</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">स्तम्भ आव्यूह (Column)</td>
+          <td class="col-formula">Order = m×1</td>
+          <td class="col-meaning">सिर्फ 1 column होता है। उदा: $\begin{bmatrix}2\\5\end{bmatrix}$</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">आयताकार आव्यूह (Rectangular)</td>
+          <td class="col-formula">$m \neq n$</td>
+          <td class="col-meaning">Rows और Columns की संख्या अलग-अलग</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">वर्ग आव्यूह (Square)</td>
+          <td class="col-formula">$m = n$</td>
+          <td class="col-meaning">Rows = Columns। Inverse, Symmetric, Skew — सब Square matrix में।</td>
+          <td class="col-note">Diagonal = $a_{11}, a_{22}, \ldots$</td>
+        </tr>
+        <tr>
+          <td class="col-name">शून्य आव्यूह (Zero — O)</td>
+          <td class="col-formula">$a_{ij} = 0$ सब के लिए</td>
+          <td class="col-meaning">सभी elements = 0। "O" से लिखते हैं, "0" से नहीं!</td>
+          <td class="col-note">$A + O = A,\ AO = O$</td>
+        </tr>
+        <tr>
+          <td class="col-name">विकर्ण आव्यूह (Diagonal)</td>
+          <td class="col-formula">$a_{ij}=0$ जब $i\neq j$</td>
+          <td class="col-meaning">Diagonal के बाहर सभी elements = 0</td>
+          <td class="col-note">Square matrix होना ज़रूरी</td>
+        </tr>
+        <tr>
+          <td class="col-name">अदिश आव्यूह (Scalar)</td>
+          <td class="col-formula">Diagonal + $a_{ii}$ = k (equal)</td>
+          <td class="col-meaning">Diagonal के सभी elements समान। Diagonal matrix का special case।</td>
+          <td class="col-note">Identity ⊂ Scalar ⊂ Diagonal</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">तत्समक आव्यूह (Identity — I)</td>
+          <td class="col-formula">$a_{ii}=1,\ a_{ij}=0\ (i\neq j)$</td>
+          <td class="col-meaning">Diagonal = 1, बाकी = 0। $AI = IA = A$ — कुछ नहीं बदलता।</td>
+          <td class="col-note">$I_2, I_3$ याद करो directly</td>
+        </tr>
+        <tr>
+          <td class="col-name">ऊपरी त्रिभुजीय (Upper Triangular)</td>
+          <td class="col-formula">$a_{ij}=0$ जब $i > j$</td>
+          <td class="col-meaning">Diagonal के नीचे सभी elements = 0</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">निचली त्रिभुजीय (Lower Triangular)</td>
+          <td class="col-formula">$a_{ij}=0$ जब $i < j$</td>
+          <td class="col-meaning">Diagonal के ऊपर सभी elements = 0</td>
+          <td class="col-note">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TOPIC 3: Equality -->
+  <div class="topic">
+    <div class="topic-label">Topic 3</div>
+    <h2>आव्यूहों की समानता (Equality of Matrices)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula / Condition</th>
+          <th>एक-line meaning</th>
+          <th style="width:140px">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">समानता शर्त (Equality)</td>
+          <td class="col-formula">$A = B$ तभी जब</td>
+          <td class="col-meaning">
+            <ul class="prop-list">
+              <li>① Order same: $A$ और $B$ का order बराबर हो</li>
+              <li>② $a_{ij} = b_{ij}$ सब (i,j) के लिए</li>
+            </ul>
+          </td>
+          <td class="col-note">Order अलग हो तो directly Not Equal — elements मत देखो</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TOPIC 4: Addition & Scalar -->
+  <div class="topic">
+    <div class="topic-label">Topic 4</div>
+    <h2>जोड़, घटाव और अदिश गुणन (Addition, Subtraction &amp; Scalar)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula</th>
+          <th>एक-line meaning</th>
+          <th style="width:140px">Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">आव्यूह योग (Addition)</td>
+          <td class="col-formula math-block">$(A+B)_{ij} = a_{ij}+b_{ij}$</td>
+          <td class="col-meaning">Same order की matrices के corresponding elements जोड़ो</td>
+          <td class="col-note">यह तभी होगा जब A और B का order same हो</td>
+        </tr>
+        <tr>
+          <td class="col-name">आव्यूह अंतर (Subtraction)</td>
+          <td class="col-formula math-block">$(A-B)_{ij} = a_{ij}-b_{ij}$</td>
+          <td class="col-meaning">$A - B = A + (-1)B$ — corresponding elements घटाओ</td>
+          <td class="col-note">Same order ज़रूरी</td>
+        </tr>
+        <tr>
+          <td class="col-name">ऋणात्मक आव्यूह (Negative)</td>
+          <td class="col-formula math-block">$-A = (-1)A$</td>
+          <td class="col-meaning">हर element का sign बदल जाता है</td>
+          <td class="col-note">$A + (-A) = O$</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">अदिश गुणन (Scalar Mult.)</td>
+          <td class="col-formula math-block">$(kA)_{ij} = k \cdot a_{ij}$</td>
+          <td class="col-meaning">हर एक element को scalar k से गुणा करो — एक भी नहीं छोड़ना</td>
+          <td class="col-note">$k$ कोई भी real number हो सकता है</td>
+        </tr>
+        <tr>
+          <td class="col-name">क्रमविनिमेय (Commutative)</td>
+          <td class="col-formula math-block">$A + B = B + A$</td>
+          <td class="col-meaning">जोड़ में order नहीं बदलता</td>
+          <td class="col-note">Same order ज़रूरी</td>
+        </tr>
+        <tr>
+          <td class="col-name">साहचर्य (Associative)</td>
+          <td class="col-formula math-block">$(A+B)+C = A+(B+C)$</td>
+          <td class="col-meaning">किसी भी order में जोड़ो — result same</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">योज्य तत्समक (Additive Identity)</td>
+          <td class="col-formula math-block">$A + O = O + A = A$</td>
+          <td class="col-meaning">Zero matrix जोड़ने से कुछ नहीं बदलता</td>
+          <td class="col-note">O का order A जैसा होना चाहिए</td>
+        </tr>
+        <tr>
+          <td class="col-name">योज्य प्रतिलोम (Additive Inverse)</td>
+          <td class="col-formula math-block">$A + (-A) = O$</td>
+          <td class="col-meaning">A में −A जोड़ो तो Zero matrix मिलता है</td>
+          <td class="col-note">$-A = (-1)A$</td>
+        </tr>
+        <tr>
+          <td class="col-name">अदिश वितरण 1</td>
+          <td class="col-formula math-block">$k(A+B) = kA + kB$</td>
+          <td class="col-meaning">Scalar को दोनों matrices पर distribute कर सकते हैं</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">अदिश वितरण 2</td>
+          <td class="col-formula math-block">$(k+l)A = kA + lA$</td>
+          <td class="col-meaning">दो scalars का sum, अलग-अलग multiply के बराबर है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">अदिश साहचर्य</td>
+          <td class="col-formula math-block">$k(lA) = (kl)A$</td>
+          <td class="col-meaning">दो scalars को पहले multiply करके matrix पर लगाओ</td>
+          <td class="col-note">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TOPIC 5: Multiplication -->
+  <div class="topic">
+    <div class="topic-label">Topic 5</div>
+    <h2>आव्यूह गुणन (Matrix Multiplication)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula</th>
+          <th>एक-line meaning</th>
+          <th style="width:140px">Condition / Warning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">गुणन शर्त (Condition)</td>
+          <td class="col-formula math-block">$A(m\times n) \times B(n\times p)$</td>
+          <td class="col-meaning">AB possible तभी जब A के columns = B के rows (बीच के दोनों n बराबर हों)</td>
+          <td class="col-note">Result का order = $m \times p$</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">गुणन सूत्र (Formula)</td>
+          <td class="col-formula math-block">$(AB)_{ij} = \displaystyle\sum_{k=1}^{n} a_{ik} \cdot b_{kj}$</td>
+          <td class="col-meaning">i वीं row के elements × j वें column के elements → सब जोड़ो</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">क्रमविनिमेय नहीं (Non-Commutative)</td>
+          <td class="col-formula math-block">$AB \neq BA$</td>
+          <td class="col-meaning">Matrix multiplication में order बदलने से answer बदल जाता है</td>
+          <td class="col-note">⚠️ Generally AB ≠ BA</td>
+        </tr>
+        <tr>
+          <td class="col-name">साहचर्य (Associative)</td>
+          <td class="col-formula math-block">$(AB)C = A(BC)$</td>
+          <td class="col-meaning">तीन matrices का गुणन किसी भी order में — result same</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">वितरण नियम (Distributive)</td>
+          <td class="col-formula math-block">$A(B+C) = AB+AC$</td>
+          <td class="col-meaning">A को B और C में distribute कर सकते हैं</td>
+          <td class="col-note">$(B+C)A = BA+CA$ भी</td>
+        </tr>
+        <tr>
+          <td class="col-name">तत्समक गुण (Identity)</td>
+          <td class="col-formula math-block">$AI = IA = A$</td>
+          <td class="col-meaning">Identity matrix से गुणा करने पर matrix नहीं बदलती</td>
+          <td class="col-note">I का order match करना चाहिए</td>
+        </tr>
+        <tr>
+          <td class="col-name">शून्य गुण (Zero Property)</td>
+          <td class="col-formula math-block">$AO = OA = O$</td>
+          <td class="col-meaning">Zero matrix से गुणा करने पर Zero ही मिलता है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">शून्य गुणनफल जाल (Zero Product Trap)</td>
+          <td class="col-formula">$AB = O \not\Rightarrow A=O$ या $B=O$</td>
+          <td class="col-meaning">$AB = O$ मिले तो इसका मतलब A या B का Zero होना ज़रूरी नहीं!</td>
+          <td class="col-note">⚠️ Numbers जैसा rule यहाँ नहीं चलता</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">$A^2$ का अर्थ</td>
+          <td class="col-formula math-block">$A^2 = A \times A$</td>
+          <td class="col-meaning">Matrix को खुद से एक बार multiply करो — elements को individually square नहीं करते!</td>
+          <td class="col-note">⚠️ Bihar Board Trap!</td>
+        </tr>
+        <tr>
+          <td class="col-name">अदिश गुणन नियम</td>
+          <td class="col-formula math-block">$(kA)B = k(AB) = A(kB)$</td>
+          <td class="col-meaning">Scalar को गुणन से पहले या बाद में कहीं भी रख सकते हैं</td>
+          <td class="col-note">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TOPIC 6: Transpose -->
+  <div class="topic">
+    <div class="topic-label">Topic 6</div>
+    <h2>परिवर्त (Transpose)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula</th>
+          <th>एक-line meaning</th>
+          <th style="width:140px">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">परिवर्त (Transpose)</td>
+          <td class="col-formula math-block">$A' = [a_{ji}]_{n\times m}$</td>
+          <td class="col-meaning">Rows → Columns, Columns → Rows बन जाती हैं। Order $m\times n \to n\times m$ हो जाता है।</td>
+          <td class="col-note">$A'$ या $A^T$ दोनों notation चलते हैं</td>
+        </tr>
+        <tr>
+          <td class="col-name">द्विगुण परिवर्त (Double Transpose)</td>
+          <td class="col-formula math-block">$(A')' = A$</td>
+          <td class="col-meaning">दो बार transpose करने पर original matrix वापस मिलती है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">अदिश परिवर्त (Scalar Transpose)</td>
+          <td class="col-formula math-block">$(kA)' = kA'$</td>
+          <td class="col-meaning">Scalar को transpose के बाहर रख सकते हैं</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">योग परिवर्त (Addition Transpose)</td>
+          <td class="col-formula math-block">$(A+B)' = A'+B'$</td>
+          <td class="col-meaning">जोड़ का transpose = अलग-अलग transpose का जोड़</td>
+          <td class="col-note">Order same होना ज़रूरी</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">गुणन परिवर्त (Product Transpose)</td>
+          <td class="col-formula math-block">$(AB)' = B'A'$</td>
+          <td class="col-meaning">गुणन का transpose निकालते हैं तो order REVERSE होती है — पहले B', फिर A'</td>
+          <td class="col-note">⚠️ $(AB)' \neq A'B'$</td>
+        </tr>
+        <tr>
+          <td class="col-name">तीन matrices का परिवर्त</td>
+          <td class="col-formula math-block">$(ABC)' = C'B'A'$</td>
+          <td class="col-meaning">तीन का transpose — सब उल्टा क्रम में</td>
+          <td class="col-note">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TOPIC 7: Symmetric & Skew -->
+  <div class="topic">
+    <div class="topic-label">Topic 7</div>
+    <h2>सममित और विषम सममित आव्यूह (Symmetric &amp; Skew Symmetric)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula / Condition</th>
+          <th>एक-line meaning</th>
+          <th style="width:140px">Important Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">सममित आव्यूह (Symmetric)</td>
+          <td class="col-formula math-block">$A' = A$</td>
+          <td class="col-meaning">Transpose करने पर matrix नहीं बदलती — यानी $a_{ij} = a_{ji}$ सब के लिए</td>
+          <td class="col-note">Square matrix होना ज़रूरी। Diagonal पर कोई भी value।</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">विषम सममित (Skew Symmetric)</td>
+          <td class="col-formula math-block">$A' = -A$</td>
+          <td class="col-meaning">Transpose = negative। यानी $a_{ij} = -a_{ji}$ सब के लिए</td>
+          <td class="col-note">⭐ Diagonal के सभी elements = 0 (हमेशा!)</td>
+        </tr>
+        <tr>
+          <td class="col-name">विकर्ण का प्रमाण (Diagonal Proof)</td>
+          <td class="col-formula math-block">$a_{ii} = -a_{ii} \Rightarrow a_{ii} = 0$</td>
+          <td class="col-meaning">Skew में diagonal 0 क्यों होता है — यही proof है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">$(A+A')$ का स्वभाव</td>
+          <td class="col-formula math-block">$(A+A')' = A+A'$</td>
+          <td class="col-meaning">$(A+A')$ हमेशा Symmetric matrix होती है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">$(A-A')$ का स्वभाव</td>
+          <td class="col-formula math-block">$(A-A')' = -(A-A')$</td>
+          <td class="col-meaning">$(A-A')$ हमेशा Skew Symmetric matrix होती है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">योगफल विभाजन (Sum Decomposition)</td>
+          <td class="col-formula math-block">$A = \dfrac{1}{2}(A+A') + \dfrac{1}{2}(A-A')$</td>
+          <td class="col-meaning">हर square matrix को Symmetric + Skew Symmetric के योग में लिखा जा सकता है</td>
+          <td class="col-note">⚠️ 4-5 marks का important theorem!</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="condition">
+      <b>Quick Check:</b> किसी matrix को देखते ही Skew check करना हो → <b>पहले diagonal देखो</b>। Diagonal में कोई भी non-zero element है? → Skew Symmetric हो ही नहीं सकता।
+    </div>
+  </div>
+
+
+  <!-- TOPIC 8: Elementary Ops -->
+  <div class="topic">
+    <div class="topic-label">Topic 8</div>
+    <h2>प्रारंभिक संक्रियाएँ (Elementary Operations)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:100px">प्रकार</th>
+          <th style="width:130px">Notation</th>
+          <th>Meaning</th>
+          <th style="width:160px">Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-name">① अदला-बदली (Interchange)</td>
+          <td class="col-formula">$R_i \leftrightarrow R_j$<br>$C_i \leftrightarrow C_j$</td>
+          <td class="col-meaning">दो rows (या columns) को आपस में बदल दो</td>
+          <td class="col-note">$R_1 \leftrightarrow R_2$ — पहली और दूसरी row swap</td>
+        </tr>
+        <tr>
+          <td class="col-name">② अदिश गुणन (Scale)</td>
+          <td class="col-formula">$R_i \to kR_i$<br>$C_i \to kC_i$</td>
+          <td class="col-meaning">Row/Column के सभी elements को non-zero k से गुणा करो</td>
+          <td class="col-note">$k \neq 0$ ज़रूरी</td>
+        </tr>
+        <tr>
+          <td class="col-name">③ योग (Add)</td>
+          <td class="col-formula">$R_i \to R_i + kR_j$<br>$C_i \to C_i + kC_j$</td>
+          <td class="col-meaning">एक row में दूसरी row का k गुना जोड़ो</td>
+          <td class="col-note">$R_2 \to R_2 - 2R_1$</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="condition">
+      <b>SSA याद करो:</b> <b>S</b>wap → <b>S</b>cale → <b>A</b>dd। बस तीन types — Row पर भी, Column पर भी।
+    </div>
+  </div>
+
+
+  <!-- TOPIC 9: Inverse -->
+  <div class="topic">
+    <div class="topic-label">Topic 9</div>
+    <h2>व्युत्क्रम आव्यूह (Invertible Matrix — Inverse)</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:130px">Formula का नाम</th>
+          <th style="width:170px">Formula</th>
+          <th>एक-line meaning</th>
+          <th style="width:140px">Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="star-row">
+          <td class="col-name">व्युत्क्रम की परिभाषा (Definition)</td>
+          <td class="col-formula math-block">$AB = BA = I \Rightarrow B = A^{-1}$</td>
+          <td class="col-meaning">A और B का गुणनफल Identity हो तो B, A का inverse है</td>
+          <td class="col-note">A square matrix होनी चाहिए</td>
+        </tr>
+        <tr>
+          <td class="col-name">अद्वितीयता (Uniqueness)</td>
+          <td class="col-formula">Inverse is unique</td>
+          <td class="col-meaning">एक matrix का inverse हमेशा एक ही होता है — दो नहीं हो सकते</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">गुणन व्युत्क्रम (Product Inverse)</td>
+          <td class="col-formula math-block">$(AB)^{-1} = B^{-1}A^{-1}$</td>
+          <td class="col-meaning">गुणन का inverse निकालते हैं तो order REVERSE होती है — पहले $B^{-1}$, फिर $A^{-1}$</td>
+          <td class="col-note">⚠️ $(AB)^{-1} \neq A^{-1}B^{-1}$</td>
+        </tr>
+        <tr>
+          <td class="col-name">परिवर्त-व्युत्क्रम संबंध</td>
+          <td class="col-formula math-block">$(A')^{-1} = (A^{-1})'$</td>
+          <td class="col-meaning">Transpose का inverse = Inverse का transpose — दोनों equal हैं</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr>
+          <td class="col-name">Identity का व्युत्क्रम</td>
+          <td class="col-formula math-block">$I^{-1} = I$</td>
+          <td class="col-meaning">Identity matrix का inverse वह खुद होती है</td>
+          <td class="col-note">—</td>
+        </tr>
+        <tr class="star-row">
+          <td class="col-name">पंक्ति-रूपांतरण विधि (Row Method)</td>
+          <td class="col-formula">$A = IA$ → Row ops → $I = A^{-1}A$</td>
+          <td class="col-meaning">$A = IA$ लिखो → Row operations से Left को I बनाओ → Right side = $A^{-1}$</td>
+          <td class="col-note">सिर्फ Row operations — Column mix नहीं</td>
+        </tr>
+        <tr>
+          <td class="col-name">स्तम्भ-रूपांतरण विधि (Column Method)</td>
+          <td class="col-formula">$A = AI$ → Column ops → $I = AA^{-1}$</td>
+          <td class="col-meaning">$A = AI$ लिखो → Column operations से Left को I बनाओ → Right side = $A^{-1}$</td>
+          <td class="col-note">सिर्फ Column operations — Row mix नहीं</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="condition">
+      <b>⚠️ Inverse कब exist नहीं करता:</b> Operations करते वक्त किसी row (या column) के <b>सभी elements 0</b> हो जाएँ → "Inverse does not exist" लिखो और रुको। | Inverse सिर्फ <b>Square Matrix</b> का होता है।
+    </div>
+  </div>
+
+
+  <!-- TOPIC 10: Master Comparison -->
+  <div class="topic">
+    <div class="topic-label">Topic 10 — Quick Reference</div>
+    <h2>Addition vs Multiplication — Property Comparison</h2>
+    <table class="ftable">
+      <thead>
+        <tr>
+          <th style="width:160px">Property</th>
+          <th>Addition (जोड़)</th>
+          <th>Multiplication (गुणन)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-name">Commutative</td>
+          <td style="color:#16a34a;font-weight:700">$A+B = B+A$ ✓</td>
+          <td style="color:#dc2626;font-weight:700">$AB \neq BA$ ✗</td>
+        </tr>
+        <tr>
+          <td class="col-name">Associative</td>
+          <td style="color:#16a34a;font-weight:700">$(A+B)+C = A+(B+C)$ ✓</td>
+          <td style="color:#16a34a;font-weight:700">$(AB)C = A(BC)$ ✓</td>
+        </tr>
+        <tr>
+          <td class="col-name">Distributive</td>
+          <td>—</td>
+          <td style="color:#16a34a;font-weight:700">$A(B+C) = AB+AC$ ✓</td>
+        </tr>
+        <tr>
+          <td class="col-name">Identity</td>
+          <td>$A + O = A$</td>
+          <td>$AI = IA = A$</td>
+        </tr>
+        <tr>
+          <td class="col-name">Inverse</td>
+          <td>$A + (-A) = O$</td>
+          <td>$AB = I \Rightarrow B = A^{-1}$</td>
+        </tr>
+        <tr>
+          <td class="col-name">Transpose Rule</td>
+          <td>$(A+B)' = A'+B'$</td>
+          <td style="color:#dc2626;font-weight:700">$(AB)' = B'A'$ ← Reverse!</td>
+        </tr>
+        <tr>
+          <td class="col-name">Inverse Rule</td>
+          <td>—</td>
+          <td style="color:#dc2626;font-weight:700">$(AB)^{-1} = B^{-1}A^{-1}$ ← Reverse!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    Alone 12th · Bihar Board · Class 12 · Chapter 3 आव्यूह · Formula Sheet · सभी Formulas एक जगह
+  </div>
+
+</div>
 </body>
 </html>
