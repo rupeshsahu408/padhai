@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Theory Concepts — संबंध एवं फलन | Chapter 1</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#1a1a2e;--accent:#2d4a8a;--accent-light:#eef2fb;
+      --border:#e2e6f0;--text:#1e1e2e;--muted:#6b7280;--bg:#f7f8fc;--white:#fff;
+    }
+    body{font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.9;font-size:15px}
+    .page{max-width:820px;margin:0 auto;background:var(--white);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+
+    /* Topbar */
+    .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 36px;position:sticky;top:0;z-index:100}
+    .topbar-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .back-btn{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:500}
+    .back-btn:hover{color:var(--text)}
+
+    /* Cover */
+    .cover{background:var(--navy);color:#fff;padding:42px 40px 34px;text-align:center}
+    .cover .tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:18px}
+    .cover h1{font-size:1.8rem;font-weight:700;margin-bottom:8px}
+    .cover .sub{font-size:.85rem;color:rgba(255,255,255,.5)}
+    .cover .sub span{margin:0 8px}
+    .cover .badge{display:inline-block;background:#7c3aed;color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-top:12px}
+
+    /* Part banner */
+    .part-banner{background:var(--navy);color:#fff;padding:11px 36px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+
+    /* Content */
+    .content{padding:0 36px 50px}
+
+    /* Theory block */
+    .theory-block{padding:30px 0 22px;border-bottom:1px solid var(--border)}
+    .theory-block:last-child{border-bottom:none}
+
+    .theory-title{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+    .theory-num{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+    .theory-num.thm{background:#7c3aed}
+    .theory-num.prop{background:#0369a1}
+    .theory-title h3{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.4}
+    .theory-title .type-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:8px;margin-top:4px;margin-right:6px}
+    .tag-def{background:#fef9c3;color:#854d0e}
+    .tag-thm{background:#f3e8ff;color:#6b21a8}
+    .tag-prop{background:#e0f2fe;color:#075985}
+
+    /* Statement box */
+    .stmt-box{background:#f1f5fe;border:1px solid #c7d4f5;border-radius:10px;padding:15px 19px;margin-bottom:14px;font-size:.92rem}
+    .stmt-label{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .stmt-box .stmt{font-weight:600;color:var(--navy);line-height:1.7}
+
+    /* Proof box */
+    .proof-box{background:#fafbff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:12px;font-size:.88rem}
+    .proof-label{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .proof-step{display:flex;gap:10px;margin-bottom:6px;align-items:flex-start;line-height:1.7}
+    .ps-n{width:20px;height:20px;border-radius:50%;background:#e8edfb;color:#2d4a8a;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;flex-shrink:0;margin-top:2px}
+    .ps-t{flex:1;color:var(--text)}
+
+    /* Example box */
+    .eg-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:9px;padding:13px 17px;font-size:.87rem;margin-bottom:10px}
+    .eg-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#166534;margin-bottom:8px}
+
+    /* Objective tip */
+    .obj-tip{background:#fff8e1;border-left:3px solid #f9a825;padding:9px 13px;border-radius:0 8px 8px 0;font-size:.85rem;color:#5a4000;margin-top:8px}
+
+    /* Properties list */
+    .prop-list{list-style:none;margin-top:4px}
+    .prop-list li{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem;align-items:flex-start;line-height:1.7}
+    .prop-list li:last-child{border-bottom:none}
+    .prop-list .pd{width:6px;height:6px;border-radius:50%;background:#0369a1;flex-shrink:0;margin-top:9px}
+
+    /* Two-col example */
+    .eg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+    .eg-mini{border-radius:9px;padding:12px 15px;font-size:.85rem}
+    .eg-mini.yes{background:#f0fdf4;border:1px solid #bbf7d0}
+    .eg-mini.no{background:#fff0f0;border:1px solid #fca5a5}
+    .eg-mini .em-title{font-weight:700;font-size:.82rem;margin-bottom:5px}
+    .eg-mini.yes .em-title{color:#166534}
+    .eg-mini.no .em-title{color:#991b1b}
+
+    footer{border-top:1px solid var(--border);padding:18px 36px;text-align:center;font-size:.75rem;color:var(--muted);background:var(--bg)}
+    @media(max-width:580px){.content{padding:0 18px 40px}.cover{padding:30px 20px 26px}.part-banner,.topbar{padding-left:18px;padding-right:18px}.eg-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="back-btn" href="javascript:history.back()">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </a>
+    <span style="font-size:.82rem;font-weight:700;color:var(--text)">Theory Concepts · अध्याय 1</span>
+    <span style="width:50px"></span>
+  </div>
+</div>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="tag">Theory Concepts · Chapter 1</div>
+  <h1>संबंध एवं फलन</h1>
+  <div class="sub">बिहार बोर्ड <span>·</span> कक्षा 12 <span>·</span> Mathematics</div>
+  <div class="badge">परिभाषाएँ · प्रमेय · गुणधर्म · Objective Connection</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     PART A: मुख्य परिभाषाएँ
+═══════════════════════════════════ -->
+<div class="part-banner">Part A &nbsp;·&nbsp; मुख्य परिभाषाएँ (Key Definitions)</div>
+<div class="content">
+
+  <!-- D1: Relation -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num">1</div>
+      <div>
+        <h3>संबंध (Relation)</h3>
+        <span class="type-tag tag-def">परिभाषा</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">परिभाषा</div>
+      <p class="stmt">मान लो $A$ और $B$ दो समुच्चय हैं। $A \times B$ के किसी भी उपसमुच्चय (Subset) को $A$ से $B$ में संबंध (Relation) कहते हैं।</p>
+      <p style="margin-top:8px;font-size:.88rem;color:var(--muted)">$$R \subseteq A \times B$$</p>
+    </div>
+    <div class="eg-box">
+      <div class="eg-label">📌 Example</div>
+      <p>$A = \{1,2\}$, $B = \{3,4\}$ → $A \times B = \{(1,3),(1,4),(2,3),(2,4)\}$</p>
+      <p style="margin-top:6px;">$R = \{(1,3),(2,4)\}$ — यह एक Relation है ($A\times B$ का subset है)।</p>
+    </div>
+    <div class="obj-tip">🎯 <strong>Objective में काम:</strong> $n(A)=m$, $n(B)=n$ हो तो $A$ से $B$ में कुल Relations की संख्या = $2^{mn}$</div>
+  </div>
+
+  <!-- D2: Function -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num">2</div>
+      <div>
+        <h3>फलन (Function)</h3>
+        <span class="type-tag tag-def">परिभाषा</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">परिभाषा</div>
+      <p class="stmt">$f : A \to B$ एक फलन है यदि $A$ के <strong>प्रत्येक element</strong> का $B$ में <strong>एक और केवल एक</strong> image हो।</p>
+    </div>
+    <div class="eg-row">
+      <div class="eg-mini yes">
+        <div class="em-title">✅ फलन है</div>
+        <p>$f = \{(1,2),(2,4),(3,6)\}$<br>हर input का एक output ✓</p>
+      </div>
+      <div class="eg-mini no">
+        <div class="em-title">❌ फलन नहीं</div>
+        <p>$f = \{(1,2),(1,3),(2,4)\}$<br>$1$ के दो outputs ✗</p>
+      </div>
+    </div>
+    <div class="obj-tip">🎯 <strong>Objective में काम:</strong> Arrow diagram में — हर element से सिर्फ एक arrow निकले → Function। एक element से दो arrows → Function नहीं।</div>
+  </div>
+
+  <!-- D3: Equivalence Relation -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num">3</div>
+      <div>
+        <h3>तुल्यता संबंध (Equivalence Relation)</h3>
+        <span class="type-tag tag-def">परिभाषा</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">परिभाषा</div>
+      <p class="stmt">एक Relation $R$ तुल्यता संबंध कहलाता है यदि वह एक साथ तीनों हो:<br>
+      &nbsp; (i) <strong>स्वतुल्य (Reflexive)</strong> — $(a,a) \in R$<br>
+      &nbsp; (ii) <strong>समित (Symmetric)</strong> — $(a,b) \in R \Rightarrow (b,a) \in R$<br>
+      &nbsp; (iii) <strong>संक्रामक (Transitive)</strong> — $(a,b),(b,c) \in R \Rightarrow (a,c) \in R$</p>
+    </div>
+    <div class="eg-box">
+      <div class="eg-label">📌 Example</div>
+      <p>$\mathbb{Z}$ में $R = \{(a,b) : 3 \mid (a-b)\}$ — यह तुल्यता संबंध है।</p>
+      <p style="margin-top:5px;">इसके तुल्यता वर्ग: $[0]=\{...,-6,-3,0,3,6,...\}$, $[1]=\{...,-5,-2,1,4,7,...\}$, $[2]=\{...,-4,-1,2,5,8,...\}$</p>
+    </div>
+    <div class="obj-tip">🎯 <strong>Objective में काम:</strong> Empty Relation और Universal Relation — दोनों तुल्यता संबंध होते हैं।</div>
+  </div>
+
+  <!-- D4: Binary Operation -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num">4</div>
+      <div>
+        <h3>द्विआधारी संक्रिया (Binary Operation)</h3>
+        <span class="type-tag tag-def">परिभाषा</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">परिभाषा</div>
+      <p class="stmt">$* : A \times A \to A$ एक Binary Operation है यदि $A$ के किन्हीं दो elements $a, b$ के लिए $a * b$ भी $A$ में हो।</p>
+      <p style="margin-top:8px;font-size:.88rem;">यानी — operation का result उसी समुच्चय में आना चाहिए (Closure Property)।</p>
+    </div>
+    <div class="eg-row">
+      <div class="eg-mini yes">
+        <div class="em-title">✅ Binary है</div>
+        <p>$\mathbb{N}$ में $a*b=a+b$<br>$3+5=8 \in \mathbb{N}$ ✓</p>
+      </div>
+      <div class="eg-mini no">
+        <div class="em-title">❌ Binary नहीं</div>
+        <p>$\mathbb{N}$ में $a*b=a-b$<br>$3-5=-2 \notin \mathbb{N}$ ✗</p>
+      </div>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> $\mathbb{R}$ में $\div$ binary नहीं है ($a \div 0$ undefined), लेकिन $\mathbb{R}^*$ में binary है।</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     PART B: प्रमेय (Theorems)
+═══════════════════════════════════ -->
+<div class="part-banner">Part B &nbsp;·&nbsp; प्रमेय (Theorems)</div>
+<div class="content">
+
+  <!-- T1 -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num thm">T1</div>
+      <div>
+        <h3>यदि $f$ और $g$ दोनों एकैकी हैं, तो $g \circ f$ भी एकैकी है</h3>
+        <span class="type-tag tag-thm">प्रमेय</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">Statement</div>
+      <p class="stmt">यदि $f : A \to B$ और $g : B \to C$ दोनों One-One हैं, तो $g \circ f : A \to C$ भी One-One होगा।</p>
+    </div>
+    <div class="proof-box">
+      <div class="proof-label">सरल भाषा में Proof</div>
+      <div class="proof-step"><div class="ps-n">1</div><div class="ps-t">मान लो $(g\circ f)(x_1) = (g\circ f)(x_2)$, यानी $g(f(x_1)) = g(f(x_2))$।</div></div>
+      <div class="proof-step"><div class="ps-n">2</div><div class="ps-t">$g$ One-One है, इसलिए $f(x_1) = f(x_2)$।</div></div>
+      <div class="proof-step"><div class="ps-n">3</div><div class="ps-t">$f$ One-One है, इसलिए $x_1 = x_2$। ✓</div></div>
+      <div class="proof-step"><div class="ps-n">∴</div><div class="ps-t">$g \circ f$ One-One है।</div></div>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> दोनों One-One → Composition One-One। यह directly MCQ में आता है।</div>
+  </div>
+
+  <!-- T2 -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num thm">T2</div>
+      <div>
+        <h3>यदि $f$ और $g$ दोनों आच्छादक हैं, तो $g \circ f$ भी आच्छादक है</h3>
+        <span class="type-tag tag-thm">प्रमेय</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">Statement</div>
+      <p class="stmt">यदि $f : A \to B$ और $g : B \to C$ दोनों Onto हैं, तो $g \circ f : A \to C$ भी Onto होगा।</p>
+    </div>
+    <div class="proof-box">
+      <div class="proof-label">सरल भाषा में Proof</div>
+      <div class="proof-step"><div class="ps-n">1</div><div class="ps-t">कोई भी $c \in C$ लो।</div></div>
+      <div class="proof-step"><div class="ps-n">2</div><div class="ps-t">$g$ Onto है → कोई $b \in B$ होगा जिसके लिए $g(b) = c$।</div></div>
+      <div class="proof-step"><div class="ps-n">3</div><div class="ps-t">$f$ Onto है → कोई $a \in A$ होगा जिसके लिए $f(a) = b$।</div></div>
+      <div class="proof-step"><div class="ps-n">4</div><div class="ps-t">तो $(g\circ f)(a) = g(f(a)) = g(b) = c$ ✓ — हर $c$ को $a$ मिल गया।</div></div>
+      <div class="proof-step"><div class="ps-n">∴</div><div class="ps-t">$g \circ f$ Onto है।</div></div>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> दोनों Onto → Composition Onto।</div>
+  </div>
+
+  <!-- T3 -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num thm">T3</div>
+      <div>
+        <h3>यदि $g \circ f$ एकैकी है, तो $f$ एकैकी है</h3>
+        <span class="type-tag tag-thm">प्रमेय</span>
+        <span class="type-tag" style="background:#fef9c3;color:#854d0e">Important MCQ</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">Statement</div>
+      <p class="stmt">यदि $g \circ f$ One-One है, तो $f$ जरूर One-One होगा।<br>
+      <span style="color:var(--muted);font-weight:400;font-size:.88rem;">लेकिन $g$ One-One होना जरूरी नहीं।</span></p>
+    </div>
+    <div class="proof-box">
+      <div class="proof-label">सरल भाषा में Proof</div>
+      <div class="proof-step"><div class="ps-n">1</div><div class="ps-t">मान लो $f(x_1) = f(x_2)$।</div></div>
+      <div class="proof-step"><div class="ps-n">2</div><div class="ps-t">तो $g(f(x_1)) = g(f(x_2))$, यानी $(g\circ f)(x_1) = (g\circ f)(x_2)$।</div></div>
+      <div class="proof-step"><div class="ps-n">3</div><div class="ps-t">$g\circ f$ One-One है, इसलिए $x_1 = x_2$। ✓</div></div>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> "$g \circ f$ One-One है" → $f$ One-One है (लेकिन $g$ के बारे में कुछ नहीं कह सकते)।</div>
+  </div>
+
+  <!-- T4 -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num thm">T4</div>
+      <div>
+        <h3>यदि $g \circ f$ आच्छादक है, तो $g$ आच्छादक है</h3>
+        <span class="type-tag tag-thm">प्रमेय</span>
+        <span class="type-tag" style="background:#fef9c3;color:#854d0e">Important MCQ</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">Statement</div>
+      <p class="stmt">यदि $g \circ f$ Onto है, तो $g$ जरूर Onto होगा।<br>
+      <span style="color:var(--muted);font-weight:400;font-size:.88rem;">लेकिन $f$ Onto होना जरूरी नहीं।</span></p>
+    </div>
+    <div class="proof-box">
+      <div class="proof-label">सरल भाषा में Proof</div>
+      <div class="proof-step"><div class="ps-n">1</div><div class="ps-t">कोई भी $c \in C$ लो।</div></div>
+      <div class="proof-step"><div class="ps-n">2</div><div class="ps-t">$g\circ f$ Onto है → $\exists\, a \in A$ जिसके लिए $(g\circ f)(a) = c$।</div></div>
+      <div class="proof-step"><div class="ps-n">3</div><div class="ps-t">$(g\circ f)(a) = g(f(a)) = c$ → $b = f(a) \in B$ के लिए $g(b) = c$। ✓</div></div>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> "$g \circ f$ Onto है" → $g$ Onto है (लेकिन $f$ के बारे में कुछ नहीं कह सकते)।</div>
+  </div>
+
+  <!-- T5 -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num thm">T5</div>
+      <div>
+        <h3>परिमित समुच्चय में: एकैकी $\iff$ आच्छादक $\iff$ एकैकी आच्छादी</h3>
+        <span class="type-tag tag-thm">प्रमेय</span>
+        <span class="type-tag" style="background:#fef9c3;color:#854d0e">Very Important</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">Statement</div>
+      <p class="stmt">यदि $A$ और $B$ परिमित (Finite) समुच्चय हैं और $n(A) = n(B)$ हो, तो:<br>
+      $f : A \to B$ के लिए — $f$ One-One है $\iff$ $f$ Onto है $\iff$ $f$ Bijective है।</p>
+    </div>
+    <div class="eg-box">
+      <div class="eg-label">📌 Example</div>
+      <p>$A = \{1,2,3\}$, $B = \{4,5,6\}$ — दोनों में 3 elements।</p>
+      <p style="margin-top:5px;">$f = \{(1,4),(2,5),(3,6)\}$ — One-One भी है, Onto भी है, Bijective भी है।</p>
+      <p style="margin-top:5px;">इस size के sets में अगर One-One है → automatically Onto भी होगा।</p>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> Finite set, $n(A)=n(B)$ है — तो "One-One सिद्ध करो" काफी है। Onto अलग से prove नहीं करना।</div>
+  </div>
+
+  <!-- T6 -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num thm">T6</div>
+      <div>
+        <h3>फलन Invertible है $\iff$ फलन Bijective है</h3>
+        <span class="type-tag tag-thm">प्रमेय</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">Statement</div>
+      <p class="stmt">$f : A \to B$ का Inverse ($f^{-1}$) तभी exist करता है जब $f$ Bijective (One-One + Onto) हो।</p>
+    </div>
+    <div class="proof-box">
+      <div class="proof-label">क्यों?</div>
+      <div class="proof-step"><div class="ps-n">1</div><div class="ps-t"><strong>One-One क्यों जरूरी:</strong> अगर $f(a)=f(b)=c$ हो तो $f^{-1}(c)$ कौन होगा — $a$ या $b$? — Ambiguity होगी। इसलिए One-One होना ज़रूरी है।</div></div>
+      <div class="proof-step"><div class="ps-n">2</div><div class="ps-t"><strong>Onto क्यों जरूरी:</strong> अगर $c \in B$ का कोई pre-image नहीं है तो $f^{-1}(c)$ undefined रहेगा। इसलिए Onto होना ज़रूरी है।</div></div>
+    </div>
+    <div class="eg-box">
+      <div class="eg-label">📌 Example</div>
+      <p>$f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x+3$ — Bijective है।</p>
+      <p style="margin-top:5px;">$f^{-1}$: $y=2x+3 \Rightarrow x=\dfrac{y-3}{2}$ → $f^{-1}(x)=\dfrac{x-3}{2}$ ✓</p>
+    </div>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> "क्या $f^{-1}$ exist करता है?" पूछा जाए → पहले Bijective check करो।</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     PART C: गुणधर्म (Properties)
+═══════════════════════════════════ -->
+<div class="part-banner">Part C &nbsp;·&nbsp; गुणधर्म (Properties)</div>
+<div class="content">
+
+  <!-- P1: Equivalence Class Properties -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num prop">P1</div>
+      <div>
+        <h3>तुल्यता वर्गों के गुणधर्म (Properties of Equivalence Classes)</h3>
+        <span class="type-tag tag-prop">गुणधर्म</span>
+      </div>
+    </div>
+    <div class="stmt-box">
+      <div class="stmt-label">मुख्य गुणधर्म</div>
+      <p class="stmt">यदि $R$ एक तुल्यता संबंध है, तो उसके तुल्यता वर्गों के बारे में:</p>
+    </div>
+    <ul class="prop-list">
+      <li><div class="pd"></div><div>हर element $a$ अपने तुल्यता वर्ग में होता है — $a \in [a]$।</div></li>
+      <li><div class="pd"></div><div>$[a] = [b]$ $\iff$ $(a,b) \in R$ — दोनों एक ही वर्ग में हैं।</div></li>
+      <li><div class="pd"></div><div>यदि $[a] \neq [b]$ तो $[a] \cap [b] = \phi$ — दो अलग वर्ग कभी overlap नहीं करते।</div></li>
+      <li><div class="pd"></div><div>सभी तुल्यता वर्गों का Union = पूरा समुच्चय — $\bigcup [a] = A$।</div></li>
+    </ul>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> "क्या $[1] \cap [2] = \phi$ है?" → अगर $R$ Equivalence है तो हाँ, जब तक $(1,2) \notin R$।</div>
+  </div>
+
+  <!-- P2: Binary Operation Properties -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num prop">P2</div>
+      <div>
+        <h3>Binary Operation — तत्समक और प्रतिलोम के गुणधर्म</h3>
+        <span class="type-tag tag-prop">गुणधर्म</span>
+      </div>
+    </div>
+    <ul class="prop-list">
+      <li><div class="pd"></div><div><strong>तत्समक (Identity) unique होता है:</strong> यदि $e$ और $e'$ दोनों तत्समक हों, तो $e = e' = e*e'$।</div></li>
+      <li><div class="pd"></div><div><strong>प्रतिलोम (Inverse) unique होता है:</strong> यदि $b$ और $c$ दोनों $a$ के प्रतिलोम हों (associative operation में), तो $b = c$।</div></li>
+      <li><div class="pd"></div><div><strong>$(a^{-1})^{-1} = a$:</strong> प्रतिलोम का प्रतिलोम = खुद।</div></li>
+      <li><div class="pd"></div><div><strong>$(a*b)^{-1} = b^{-1}*a^{-1}$</strong> (यदि $*$ associative और commutative दोनों हो)।</div></li>
+    </ul>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> "Identity element unique है या नहीं?" → हमेशा unique होता है। यह directly MCQ में आता है।</div>
+  </div>
+
+  <!-- P3: Composition Properties -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num prop">P3</div>
+      <div>
+        <h3>Composition के गुणधर्म (Properties of Composition)</h3>
+        <span class="type-tag tag-prop">गुणधर्म</span>
+      </div>
+    </div>
+    <ul class="prop-list">
+      <li><div class="pd"></div><div><strong>साहचर्य (Associative):</strong> $h \circ (g \circ f) = (h \circ g) \circ f$ — हमेशा।</div></li>
+      <li><div class="pd"></div><div><strong>क्रमविनिमेय नहीं:</strong> $g \circ f \neq f \circ g$ generally।</div></li>
+      <li><div class="pd"></div><div><strong>Identity के साथ:</strong> $I_B \circ f = f = f \circ I_A$ (जहाँ $I$ Identity Function है)।</div></li>
+      <li><div class="pd"></div><div><strong>Inverse का Composition:</strong> $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$ — order उल्टा होता है।</div></li>
+      <li><div class="pd"></div><div><strong>$f^{-1} \circ f = I_A$</strong> और $f \circ f^{-1} = I_B$।</div></li>
+    </ul>
+    <div class="obj-tip">🎯 <strong>MCQ Trick:</strong> "$(g \circ f)^{-1}$ = ?" → $f^{-1} \circ g^{-1}$ (order बदलता है!)।</div>
+  </div>
+
+  <!-- P4: Important MCQ Facts -->
+  <div class="theory-block">
+    <div class="theory-title">
+      <div class="theory-num prop">P4</div>
+      <div>
+        <h3>Objective के लिए ज़रूरी तथ्य (Quick MCQ Facts)</h3>
+        <span class="type-tag tag-prop">MCQ तथ्य</span>
+        <span class="type-tag" style="background:#fef9c3;color:#854d0e">Most Important</span>
+      </div>
+    </div>
+    <ul class="prop-list">
+      <li><div class="pd"></div><div>Empty Relation ($R=\phi$) और Universal Relation ($R=A\times A$) — दोनों तुल्यता संबंध हैं।</div></li>
+      <li><div class="pd"></div><div>Identity Relation $\{(a,a): a \in A\}$ — Reflexive, Symmetric, Transitive तीनों है।</div></li>
+      <li><div class="pd"></div><div>$\mathbb{R}$ में $f(x)=x^2$ — Many-One और Into दोनों है (Bijective नहीं)।</div></li>
+      <li><div class="pd"></div><div>$\mathbb{R}$ में $f(x)=2x+3$ — Bijective है (One-One + Onto दोनों)।</div></li>
+      <li><div class="pd"></div><div>Constant Function — Many-One और Into दोनों है। कभी Bijective नहीं।</div></li>
+      <li><div class="pd"></div><div>Identity Function $f(x)=x$ — हमेशा Bijective। अपना Inverse खुद है।</div></li>
+      <li><div class="pd"></div><div>$\mathbb{R}^+$ में $f(x)=x^2$ — Bijective है। $f^{-1}(x)=\sqrt{x}$।</div></li>
+      <li><div class="pd"></div><div>$n(A)=m$ हो तो $A$ से $A$ में One-One functions की संख्या $= m!$ (m factorial)।</div></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>Chapter 1 · संबंध एवं फलन · Theory Concepts · बिहार बोर्ड कक्षा 12</footer>
+</div>
+</body>
+</html>
