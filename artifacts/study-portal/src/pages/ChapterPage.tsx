@@ -173,6 +173,9 @@ export default function ChapterPage() {
               if (num === 1 && folder.id === "unic-question") {
                 window.open(import.meta.env.BASE_URL + "unique-questions-ch1.html", "_blank");
               }
+              if (num === 1 && folder.id === "unic-objective") {
+                window.open(import.meta.env.BASE_URL + "unique-objective-ch1.html", "_blank");
+              }
             };
             return (
             <button
