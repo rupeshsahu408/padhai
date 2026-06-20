@@ -1,0 +1,302 @@
+# ⚠️ MATRIX — Common Mistakes (Bihar Board Class 12)
+## "ये गलतियाँ मत करना यार — Marks कट जाते हैं!"
+
+---
+
+## ❌ Mistake 1: Order गलत लिखना (Rows और Columns उलट देना)
+
+### क्या होता है?
+बहुत बच्चे Columns पहले और Rows बाद में लिख देते हैं। यह सबसे common गलती है!
+
+**गलत तरीका ❌**
+```
+Matrix A = [ 1  2  3 ]
+           [ 4  5  6 ]
+
+Order = 3×2  ← WRONG! (columns पहले लिख दिया)
+```
+
+**सही तरीका ✅**
+```
+Rows = 2 (ऊपर से नीचे गिनो)
+Columns = 3 (बाएं से दाएं गिनो)
+
+Order = 2×3  ← CORRECT!
+```
+
+🧠 **Trick:** **RC Cola** — R(ow) पहले, C(olumn) बाद में। बस!
+
+---
+
+## ❌ Mistake 2: अलग Order के Matrices जोड़ना या घटाना
+
+### क्या होता है?
+बच्चे बिना order check किए directly elements जोड़ने लग जाते हैं।
+
+**गलत तरीका ❌**
+```
+A = [ 1  2  3 ]    →  order 1×3
+B = [ 4  5 ]       →  order 1×2
+
+A + B = [ 5  7  3 ]  ← WRONG! यह possible ही नहीं है!
+```
+
+**सही तरीका ✅**
+```
+Order check करो पहले —
+A का order = 1×3
+B का order = 1×2
+
+Same नहीं है → Addition POSSIBLE नहीं!
+बस लिख दो: "A + B is not defined" ✓
+```
+
+⚠️ **याद रखो:** Addition/Subtraction के लिए दोनों का order बिल्कुल same होना चाहिए।
+
+---
+
+## ❌ Mistake 3: Matrix Multiplication में Order Check नहीं करना
+
+### क्या होता है?
+AB लिखते हैं लेकिन check नहीं करते कि multiplication possible है या नहीं।
+
+**गलत तरीका ❌**
+```
+A = [ 1  2 ]  →  order 2×2
+    [ 3  4 ]
+
+B = [ 5  6  7 ]  →  order 1×3
+
+AB = ???  ← directly निकालने लग गए — WRONG!
+```
+
+**सही तरीका ✅**
+```
+A = 2×2,  B = 1×3
+
+AB possible है तभी जब:
+A के columns = B के rows
+A के columns = 2
+B के rows    = 1
+2 ≠ 1  →  AB is NOT defined! ✓
+```
+
+🎯 **Trick:** A(m×**n**) × B(**n**×p) — बीच के दो numbers same होने चाहिए।
+
+---
+
+## ❌ Mistake 4: AB = BA मान लेना
+
+### क्या होता है?
+Normal numbers में 3×4 = 4×3 होता है। बच्चे यही Matrix में भी apply कर देते हैं — यह बहुत बड़ी गलती है!
+
+**गलत सोच ❌**
+```
+अगर AB = [ 5  6 ]  तो BA भी = [ 5  6 ]  होगा
+          [ 7  8 ]              [ 7  8 ]
+
+← WRONG! Matrix में यह जरूरी नहीं!
+```
+
+**सही तरीका ✅**
+```
+A = [ 1  2 ],  B = [ 0  1 ]
+    [ 3  4 ]        [ 1  0 ]
+
+AB = [ 1×0+2×1  1×1+2×0 ] = [ 2  1 ]
+     [ 3×0+4×1  3×1+4×0 ]   [ 4  3 ]
+
+BA = [ 0×1+1×3  0×2+1×4 ] = [ 3  4 ]
+     [ 1×1+0×3  1×2+0×4 ]   [ 1  2 ]
+
+AB ≠ BA  ← देख लो खुद! ✓
+```
+
+⚠️ **याद रखो:** Matrix multiplication **commutative नहीं** होती। AB और BA अलग-अलग हो सकते हैं!
+
+---
+
+## ❌ Mistake 5: Transpose में Order नहीं बदलना
+
+### क्या होता है?
+Transpose निकालते हैं लेकिन नया order नहीं लिखते — या गलत order लिखते हैं।
+
+**गलत तरीका ❌**
+```
+A = [ 1  2  3 ]  →  order = 2×3
+    [ 4  5  6 ]
+
+Aᵀ = [ 1  4 ]
+     [ 2  5 ]     ← elements सही हैं
+     [ 3  6 ]
+
+Order of Aᵀ = 2×3  ← WRONG! Order नहीं बदला!
+```
+
+**सही तरीका ✅**
+```
+A का order = 2×3
+Transpose के बाद order flip होता है →
+
+Aᵀ का order = 3×2  ← CORRECT! ✓
+
+Aᵀ = [ 1  4 ]   (order: 3×2)
+     [ 2  5 ]
+     [ 3  6 ]
+```
+
+🧠 **Trick:** Transpose में order "पलट" जाता है — m×n बन जाता है n×m।
+
+---
+
+## ❌ Mistake 6: (AB)ᵀ = AᵀBᵀ लिखना
+
+### क्या होता है?
+यह सबसे dangerous गलती है! बच्चे सोचते हैं Transpose "distribute" हो जाता है — लेकिन यह WRONG है!
+
+**गलत तरीका ❌**
+```
+(AB)ᵀ = AᵀBᵀ   ← WRONG! बिल्कुल गलत!
+```
+
+**सही Formula ✅**
+```
+(AB)ᵀ = BᵀAᵀ   ← Order REVERSE हो जाता है!
+
+याद करो: जैसे जूते उतारते हो —
+पहले दायाँ पहना → पहले बायाँ उतारो!
+AB में पहले A, फिर B था →
+Transpose में पहले Bᵀ, फिर Aᵀ ✓
+```
+
+🎯 **Exam Tip:** यह 2 marks वाले सवाल में directly पूछा जाता है — formula गलत लिखा तो पूरे marks गए!
+
+---
+
+## ❌ Mistake 7: Skew-Symmetric Matrix में Diagonal Zero नहीं लिखना
+
+### क्या होता है?
+Skew-Symmetric matrix बनाते हैं लेकिन diagonal पर zero रखना भूल जाते हैं।
+
+**गलत तरीका ❌**
+```
+कोई बोले: "Skew-Symmetric matrix बनाओ"
+
+A = [  2   3 ]   ← WRONG!
+    [ -3   5 ]      diagonal पर 2 और 5 हैं — zero नहीं!
+```
+
+**सही तरीका ✅**
+```
+Skew-Symmetric में Aᵀ = -A होना चाहिए
+इसका मतलब: diagonal के elements हमेशा 0 होते हैं
+
+A = [  0   3 ]   ← CORRECT! ✓
+    [ -3   0 ]
+
+Check: Aᵀ = [  0  -3 ] = -A  ✓
+            [  3   0 ]
+```
+
+⚠️ **याद रखो:** Skew-Symmetric देखते ही पहले diagonal check करो — सब zero होने चाहिए!
+
+---
+
+## ❌ Mistake 8: Equality में Order Check किए बिना Elements Equal करना
+
+### क्या होता है?
+दो matrices equal दिखते हैं तो बच्चे directly elements compare करने लग जाते हैं — लेकिन पहले order check करना जरूरी है!
+
+**गलत तरीका ❌**
+```
+A = [ 1  2  3 ]  और  B = [ 1  2 ]
+                          [ 3  4 ]
+
+क्या A = B?
+
+कुछ बच्चे: "1=1, 2=2... हाँ equal है!"  ← WRONG!
+```
+
+**सही तरीका ✅**
+```
+Step 1: Order check करो पहले!
+A का order = 1×3
+B का order = 2×2
+
+Order same नहीं है →  A ≠ B  (directly!)
+Elements देखने की जरूरत ही नहीं! ✓
+```
+
+---
+
+## ❌ Mistake 9: kA में सिर्फ एक Row या Column को Multiply करना
+
+### क्या होता है?
+Scalar multiply करते समय कुछ elements छूट जाते हैं।
+
+**गलत तरीका ❌**
+```
+A = [ 2  4 ]
+    [ 6  8 ]
+
+2A = [ 4  8 ]   ← WRONG!
+     [ 6  8 ]      नीचे वाली row multiply नहीं की!
+```
+
+**सही तरीका ✅**
+```
+2A = [ 2×2  2×4 ] = [ 4   8 ]
+     [ 2×6  2×8 ]   [ 12  16 ]  ✓
+
+हर element multiply होता है — एक भी नहीं छोड़ना!
+```
+
+---
+
+## ❌ Mistake 10: A² को A×2 समझना
+
+### क्या होता है?
+यह गलती 9वीं-10वीं की habit से आती है। A² का मतलब A×A होता है, सिर्फ elements को 2 से multiply नहीं करते!
+
+**गलत तरीका ❌**
+```
+A = [ 1  2 ]
+    [ 3  4 ]
+
+A² = [ 1²  2² ] = [ 1  4 ]   ← WRONG!
+     [ 3²  4² ]   [ 9  16 ]    यह scalar multiplication हो गया!
+```
+
+**सही तरीका ✅**
+```
+A² = A × A
+
+= [ 1  2 ] × [ 1  2 ]
+  [ 3  4 ]   [ 3  4 ]
+
+= [ 1×1+2×3  1×2+2×4 ] = [ 7   10 ]
+  [ 3×1+4×3  3×2+4×4 ]   [ 15  22 ]  ✓
+```
+
+🎯 **Exam Tip:** A², A³ वाले questions Bihar Board में हर साल आते हैं — यह गलती बिल्कुल मत करना!
+
+---
+
+## 📋 सभी Mistakes — One Line Summary
+
+| # | गलती | सही बात |
+|---|---|---|
+| 1 | Order में Column पहले | RC Cola → Row पहले, Column बाद |
+| 2 | अलग order में Addition | Same order होगा तभी जोड़ेंगे |
+| 3 | Multiplication बिना check के | A के columns = B के rows — जरूरी! |
+| 4 | AB = BA मानना | AB ≠ BA, हमेशा verify करो |
+| 5 | Transpose में order same रखना | m×n → n×m हो जाता है |
+| 6 | (AB)ᵀ = AᵀBᵀ | (AB)ᵀ = BᵀAᵀ — order reverse! |
+| 7 | Skew में diagonal zero नहीं | Skew-Symmetric में diagonal हमेशा 0 |
+| 8 | Order check किए बिना equality | पहले order, फिर elements |
+| 9 | kA में सब elements multiply नहीं | हर एक element को k से गुणा करो |
+| 10 | A² = elements को square करना | A² = A×A (Matrix multiplication) |
+
+---
+
+> 🌟 **Last Baat Yaar:** इन 10 गलतियों को एक बार अच्छे से पढ़ लो — और exam में खुद को mentally check करते रहो। जब भी Matrix का सवाल आए, पहले Order check करो, फिर आगे बढ़ो। **All the best Bihar Board 2026!** 💪
