@@ -1,0 +1,596 @@
+# कक्षा 12वीं गणित – अध्याय: Matrix (आव्यूह)
+
+## Concepts + Formulas + Examples (बिहार बोर्ड)
+
+---
+
+# 1. Matrix (आव्यूह) क्या होता है?
+
+जब संख्याओं या चिन्हों को **पंक्तियों (Rows)** और **स्तम्भों (Columns)** में एक आयताकार रूप में लिखा जाता है, तो उसे **Matrix (आव्यूह)** कहते हैं।
+
+उदाहरण:
+
+[
+A=\begin{bmatrix}
+2 & 3\
+4 & 5
+\end{bmatrix}
+]
+
+यह एक Matrix है।
+
+यहाँ,
+
+* Row (पंक्ति) = 2
+* Column (स्तम्भ) = 2
+
+इसलिए इसका Order = **2 × 2**
+
+---
+
+# 2. Order of Matrix (आव्यूह का क्रम)
+
+किसी Matrix में जितनी Rows और Columns होती हैं, उसी से उसका Order पता चलता है।
+
+### Formula
+
+[
+\text{Order} = m \times n
+]
+
+जहाँ,
+
+* m = Rows
+* n = Columns
+
+---
+
+### Example
+
+[
+A=\begin{bmatrix}
+1&2&3\
+4&5&6
+\end{bmatrix}
+]
+
+यहाँ
+
+* Rows = 2
+* Columns = 3
+
+इसलिए
+
+[
+\text{Order}=2\times3
+]
+
+---
+
+# 3. Types of Matrix (आव्यूह के प्रकार)
+
+---
+
+## (i) Row Matrix
+
+जिस Matrix में केवल एक Row हो।
+
+### Example
+
+[
+A=[2\ \ 4\ \ 6]
+]
+
+Order = 1 × 3
+
+---
+
+## (ii) Column Matrix
+
+जिस Matrix में केवल एक Column हो।
+
+### Example
+
+[
+A=\begin{bmatrix}
+2\
+4\
+6
+\end{bmatrix}
+]
+
+Order = 3 × 1
+
+---
+
+## (iii) Rectangular Matrix (आयताकार आव्यूह)
+
+जब Rows और Columns की संख्या अलग-अलग हो।
+
+### Example
+
+[
+A=\begin{bmatrix}
+1&2&3\
+4&5&6
+\end{bmatrix}
+]
+
+Order = 2 × 3
+
+---
+
+## (iv) Square Matrix (वर्ग आव्यूह)
+
+जब Rows और Columns बराबर हों।
+
+### Example
+
+[
+A=\begin{bmatrix}
+2&3\
+4&5
+\end{bmatrix}
+]
+
+Order = 2 × 2
+
+---
+
+## (v) Zero Matrix (शून्य आव्यूह)
+
+जब सभी तत्व 0 हों।
+
+### Example
+
+[
+A=\begin{bmatrix}
+0&0\
+0&0
+\end{bmatrix}
+]
+
+---
+
+## (vi) Diagonal Matrix (विकर्ण आव्यूह)
+
+मुख्य विकर्ण (Main Diagonal) को छोड़कर बाकी सभी तत्व 0 हों।
+
+### Example
+
+[
+A=\begin{bmatrix}
+2&0&0\
+0&5&0\
+0&0&7
+\end{bmatrix}
+]
+
+---
+
+## (vii) Scalar Matrix
+
+Diagonal Matrix जिसमें मुख्य विकर्ण के सभी तत्व समान हों।
+
+### Example
+
+[
+A=\begin{bmatrix}
+4&0&0\
+0&4&0\
+0&0&4
+\end{bmatrix}
+]
+
+---
+
+## (viii) Identity Matrix (एकक आव्यूह)
+
+मुख्य विकर्ण पर 1 और बाकी जगह 0 हो।
+
+### Example
+
+[
+I=\begin{bmatrix}
+1&0\
+0&1
+\end{bmatrix}
+]
+
+---
+
+# 4. Equality of Matrices (दो Matrix बराबर कब होंगे?)
+
+दो Matrix तभी बराबर होंगे जब
+
+1. दोनों का Order समान हो।
+2. उनके बराबर स्थानों के तत्व समान हों।
+
+### Example
+
+[
+A=\begin{bmatrix}
+2&3\
+4&5
+\end{bmatrix}
+]
+
+[
+B=\begin{bmatrix}
+2&3\
+4&5
+\end{bmatrix}
+]
+
+तो
+
+[
+A=B
+]
+
+---
+
+# 5. Addition of Matrices (आव्यूह का योग)
+
+दो Matrix को जोड़ने के लिए उनका Order समान होना चाहिए।
+
+### Formula
+
+[
+A+B=[a_{ij}+b_{ij}]
+]
+
+---
+
+### Example
+
+[
+A=\begin{bmatrix}
+1&2\
+3&4
+\end{bmatrix}
+]
+
+[
+B=\begin{bmatrix}
+5&6\
+7&8
+\end{bmatrix}
+]
+
+तो,
+
+[
+A+B=
+\begin{bmatrix}
+1+5 & 2+6\
+3+7 & 4+8
+\end{bmatrix}
+]
+
+# [
+
+\begin{bmatrix}
+6&8\
+10&12
+\end{bmatrix}
+]
+
+---
+
+# 6. Subtraction of Matrices (आव्यूह का घटाव)
+
+### Formula
+
+[
+A-B=[a_{ij}-b_{ij}]
+]
+
+---
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+8&6\
+5&3
+\end{bmatrix}
+]
+
+[
+B=
+\begin{bmatrix}
+2&1\
+4&2
+\end{bmatrix}
+]
+
+तो,
+
+[
+A-B=
+\begin{bmatrix}
+6&5\
+1&1
+\end{bmatrix}
+]
+
+---
+
+# 7. Multiplication of Matrix by Scalar
+
+जब किसी Matrix को किसी संख्या से गुणा किया जाता है।
+
+### Formula
+
+[
+kA=[ka_{ij}]
+]
+
+---
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+1&2\
+3&4
+\end{bmatrix}
+]
+
+और
+
+[
+k=3
+]
+
+तो,
+
+[
+3A=
+\begin{bmatrix}
+3&6\
+9&12
+\end{bmatrix}
+]
+
+---
+
+# 8. Matrix Multiplication (आव्यूह का गुणन)
+
+### महत्वपूर्ण नियम
+
+यदि
+
+[
+A_{m\times n}
+]
+
+और
+
+[
+B_{n\times p}
+]
+
+तो
+
+[
+AB
+]
+
+संभव होगा और उसका Order होगा
+
+[
+m\times p
+]
+
+---
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+1&2\
+3&4
+\end{bmatrix}
+]
+
+[
+B=
+\begin{bmatrix}
+5&6\
+7&8
+\end{bmatrix}
+]
+
+तो,
+
+[
+AB=
+\begin{bmatrix}
+(1×5+2×7)&(1×6+2×8)\
+(3×5+4×7)&(3×6+4×8)
+\end{bmatrix}
+]
+
+# [
+
+\begin{bmatrix}
+19&22\
+43&50
+\end{bmatrix}
+]
+
+---
+
+# 9. Transpose of Matrix (आव्यूह का परिवर्त)
+
+Transpose निकालने के लिए Rows को Columns और Columns को Rows बना देते हैं।
+
+### Symbol
+
+[
+A^T
+]
+
+---
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+1&2&3\
+4&5&6
+\end{bmatrix}
+]
+
+तो,
+
+[
+A^T=
+\begin{bmatrix}
+1&4\
+2&5\
+3&6
+\end{bmatrix}
+]
+
+---
+
+# 10. Symmetric Matrix (सममित आव्यूह)
+
+यदि
+
+[
+A^T=A
+]
+
+तो Matrix Symmetric कहलाता है।
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+1&2\
+2&3
+\end{bmatrix}
+]
+
+क्योंकि
+
+[
+A^T=A
+]
+
+इसलिए यह Symmetric Matrix है।
+
+---
+
+# 11. Skew Symmetric Matrix (विषम सममित आव्यूह)
+
+यदि
+
+[
+A^T=-A
+]
+
+तो Matrix Skew Symmetric कहलाता है।
+
+### Example
+
+[
+A=
+\begin{bmatrix}
+0&3\
+-3&0
+\end{bmatrix}
+]
+
+यह Skew Symmetric Matrix है।
+
+---
+
+# परीक्षा के लिए सबसे महत्वपूर्ण Formulas
+
+### 1. Order
+
+[
+m\times n
+]
+
+### 2. Matrix Addition
+
+[
+A+B=[a_{ij}+b_{ij}]
+]
+
+### 3. Matrix Subtraction
+
+[
+A-B=[a_{ij}-b_{ij}]
+]
+
+### 4. Scalar Multiplication
+
+[
+kA=[ka_{ij}]
+]
+
+### 5. Transpose
+
+[
+(A^T)^T=A
+]
+
+### 6. Addition Property
+
+[
+(A+B)^T=A^T+B^T
+]
+
+### 7. Multiplication Property
+
+[
+(AB)^T=B^T A^T
+]
+
+### 8. Symmetric Matrix
+
+[
+A^T=A
+]
+
+### 9. Skew Symmetric Matrix
+
+[
+A^T=-A
+]
+
+### 10. Identity Matrix Property
+
+[
+AI=IA=A
+]
+
+---
+
+# Bihar Board Exam Tips
+
+✅ Matrix के प्रकार जरूर याद करें।
+
+✅ Identity Matrix, Diagonal Matrix और Scalar Matrix में अंतर पूछ लिया जाता है।
+
+✅ Matrix Multiplication में Order का नियम सबसे ज्यादा पूछा जाता है।
+
+✅ Transpose के सूत्र बार-बार परीक्षा में आते हैं।
+
+✅ Symmetric और Skew Symmetric Matrix से 1–2 अंक का प्रश्न लगभग हर साल देखने को मिलता है।
+
+**एक लाइन में याद रखो:**
+
+> Matrix मतलब संख्याओं को Rows और Columns में व्यवस्थित लिखना, और पूरा अध्याय मुख्य रूप से Order, Types, Addition, Multiplication और Transpose पर आधारित है।
