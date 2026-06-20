@@ -158,22 +158,16 @@ export default function ChapterPage() {
         <div className="flex flex-col gap-3">
           {FOLDERS.map((folder, i) => {
             const handleClick = () => {
+              const base = import.meta.env.BASE_URL;
+              const go = (path: string) => { window.location.href = base + path; };
               const revisionChapters = [1,2,3,4,5,7,9,10,11,12,13];
               if (revisionChapters.includes(num) && folder.id === "revision-notes") {
-                window.open(import.meta.env.BASE_URL + `ch${num}-revision/index.html`, "_blank");
+                go(`ch${num}-revision/index.html`);
               }
-              if (num === 1 && folder.id === "theory-concepts") {
-                window.open(import.meta.env.BASE_URL + "theory-ch1.html", "_blank");
-              }
-              if (num === 1 && folder.id === "trick") {
-                window.open(import.meta.env.BASE_URL + "tricks-ch1.html", "_blank");
-              }
-              if (num === 1 && folder.id === "unic-question") {
-                window.open(import.meta.env.BASE_URL + "unique-questions-ch1.html", "_blank");
-              }
-              if (num === 1 && folder.id === "unic-objective") {
-                window.open(import.meta.env.BASE_URL + "unique-objective-ch1.html", "_blank");
-              }
+              if (num === 1 && folder.id === "theory-concepts") go("theory-ch1.html");
+              if (num === 1 && folder.id === "trick")            go("tricks-ch1.html");
+              if (num === 1 && folder.id === "unic-question")    go("unique-questions-ch1.html");
+              if (num === 1 && folder.id === "unic-objective")   go("unique-objective-ch1.html");
             };
             return (
             <button
